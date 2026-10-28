@@ -1,0 +1,1546 @@
+{
+ "scenes": [
+  {
+   "id": "komur",
+   "is_title": "Komið til landsins",
+   "en_title": "Arriving at the airport",
+   "pic": "🛬",
+   "npc": {
+    "role": "Starfsmaður",
+    "en": "Airport staff",
+    "g": "f"
+   },
+   "setting": "You've just landed at Keflavík and need to find your bags.",
+   "signs": [
+    {
+     "is": "Komur",
+     "en": "Arrivals"
+    },
+    {
+     "is": "Brottfarir",
+     "en": "Departures"
+    },
+    {
+     "is": "Farangur",
+     "en": "Baggage"
+    },
+    {
+     "is": "Útgangur",
+     "en": "Exit"
+    },
+    {
+     "is": "Snyrting",
+     "en": "Restrooms"
+    },
+    {
+     "is": "Tollur",
+     "en": "Customs"
+    }
+   ],
+   "words": [
+    {
+     "is": "flugvél",
+     "en": "aeroplane",
+     "pic": "✈️"
+    },
+    {
+     "is": "flugvöllur",
+     "en": "airport",
+     "pic": "🛫"
+    },
+    {
+     "is": "farangur",
+     "en": "baggage",
+     "pic": "🧳"
+    },
+    {
+     "is": "útgangur",
+     "en": "exit",
+     "pic": "🚪"
+    },
+    {
+     "is": "stigi",
+     "en": "stairs",
+     "pic": "🪜"
+    },
+    {
+     "is": "niðri",
+     "en": "downstairs",
+     "pic": "⬇️"
+    },
+    {
+     "is": "til vinstri",
+     "en": "to the left",
+     "pic": "⬅️"
+    },
+    {
+     "is": "til hægri",
+     "en": "to the right",
+     "pic": "➡️"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "U",
+     "is": "Afsakið, talar þú ensku?",
+     "en": "Excuse me, do you speak English?"
+    },
+    {
+     "spk": "A",
+     "is": "Já, en þú mátt alveg tala íslensku við mig.",
+     "en": "Yes, but you're welcome to speak Icelandic with me."
+    },
+    {
+     "spk": "U",
+     "is": "Hvar er farangurinn?",
+     "en": "Where is the baggage?",
+     "alts": [
+      {
+       "is": "Hvar fæ ég töskuna mína?",
+       "en": "Where do I get my suitcase?"
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Farangurinn er niðri. Farðu niður stigann og svo til vinstri.",
+     "en": "The baggage is downstairs. Go down the stairs and then left."
+    },
+    {
+     "spk": "U",
+     "is": "Niður og til vinstri. Takk fyrir!",
+     "en": "Down and to the left. Thank you!"
+    },
+    {
+     "spk": "A",
+     "is": "Ekkert að þakka. Velkomin til Íslands!",
+     "en": "You're welcome. Welcome to Iceland!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Afsakið” is the polite “excuse me” for strangers. “Fyrirgefðu” is more like “sorry”.",
+     "ex": [
+      "Afsakið",
+      "Fyrirgefðu"
+     ]
+    },
+    {
+     "en": "Directions: til vinstri (left), til hægri (right), beint áfram (straight ahead).",
+     "ex": [
+      "til vinstri",
+      "til hægri",
+      "beint áfram"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Hvar er farangurinn?",
+     "en": "Where is the baggage?"
+    },
+    {
+     "is": "Farðu niður stigann.",
+     "en": "Go down the stairs."
+    },
+    {
+     "is": "Ekkert að þakka.",
+     "en": "You're welcome."
+    }
+   ]
+  },
+  {
+   "id": "vegabref",
+   "is_title": "Vegabréfaeftirlit",
+   "en_title": "Passport control",
+   "pic": "🛂",
+   "npc": {
+    "role": "Landamæravörður",
+    "en": "Border officer",
+    "g": "m"
+   },
+   "setting": "The border officer asks why you're here and how long you'll stay.",
+   "signs": [],
+   "words": [
+    {
+     "is": "vegabréf",
+     "en": "passport",
+     "pic": "🛂"
+    },
+    {
+     "is": "ferðamaður",
+     "en": "tourist",
+     "pic": "📸"
+    },
+    {
+     "is": "frí",
+     "en": "holiday",
+     "pic": "🏖️"
+    },
+    {
+     "is": "vika",
+     "en": "week",
+     "pic": "📅"
+    },
+    {
+     "is": "dagur",
+     "en": "day",
+     "pic": "☀️"
+    },
+    {
+     "is": "nótt",
+     "en": "night",
+     "pic": "🌙"
+    },
+    {
+     "is": "hótel",
+     "en": "hotel",
+     "pic": "🏨"
+    },
+    {
+     "is": "að gista",
+     "en": "to stay (overnight)",
+     "pic": "🛏️"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Góðan daginn. Vegabréfið, takk.",
+     "en": "Good morning. Passport, please."
+    },
+    {
+     "spk": "U",
+     "is": "Gjörðu svo vel.",
+     "en": "Here you go."
+    },
+    {
+     "spk": "A",
+     "is": "Hver er tilgangur ferðarinnar?",
+     "en": "What is the purpose of your trip?"
+    },
+    {
+     "spk": "U",
+     "is": "Ég er í fríi.",
+     "en": "I'm on holiday.",
+     "alts": [
+      {
+       "is": "Ég er ferðamaður.",
+       "en": "I'm a tourist."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Hvað ætlarðu að vera lengi á Íslandi?",
+     "en": "How long will you be in Iceland?"
+    },
+    {
+     "spk": "U",
+     "is": "Í eina viku.",
+     "en": "For one week.",
+     "alts": [
+      {
+       "is": "Í tíu daga.",
+       "en": "For ten days."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Og hvar gistirðu?",
+     "en": "And where are you staying?"
+    },
+    {
+     "spk": "U",
+     "is": "Á hóteli í Reykjavík.",
+     "en": "At a hotel in Reykjavík."
+    },
+    {
+     "spk": "A",
+     "is": "Allt í lagi. Góða ferð!",
+     "en": "All right. Have a good trip!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "For how long: í + the time word. Feminine “vika” becomes “eina viku”.",
+     "ex": [
+      "Í eina viku.",
+      "Í tvo daga."
+     ]
+    },
+    {
+     "en": "“-ðu” at the end of a verb is “þú” glued on: ætlar þú → ætlarðu, gistir þú → gistirðu.",
+     "ex": [
+      "Hvar gistirðu?"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Ég er í fríi.",
+     "en": "I'm on holiday."
+    },
+    {
+     "is": "Í eina viku.",
+     "en": "For one week."
+    },
+    {
+     "is": "Á hóteli í Reykjavík.",
+     "en": "At a hotel in Reykjavík."
+    }
+   ]
+  },
+  {
+   "id": "tollur",
+   "is_title": "Í tollinum",
+   "en_title": "Customs",
+   "pic": "🧳",
+   "npc": {
+    "role": "Tollvörður",
+    "en": "Customs officer",
+    "g": "f"
+   },
+   "setting": "A customs officer stops you on the way out.",
+   "signs": [],
+   "words": [
+    {
+     "is": "ferðataska",
+     "en": "suitcase",
+     "pic": "🧳"
+    },
+    {
+     "is": "tollur",
+     "en": "customs",
+     "pic": "🛃"
+    },
+    {
+     "is": "áfengi",
+     "en": "alcohol",
+     "pic": "🍾"
+    },
+    {
+     "is": "vín",
+     "en": "wine",
+     "pic": "🍷"
+    },
+    {
+     "is": "flaska",
+     "en": "bottle",
+     "pic": "🍼"
+    },
+    {
+     "is": "tóbak",
+     "en": "tobacco",
+     "pic": "🚬"
+    },
+    {
+     "is": "matur",
+     "en": "food",
+     "pic": "🍱"
+    },
+    {
+     "is": "gjöf",
+     "en": "gift",
+     "pic": "🎁"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Góðan daginn. Ertu með eitthvað tollskylt?",
+     "en": "Good day. Do you have anything to declare?"
+    },
+    {
+     "spk": "U",
+     "is": "Nei, ekkert.",
+     "en": "No, nothing."
+    },
+    {
+     "spk": "A",
+     "is": "Ertu með áfengi eða tóbak?",
+     "en": "Do you have alcohol or tobacco?"
+    },
+    {
+     "spk": "U",
+     "is": "Bara eina flösku af víni.",
+     "en": "Just one bottle of wine."
+    },
+    {
+     "spk": "A",
+     "is": "Það er í lagi. Má ég sjá í töskuna?",
+     "en": "That's fine. May I look in the suitcase?"
+    },
+    {
+     "spk": "U",
+     "is": "Já, auðvitað.",
+     "en": "Yes, of course."
+    },
+    {
+     "spk": "A",
+     "is": "Takk. Þú mátt fara.",
+     "en": "Thanks. You may go."
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Ertu með…?” (lit. are you with…?) is the everyday way to ask “do you have…?”.",
+     "ex": [
+      "Ertu með áfengi?",
+      "Ertu með kort?"
+     ]
+    },
+    {
+     "en": "“Má ég…?” = may I…? Very useful and very polite.",
+     "ex": [
+      "Má ég sjá?",
+      "Má ég fá vatn?"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Nei, ekkert.",
+     "en": "No, nothing."
+    },
+    {
+     "is": "Bara eina flösku af víni.",
+     "en": "Just one bottle of wine."
+    },
+    {
+     "is": "Já, auðvitað.",
+     "en": "Yes, of course."
+    }
+   ]
+  },
+  {
+   "id": "ruta",
+   "is_title": "Rútan í bæinn",
+   "en_title": "The bus into town",
+   "pic": "🚌",
+   "npc": {
+    "role": "Sölumaður",
+    "en": "Ticket seller",
+    "g": "m"
+   },
+   "setting": "Buying a bus ticket from the airport to Reykjavík.",
+   "signs": [],
+   "words": [
+    {
+     "is": "rúta",
+     "en": "coach / bus",
+     "pic": "🚌"
+    },
+    {
+     "is": "miði",
+     "en": "ticket",
+     "pic": "🎫"
+    },
+    {
+     "is": "kort",
+     "en": "card",
+     "pic": "💳"
+    },
+    {
+     "is": "að borga",
+     "en": "to pay",
+     "pic": "💰"
+    },
+    {
+     "is": "mínúta",
+     "en": "minute",
+     "pic": "⏱️"
+    },
+    {
+     "is": "klukkutími",
+     "en": "hour",
+     "pic": "🕐"
+    },
+    {
+     "is": "aðra leiðina",
+     "en": "one way",
+     "pic": "➡️"
+    },
+    {
+     "is": "fram og til baka",
+     "en": "return",
+     "pic": "🔁"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "U",
+     "is": "Góðan daginn. Einn miða til Reykjavíkur, takk.",
+     "en": "Hello. One ticket to Reykjavík, please."
+    },
+    {
+     "spk": "A",
+     "is": "Aðra leiðina eða fram og til baka?",
+     "en": "One way or return?"
+    },
+    {
+     "spk": "U",
+     "is": "Aðra leiðina, takk.",
+     "en": "One way, please.",
+     "alts": [
+      {
+       "is": "Fram og til baka, takk.",
+       "en": "Return, please."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Gjörðu svo vel. Rútan fer eftir tíu mínútur.",
+     "en": "Here you go. The bus leaves in ten minutes."
+    },
+    {
+     "spk": "U",
+     "is": "Get ég borgað með korti?",
+     "en": "Can I pay by card?"
+    },
+    {
+     "spk": "A",
+     "is": "Já, ekkert mál.",
+     "en": "Yes, no problem."
+    },
+    {
+     "spk": "U",
+     "is": "Hvað tekur ferðin langan tíma?",
+     "en": "How long does the trip take?"
+    },
+    {
+     "spk": "A",
+     "is": "Um það bil fjörutíu og fimm mínútur.",
+     "en": "About forty-five minutes."
+    }
+   ],
+   "tips": [
+    {
+     "en": "Going to a place: til + genitive. The place name changes: Reykjavík → til Reykjavíkur, Akureyri → til Akureyrar.",
+     "ex": [
+      "til Reykjavíkur",
+      "til Akureyrar"
+     ]
+    },
+    {
+     "en": "“Get ég…?” = can I…? Follow it with the -að form of the verb.",
+     "ex": [
+      "Get ég borgað með korti?"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Einn miða til Reykjavíkur, takk.",
+     "en": "One ticket to Reykjavík, please."
+    },
+    {
+     "is": "Get ég borgað með korti?",
+     "en": "Can I pay by card?"
+    },
+    {
+     "is": "Rútan fer eftir tíu mínútur.",
+     "en": "The bus leaves in ten minutes."
+    }
+   ]
+  },
+  {
+   "id": "hotel",
+   "is_title": "Á hótelinu",
+   "en_title": "Hotel check-in",
+   "pic": "🏨",
+   "npc": {
+    "role": "Móttaka",
+    "en": "Receptionist",
+    "g": "f"
+   },
+   "setting": "Checking in at your hotel in the evening.",
+   "signs": [],
+   "words": [
+    {
+     "is": "herbergi",
+     "en": "room",
+     "pic": "🚪"
+    },
+    {
+     "is": "lykill",
+     "en": "key",
+     "pic": "🔑"
+    },
+    {
+     "is": "morgunmatur",
+     "en": "breakfast",
+     "pic": "🥐"
+    },
+    {
+     "is": "hæð",
+     "en": "floor / storey",
+     "pic": "🏢"
+    },
+    {
+     "is": "lyfta",
+     "en": "lift / elevator",
+     "pic": "🛗"
+    },
+    {
+     "is": "þráðlaust net",
+     "en": "wifi",
+     "pic": "📶"
+    },
+    {
+     "is": "lykilorð",
+     "en": "password",
+     "pic": "🔒"
+    },
+    {
+     "is": "nótt",
+     "en": "night",
+     "pic": "🌙"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Gott kvöld og velkomin.",
+     "en": "Good evening and welcome."
+    },
+    {
+     "spk": "U",
+     "is": "Gott kvöld. Ég á pantað herbergi á nafninu Smith.",
+     "en": "Good evening. I have a room booked under the name Smith."
+    },
+    {
+     "spk": "A",
+     "is": "Já, hérna er það. Tvær nætur, er það ekki?",
+     "en": "Yes, here it is. Two nights, isn't it?"
+    },
+    {
+     "spk": "U",
+     "is": "Jú, tvær nætur.",
+     "en": "Yes, two nights."
+    },
+    {
+     "spk": "A",
+     "is": "Morgunmatur er frá sjö til tíu. Herbergið er á þriðju hæð.",
+     "en": "Breakfast is from seven to ten. The room is on the third floor."
+    },
+    {
+     "spk": "U",
+     "is": "Takk. Er þráðlaust net hérna?",
+     "en": "Thanks. Is there wifi here?"
+    },
+    {
+     "spk": "A",
+     "is": "Já, lykilorðið er á kortinu. Hér er lykillinn.",
+     "en": "Yes, the password is on the card. Here is the key."
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Jú” is the yes you use to answer a negative question (“isn't it?”). “Já” would sound odd there.",
+     "ex": [
+      "Er það ekki? — Jú!"
+     ]
+    },
+    {
+     "en": "Floors use ordinals: fyrsta hæð, önnur hæð, þriðja hæð. “Á” makes it á þriðju hæð.",
+     "ex": [
+      "á þriðju hæð"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Ég á pantað herbergi.",
+     "en": "I have a room booked."
+    },
+    {
+     "is": "Er þráðlaust net hérna?",
+     "en": "Is there wifi here?"
+    },
+    {
+     "is": "Herbergið er á þriðju hæð.",
+     "en": "The room is on the third floor."
+    }
+   ]
+  },
+  {
+   "id": "leid",
+   "is_title": "Að spyrja til vegar",
+   "en_title": "Asking for directions",
+   "pic": "🧭",
+   "npc": {
+    "role": "Vegfarandi",
+    "en": "Passer-by",
+    "g": "m"
+   },
+   "setting": "You're downtown looking for Hallgrímskirkja and the bus stop.",
+   "signs": [],
+   "words": [
+    {
+     "is": "beint áfram",
+     "en": "straight ahead",
+     "pic": "⬆️"
+    },
+    {
+     "is": "gata",
+     "en": "street",
+     "pic": "🛣️"
+    },
+    {
+     "is": "kirkja",
+     "en": "church",
+     "pic": "⛪"
+    },
+    {
+     "is": "langt",
+     "en": "far",
+     "pic": "📏"
+    },
+    {
+     "is": "nálægt",
+     "en": "near",
+     "pic": "📍"
+    },
+    {
+     "is": "stoppistöð",
+     "en": "bus stop",
+     "pic": "🚏"
+    },
+    {
+     "is": "horn",
+     "en": "corner",
+     "pic": "↪️"
+    },
+    {
+     "is": "hinum megin",
+     "en": "on the other side",
+     "pic": "↔️"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "U",
+     "is": "Afsakið, hvar er Hallgrímskirkja?",
+     "en": "Excuse me, where is Hallgrímskirkja?"
+    },
+    {
+     "spk": "A",
+     "is": "Farðu beint áfram upp Skólavörðustíg. Hún er efst á hæðinni.",
+     "en": "Go straight up Skólavörðustígur. It's at the top of the hill."
+    },
+    {
+     "spk": "U",
+     "is": "Er langt þangað?",
+     "en": "Is it far?"
+    },
+    {
+     "spk": "A",
+     "is": "Nei, bara fimm mínútna gangur.",
+     "en": "No, just a five-minute walk."
+    },
+    {
+     "spk": "U",
+     "is": "Og hvar er næsta stoppistöð?",
+     "en": "And where is the nearest bus stop?"
+    },
+    {
+     "spk": "A",
+     "is": "Hún er hinum megin við götuna, til hægri.",
+     "en": "It's on the other side of the street, to the right."
+    },
+    {
+     "spk": "U",
+     "is": "Kærar þakkir!",
+     "en": "Many thanks!",
+     "alts": [
+      {
+       "is": "Takk fyrir!",
+       "en": "Thank you!"
+      }
+     ]
+    }
+   ],
+   "tips": [
+    {
+     "en": "Things are he/she/it by grammatical gender: kirkja and stoppistöð are feminine, so they're “hún” (she).",
+     "ex": [
+      "Hún er efst á hæðinni."
+     ]
+    },
+    {
+     "en": "“Farðu” = go! (an order to one person). It's farðu, not “far þú”.",
+     "ex": [
+      "Farðu beint áfram."
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Hvar er næsta stoppistöð?",
+     "en": "Where is the nearest bus stop?"
+    },
+    {
+     "is": "Er langt þangað?",
+     "en": "Is it far?"
+    },
+    {
+     "is": "Farðu beint áfram.",
+     "en": "Go straight ahead."
+    }
+   ]
+  },
+  {
+   "id": "kaffi",
+   "is_title": "Á kaffihúsinu",
+   "en_title": "At the café",
+   "pic": "☕",
+   "npc": {
+    "role": "Afgreiðslukona",
+    "en": "Barista",
+    "g": "f"
+   },
+   "setting": "Ordering a coffee and a cinnamon roll.",
+   "signs": [],
+   "words": [
+    {
+     "is": "kaffi",
+     "en": "coffee",
+     "pic": "☕"
+    },
+    {
+     "is": "te",
+     "en": "tea",
+     "pic": "🍵"
+    },
+    {
+     "is": "mjólk",
+     "en": "milk",
+     "pic": "🥛"
+    },
+    {
+     "is": "sykur",
+     "en": "sugar",
+     "pic": "🧂"
+    },
+    {
+     "is": "kanilsnúður",
+     "en": "cinnamon roll",
+     "pic": "🌀"
+    },
+    {
+     "is": "kaka",
+     "en": "cake",
+     "pic": "🍰"
+    },
+    {
+     "is": "bolli",
+     "en": "cup",
+     "pic": "🫖"
+    },
+    {
+     "is": "að taka með",
+     "en": "to take away",
+     "pic": "🥡"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Hæ! Hvað má bjóða þér?",
+     "en": "Hi! What can I get you?"
+    },
+    {
+     "spk": "U",
+     "is": "Ég ætla að fá kaffi og kanilsnúð.",
+     "en": "I'll have a coffee and a cinnamon roll.",
+     "alts": [
+      {
+       "is": "Ég ætla að fá kaffi og köku.",
+       "en": "I'll have a coffee and a piece of cake."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Viltu mjólk í kaffið?",
+     "en": "Do you want milk in the coffee?"
+    },
+    {
+     "spk": "U",
+     "is": "Já, smá mjólk, takk.",
+     "en": "Yes, a little milk, please."
+    },
+    {
+     "spk": "A",
+     "is": "Ætlarðu að borða hér eða taka með?",
+     "en": "Eating here or taking away?"
+    },
+    {
+     "spk": "U",
+     "is": "Taka með, takk.",
+     "en": "Take away, please.",
+     "alts": [
+      {
+       "is": "Borða hér, takk.",
+       "en": "Eat here, please."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Það verða þrettán hundruð krónur.",
+     "en": "That'll be thirteen hundred krónur."
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Ég ætla að fá…” (I'm going to get…) is how you order anything. The item takes the accusative: kanilsnúður → kanilsnúð.",
+     "ex": [
+      "Ég ætla að fá kaffi.",
+      "Ég ætla að fá kanilsnúð."
+     ]
+    },
+    {
+     "en": "“Viltu…?” = do you want…? (vilt þú → viltu).",
+     "ex": [
+      "Viltu mjólk?"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Ég ætla að fá kaffi.",
+     "en": "I'll have a coffee."
+    },
+    {
+     "is": "Smá mjólk, takk.",
+     "en": "A little milk, please."
+    },
+    {
+     "is": "Taka með, takk.",
+     "en": "Take away, please."
+    }
+   ]
+  },
+  {
+   "id": "bud",
+   "is_title": "Í matvörubúðinni",
+   "en_title": "At the grocery store",
+   "pic": "🛒",
+   "npc": {
+    "role": "Starfsmaður",
+    "en": "Shop assistant",
+    "g": "m"
+   },
+   "setting": "Finding skyr and bread, then paying at the till.",
+   "signs": [],
+   "words": [
+    {
+     "is": "búð",
+     "en": "shop",
+     "pic": "🏪"
+    },
+    {
+     "is": "kælir",
+     "en": "fridge / cooler",
+     "pic": "🧊"
+    },
+    {
+     "is": "kassi",
+     "en": "till / checkout",
+     "pic": "🧾"
+    },
+    {
+     "is": "poki",
+     "en": "bag",
+     "pic": "🛍️"
+    },
+    {
+     "is": "verð",
+     "en": "price",
+     "pic": "🏷️"
+    },
+    {
+     "is": "brauð",
+     "en": "bread",
+     "pic": "🍞"
+    },
+    {
+     "is": "ávextir",
+     "en": "fruit",
+     "pic": "🍎"
+    },
+    {
+     "is": "grænmeti",
+     "en": "vegetables",
+     "pic": "🥦"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "U",
+     "is": "Afsakið, hvar finn ég skyr?",
+     "en": "Excuse me, where do I find skyr?"
+    },
+    {
+     "spk": "A",
+     "is": "Í kælinum, aftast í búðinni.",
+     "en": "In the cooler, at the back of the shop."
+    },
+    {
+     "spk": "U",
+     "is": "En brauð?",
+     "en": "And bread?"
+    },
+    {
+     "spk": "A",
+     "is": "Brauðið er við hliðina á kassanum.",
+     "en": "The bread is next to the till."
+    },
+    {
+     "spk": "A",
+     "is": "Viltu poka?",
+     "en": "Do you want a bag?"
+    },
+    {
+     "spk": "U",
+     "is": "Já, einn poka, takk.",
+     "en": "Yes, one bag, please.",
+     "alts": [
+      {
+       "is": "Nei takk, ég er með poka.",
+       "en": "No thanks, I have a bag."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Gjörðu svo vel. Eigðu góðan dag!",
+     "en": "Here you go. Have a good day!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Hvar finn ég…?” = where do I find…? The thing you're looking for goes in the accusative.",
+     "ex": [
+      "Hvar finn ég skyr?",
+      "Hvar finn ég mjólk?"
+     ]
+    },
+    {
+     "en": "Location: aftast (at the very back), fremst (at the very front), við hliðina á (next to).",
+     "ex": [
+      "aftast í búðinni",
+      "við hliðina á kassanum"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Hvar finn ég skyr?",
+     "en": "Where do I find skyr?"
+    },
+    {
+     "is": "Einn poka, takk.",
+     "en": "One bag, please."
+    },
+    {
+     "is": "Eigðu góðan dag!",
+     "en": "Have a good day!"
+    }
+   ]
+  },
+  {
+   "id": "sund",
+   "is_title": "Í sundi",
+   "en_title": "At the swimming pool",
+   "pic": "♨️",
+   "npc": {
+    "role": "Laugarvörður",
+    "en": "Pool attendant",
+    "g": "f"
+   },
+   "setting": "Icelandic pools have strict rules: shower without your swimsuit before you get in.",
+   "signs": [],
+   "words": [
+    {
+     "is": "sundlaug",
+     "en": "swimming pool",
+     "pic": "🏊"
+    },
+    {
+     "is": "heitur pottur",
+     "en": "hot tub",
+     "pic": "♨️"
+    },
+    {
+     "is": "sturta",
+     "en": "shower",
+     "pic": "🚿"
+    },
+    {
+     "is": "handklæði",
+     "en": "towel",
+     "pic": "🧺"
+    },
+    {
+     "is": "sundföt",
+     "en": "swimsuit",
+     "pic": "🩱"
+    },
+    {
+     "is": "búningsklefi",
+     "en": "changing room",
+     "pic": "🚪"
+    },
+    {
+     "is": "skápur",
+     "en": "locker",
+     "pic": "🔐"
+    },
+    {
+     "is": "fullorðinn",
+     "en": "adult",
+     "pic": "🧑"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Halló! Einn fullorðinn?",
+     "en": "Hello! One adult?"
+    },
+    {
+     "spk": "U",
+     "is": "Já, einn fullorðinn, takk.",
+     "en": "Yes, one adult, please."
+    },
+    {
+     "spk": "A",
+     "is": "Hér er armbandið. Mundu að fara í sturtu án sundfata áður en þú ferð í laugina.",
+     "en": "Here's the wristband. Remember to shower without your swimsuit before you go in the pool."
+    },
+    {
+     "spk": "U",
+     "is": "Allt í lagi. Hvar eru heitu pottarnir?",
+     "en": "OK. Where are the hot tubs?"
+    },
+    {
+     "spk": "A",
+     "is": "Þeir eru úti, við hliðina á lauginni.",
+     "en": "They're outside, next to the pool."
+    },
+    {
+     "spk": "U",
+     "is": "Frábært, takk!",
+     "en": "Great, thanks!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Mundu að…” = remember to… You'll hear it from parents, teachers and pool attendants.",
+     "ex": [
+      "Mundu að fara í sturtu."
+     ]
+    },
+    {
+     "en": "Adjectives get a soft ending after “the”: heitur pottur (a hot tub) → heiti potturinn (the hot tub) → heitu pottarnir (the hot tubs).",
+     "ex": [
+      "heitur pottur",
+      "heiti potturinn",
+      "heitu pottarnir"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Einn fullorðinn, takk.",
+     "en": "One adult, please."
+    },
+    {
+     "is": "Hvar eru heitu pottarnir?",
+     "en": "Where are the hot tubs?"
+    },
+    {
+     "is": "Mundu að fara í sturtu.",
+     "en": "Remember to shower."
+    }
+   ]
+  },
+  {
+   "id": "bensin",
+   "is_title": "Á bensínstöðinni",
+   "en_title": "At the gas station",
+   "pic": "⛽",
+   "npc": {
+    "role": "Afgreiðslumaður",
+    "en": "Attendant",
+    "g": "m"
+   },
+   "setting": "On the road south. Checking conditions — and grabbing a hot dog.",
+   "signs": [],
+   "words": [
+    {
+     "is": "bensín",
+     "en": "petrol / gas",
+     "pic": "⛽"
+    },
+    {
+     "is": "vegur",
+     "en": "road",
+     "pic": "🛣️"
+    },
+    {
+     "is": "færð",
+     "en": "road conditions",
+     "pic": "🚧"
+    },
+    {
+     "is": "vindur",
+     "en": "wind",
+     "pic": "💨"
+    },
+    {
+     "is": "hálka",
+     "en": "ice on the road",
+     "pic": "🧊"
+    },
+    {
+     "is": "varlega",
+     "en": "carefully",
+     "pic": "⚠️"
+    },
+    {
+     "is": "pylsa",
+     "en": "hot dog",
+     "pic": "🌭"
+    },
+    {
+     "is": "bílaleiga",
+     "en": "car rental",
+     "pic": "🚗"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "U",
+     "is": "Afsakið, er vegurinn til Víkur opinn?",
+     "en": "Excuse me, is the road to Vík open?"
+    },
+    {
+     "spk": "A",
+     "is": "Já, en það er mikill vindur undir Eyjafjöllum. Farðu varlega.",
+     "en": "Yes, but it's very windy below Eyjafjöll. Drive carefully."
+    },
+    {
+     "spk": "U",
+     "is": "Hvar get ég athugað færðina?",
+     "en": "Where can I check the road conditions?"
+    },
+    {
+     "spk": "A",
+     "is": "Á vef Vegagerðarinnar.",
+     "en": "On the Road Administration's website."
+    },
+    {
+     "spk": "U",
+     "is": "Takk. Og eina pylsu með öllu, takk!",
+     "en": "Thanks. And one hot dog with everything, please!"
+    },
+    {
+     "spk": "A",
+     "is": "Ekkert mál.",
+     "en": "No problem."
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Pylsa með öllu” — a hot dog with everything (raw and fried onion, ketchup, sweet mustard, remoulade) is practically a national dish.",
+     "ex": [
+      "Eina pylsu með öllu."
+     ]
+    },
+    {
+     "en": "“Farðu varlega” (take care / drive carefully) is also a friendly goodbye.",
+     "ex": [
+      "Farðu varlega!"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Er vegurinn opinn?",
+     "en": "Is the road open?"
+    },
+    {
+     "is": "Farðu varlega.",
+     "en": "Drive carefully."
+    },
+    {
+     "is": "Eina pylsu með öllu, takk.",
+     "en": "One hot dog with everything, please."
+    }
+   ]
+  },
+  {
+   "id": "spjall",
+   "is_title": "Smáspjall",
+   "en_title": "Small talk",
+   "pic": "💬",
+   "npc": {
+    "role": "Heimamaður",
+    "en": "Local",
+    "g": "f"
+   },
+   "setting": "A friendly local starts chatting with you.",
+   "signs": [],
+   "words": [
+    {
+     "is": "hvaðan",
+     "en": "where from",
+     "pic": "🌍"
+    },
+    {
+     "is": "veður",
+     "en": "weather",
+     "pic": "🌦️"
+    },
+    {
+     "is": "rok",
+     "en": "strong wind",
+     "pic": "🌬️"
+    },
+    {
+     "is": "rigning",
+     "en": "rain",
+     "pic": "🌧️"
+    },
+    {
+     "is": "skrítið",
+     "en": "strange",
+     "pic": "🤨"
+    },
+    {
+     "is": "að læra",
+     "en": "to learn",
+     "pic": "📚"
+    },
+    {
+     "is": "smá",
+     "en": "a little",
+     "pic": "🤏"
+    },
+    {
+     "is": "að líka",
+     "en": "to like",
+     "pic": "👍"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Hvaðan ertu?",
+     "en": "Where are you from?"
+    },
+    {
+     "spk": "U",
+     "is": "Ég er frá Bandaríkjunum.",
+     "en": "I'm from the United States.",
+     "alts": [
+      {
+       "is": "Ég er frá Kanada.",
+       "en": "I'm from Canada."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Og hvernig líkar þér á Íslandi?",
+     "en": "And how do you like Iceland?"
+    },
+    {
+     "spk": "U",
+     "is": "Mjög vel! En veðrið er svolítið skrítið.",
+     "en": "Very much! But the weather is a bit strange."
+    },
+    {
+     "spk": "A",
+     "is": "Já, það er alltaf svona. Talarðu íslensku?",
+     "en": "Yes, it's always like this. Do you speak Icelandic?"
+    },
+    {
+     "spk": "U",
+     "is": "Bara smá. Ég er að læra.",
+     "en": "Just a little. I'm learning."
+    },
+    {
+     "spk": "A",
+     "is": "Þú talar bara mjög vel!",
+     "en": "You speak really well!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Mér líkar…” (I like) works backwards: the liker is in the dative. So it's “mér líkar” and “þér líkar”, never “ég líkar”.",
+     "ex": [
+      "Mér líkar vel á Íslandi.",
+      "Hvernig líkar þér?"
+     ]
+    },
+    {
+     "en": "“Ég er að…” + a verb = I'm (in the middle of) doing something.",
+     "ex": [
+      "Ég er að læra."
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Hvaðan ertu?",
+     "en": "Where are you from?"
+    },
+    {
+     "is": "Mér líkar vel á Íslandi.",
+     "en": "I like it in Iceland."
+    },
+    {
+     "is": "Ég er að læra.",
+     "en": "I'm learning."
+    }
+   ]
+  },
+  {
+   "id": "apotek",
+   "is_title": "Í apótekinu",
+   "en_title": "At the pharmacy",
+   "pic": "💊",
+   "npc": {
+    "role": "Lyfjafræðingur",
+    "en": "Pharmacist",
+    "g": "f"
+   },
+   "setting": "You've got a headache, and you want to know the emergency number.",
+   "signs": [],
+   "words": [
+    {
+     "is": "apótek",
+     "en": "pharmacy",
+     "pic": "💊"
+    },
+    {
+     "is": "hausverkur",
+     "en": "headache",
+     "pic": "🤕"
+    },
+    {
+     "is": "tafla",
+     "en": "pill / tablet",
+     "pic": "💊"
+    },
+    {
+     "is": "læknir",
+     "en": "doctor",
+     "pic": "🩺"
+    },
+    {
+     "is": "veikur",
+     "en": "sick",
+     "pic": "🤒"
+    },
+    {
+     "is": "hjálp",
+     "en": "help",
+     "pic": "🆘"
+    },
+    {
+     "is": "sjúkrahús",
+     "en": "hospital",
+     "pic": "🏥"
+    },
+    {
+     "is": "að hringja",
+     "en": "to call",
+     "pic": "📞"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "U",
+     "is": "Góðan daginn. Ég er með hausverk. Áttu eitthvað við því?",
+     "en": "Hello. I have a headache. Do you have anything for it?"
+    },
+    {
+     "spk": "A",
+     "is": "Já, þetta er gott við hausverk. Lestu leiðbeiningarnar á pakkanum.",
+     "en": "Yes, this is good for headaches. Read the instructions on the package."
+    },
+    {
+     "spk": "U",
+     "is": "Takk. Hvað kostar þetta?",
+     "en": "Thanks. How much is this?"
+    },
+    {
+     "spk": "A",
+     "is": "Níu hundruð krónur.",
+     "en": "Nine hundred krónur."
+    },
+    {
+     "spk": "U",
+     "is": "Og hvert á ég að hringja ef það er neyðartilfelli?",
+     "en": "And where do I call if there's an emergency?"
+    },
+    {
+     "spk": "A",
+     "is": "Þá hringirðu í einn einn tveir.",
+     "en": "Then you call one-one-two."
+    }
+   ],
+   "tips": [
+    {
+     "en": "Aches and illnesses use “Ég er með…” (I'm with…).",
+     "ex": [
+      "Ég er með hausverk.",
+      "Ég er með hita."
+     ]
+    },
+    {
+     "en": "Phone numbers are read digit by digit. Iceland's emergency number is 112: einn einn tveir.",
+     "ex": [
+      "einn einn tveir"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Ég er með hausverk.",
+     "en": "I have a headache."
+    },
+    {
+     "is": "Hvað kostar þetta?",
+     "en": "How much is this?"
+    },
+    {
+     "is": "Ég þarf hjálp.",
+     "en": "I need help."
+    }
+   ]
+  }
+ ],
+ "reactions": [
+  {
+   "is": "Ha? Fyrirgefðu, ég skil ekki.",
+   "en": "Huh? Sorry, I don't understand."
+  },
+  {
+   "is": "Ha? Hvað sagðirðu?",
+   "en": "Huh? What did you say?"
+  },
+  {
+   "is": "Ehh… afsakið?",
+   "en": "Uhh… excuse me?"
+  }
+ ]
+}

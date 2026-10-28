@@ -1,0 +1,2352 @@
+{
+ "vocab": [
+  {
+   "cat": "Kveðjur — Greetings",
+   "items": [
+    {
+     "is": "Halló",
+     "en": "Hello",
+     "note": ""
+    },
+    {
+     "is": "Hæ",
+     "en": "Hi",
+     "note": "informal"
+    },
+    {
+     "is": "Góðan daginn",
+     "en": "Good morning / good day",
+     "note": "formal-ish, until afternoon"
+    },
+    {
+     "is": "Gott kvöld",
+     "en": "Good evening",
+     "note": ""
+    },
+    {
+     "is": "Góða nótt",
+     "en": "Good night",
+     "note": ""
+    },
+    {
+     "is": "Bless",
+     "en": "Bye",
+     "note": ""
+    },
+    {
+     "is": "Takk",
+     "en": "Thanks",
+     "note": ""
+    },
+    {
+     "is": "Takk fyrir",
+     "en": "Thank you",
+     "note": ""
+    },
+    {
+     "is": "Já",
+     "en": "Yes",
+     "note": ""
+    },
+    {
+     "is": "Nei",
+     "en": "No",
+     "note": ""
+    },
+    {
+     "is": "Fyrirgefðu",
+     "en": "Sorry / excuse me",
+     "note": "to one person"
+    },
+    {
+     "is": "Gjörðu svo vel",
+     "en": "Here you go / please",
+     "note": "when handing something over"
+    },
+    {
+     "is": "Hvað segirðu?",
+     "en": "How are you? (lit. what do you say?)",
+     "note": ""
+    },
+    {
+     "is": "Allt gott",
+     "en": "All good",
+     "note": "standard reply"
+    },
+    {
+     "is": "Velkomin",
+     "en": "Welcome",
+     "note": "velkominn to a man"
+    }
+   ]
+  },
+  {
+   "cat": "Tölur — Numbers",
+   "items": [
+    {
+     "is": "einn",
+     "en": "one",
+     "note": "m. (ein f., eitt n.)"
+    },
+    {
+     "is": "tveir",
+     "en": "two",
+     "note": "m. (tvær f., tvö n.)"
+    },
+    {
+     "is": "þrír",
+     "en": "three",
+     "note": "m. (þrjár f., þrjú n.)"
+    },
+    {
+     "is": "fjórir",
+     "en": "four",
+     "note": "m. (fjórar f., fjögur n.)"
+    },
+    {
+     "is": "fimm",
+     "en": "five",
+     "note": ""
+    },
+    {
+     "is": "sex",
+     "en": "six",
+     "note": ""
+    },
+    {
+     "is": "sjö",
+     "en": "seven",
+     "note": ""
+    },
+    {
+     "is": "átta",
+     "en": "eight",
+     "note": ""
+    },
+    {
+     "is": "níu",
+     "en": "nine",
+     "note": ""
+    },
+    {
+     "is": "tíu",
+     "en": "ten",
+     "note": ""
+    },
+    {
+     "is": "ellefu",
+     "en": "eleven",
+     "note": ""
+    },
+    {
+     "is": "tólf",
+     "en": "twelve",
+     "note": ""
+    },
+    {
+     "is": "tuttugu",
+     "en": "twenty",
+     "note": ""
+    },
+    {
+     "is": "hundrað",
+     "en": "hundred",
+     "note": "n."
+    },
+    {
+     "is": "þúsund",
+     "en": "thousand",
+     "note": "n."
+    }
+   ]
+  },
+  {
+   "cat": "Fjölskylda — Family",
+   "items": [
+    {
+     "is": "mamma",
+     "en": "mom",
+     "note": "f."
+    },
+    {
+     "is": "pabbi",
+     "en": "dad",
+     "note": "m."
+    },
+    {
+     "is": "móðir",
+     "en": "mother",
+     "note": "f."
+    },
+    {
+     "is": "faðir",
+     "en": "father",
+     "note": "m."
+    },
+    {
+     "is": "bróðir",
+     "en": "brother",
+     "note": "m."
+    },
+    {
+     "is": "systir",
+     "en": "sister",
+     "note": "f."
+    },
+    {
+     "is": "sonur",
+     "en": "son",
+     "note": "m."
+    },
+    {
+     "is": "dóttir",
+     "en": "daughter",
+     "note": "f."
+    },
+    {
+     "is": "eiginkona",
+     "en": "wife",
+     "note": "f."
+    },
+    {
+     "is": "eiginmaður",
+     "en": "husband",
+     "note": "m."
+    },
+    {
+     "is": "afi",
+     "en": "grandpa",
+     "note": "m."
+    },
+    {
+     "is": "amma",
+     "en": "grandma",
+     "note": "f."
+    },
+    {
+     "is": "barn",
+     "en": "child",
+     "note": "n."
+    },
+    {
+     "is": "fjölskylda",
+     "en": "family",
+     "note": "f."
+    },
+    {
+     "is": "hundur",
+     "en": "dog",
+     "note": "m."
+    }
+   ]
+  },
+  {
+   "cat": "Matur og drykkur — Food & drink",
+   "items": [
+    {
+     "is": "vatn",
+     "en": "water",
+     "note": "n."
+    },
+    {
+     "is": "kaffi",
+     "en": "coffee",
+     "note": "n."
+    },
+    {
+     "is": "mjólk",
+     "en": "milk",
+     "note": "f."
+    },
+    {
+     "is": "brauð",
+     "en": "bread",
+     "note": "n."
+    },
+    {
+     "is": "smjör",
+     "en": "butter",
+     "note": "n."
+    },
+    {
+     "is": "fiskur",
+     "en": "fish",
+     "note": "m."
+    },
+    {
+     "is": "kjöt",
+     "en": "meat",
+     "note": "n."
+    },
+    {
+     "is": "lambakjöt",
+     "en": "lamb (meat)",
+     "note": "n."
+    },
+    {
+     "is": "ostur",
+     "en": "cheese",
+     "note": "m."
+    },
+    {
+     "is": "egg",
+     "en": "egg",
+     "note": "n."
+    },
+    {
+     "is": "skyr",
+     "en": "skyr",
+     "note": "n."
+    },
+    {
+     "is": "epli",
+     "en": "apple",
+     "note": "n."
+    },
+    {
+     "is": "súpa",
+     "en": "soup",
+     "note": "f."
+    },
+    {
+     "is": "bjór",
+     "en": "beer",
+     "note": "m."
+    },
+    {
+     "is": "te",
+     "en": "tea",
+     "note": "n."
+    }
+   ]
+  },
+  {
+   "cat": "Náttúra og veður — Nature & weather",
+   "items": [
+    {
+     "is": "veður",
+     "en": "weather",
+     "note": "n."
+    },
+    {
+     "is": "rigning",
+     "en": "rain",
+     "note": "f."
+    },
+    {
+     "is": "snjór",
+     "en": "snow",
+     "note": "m."
+    },
+    {
+     "is": "vindur",
+     "en": "wind",
+     "note": "m."
+    },
+    {
+     "is": "sól",
+     "en": "sun",
+     "note": "f."
+    },
+    {
+     "is": "ský",
+     "en": "cloud",
+     "note": "n."
+    },
+    {
+     "is": "fjall",
+     "en": "mountain",
+     "note": "n."
+    },
+    {
+     "is": "foss",
+     "en": "waterfall",
+     "note": "m."
+    },
+    {
+     "is": "jökull",
+     "en": "glacier",
+     "note": "m."
+    },
+    {
+     "is": "eldfjall",
+     "en": "volcano",
+     "note": "n."
+    },
+    {
+     "is": "sjór",
+     "en": "sea",
+     "note": "m."
+    },
+    {
+     "is": "norðurljós",
+     "en": "northern lights",
+     "note": "n. pl."
+    },
+    {
+     "is": "kalt",
+     "en": "cold",
+     "note": "neuter of kaldur — Það er kalt"
+    },
+    {
+     "is": "hlýtt",
+     "en": "warm",
+     "note": "neuter of hlýr — Það er hlýtt"
+    }
+   ]
+  },
+  {
+   "cat": "Tími — Time & days",
+   "items": [
+    {
+     "is": "dagur",
+     "en": "day",
+     "note": "m."
+    },
+    {
+     "is": "vika",
+     "en": "week",
+     "note": "f."
+    },
+    {
+     "is": "mánuður",
+     "en": "month",
+     "note": "m."
+    },
+    {
+     "is": "ár",
+     "en": "year",
+     "note": "n."
+    },
+    {
+     "is": "í dag",
+     "en": "today",
+     "note": ""
+    },
+    {
+     "is": "á morgun",
+     "en": "tomorrow",
+     "note": ""
+    },
+    {
+     "is": "í gær",
+     "en": "yesterday",
+     "note": ""
+    },
+    {
+     "is": "mánudagur",
+     "en": "Monday",
+     "note": "m. — days are lowercase"
+    },
+    {
+     "is": "þriðjudagur",
+     "en": "Tuesday",
+     "note": "m."
+    },
+    {
+     "is": "miðvikudagur",
+     "en": "Wednesday",
+     "note": "m."
+    },
+    {
+     "is": "fimmtudagur",
+     "en": "Thursday",
+     "note": "m."
+    },
+    {
+     "is": "föstudagur",
+     "en": "Friday",
+     "note": "m."
+    },
+    {
+     "is": "laugardagur",
+     "en": "Saturday",
+     "note": "m."
+    },
+    {
+     "is": "sunnudagur",
+     "en": "Sunday",
+     "note": "m."
+    }
+   ]
+  },
+  {
+   "cat": "Í bænum — Around town",
+   "items": [
+    {
+     "is": "hús",
+     "en": "house",
+     "note": "n."
+    },
+    {
+     "is": "gata",
+     "en": "street",
+     "note": "f."
+    },
+    {
+     "is": "bíll",
+     "en": "car",
+     "note": "m."
+    },
+    {
+     "is": "strætó",
+     "en": "bus",
+     "note": "m."
+    },
+    {
+     "is": "flugvöllur",
+     "en": "airport",
+     "note": "m."
+    },
+    {
+     "is": "hótel",
+     "en": "hotel",
+     "note": "n."
+    },
+    {
+     "is": "búð",
+     "en": "shop",
+     "note": "f."
+    },
+    {
+     "is": "banki",
+     "en": "bank",
+     "note": "m."
+    },
+    {
+     "is": "sundlaug",
+     "en": "swimming pool",
+     "note": "f."
+    },
+    {
+     "is": "kirkja",
+     "en": "church",
+     "note": "f."
+    },
+    {
+     "is": "kaffihús",
+     "en": "café",
+     "note": "n."
+    },
+    {
+     "is": "miði",
+     "en": "ticket",
+     "note": "m."
+    },
+    {
+     "is": "vegur",
+     "en": "road",
+     "note": "m."
+    },
+    {
+     "is": "bær",
+     "en": "town / farm",
+     "note": "m."
+    }
+   ]
+  },
+  {
+   "cat": "Sagnir — Verbs",
+   "items": [
+    {
+     "is": "að vera",
+     "en": "to be",
+     "note": "ég er"
+    },
+    {
+     "is": "að hafa",
+     "en": "to have",
+     "note": "ég hef"
+    },
+    {
+     "is": "að eiga",
+     "en": "to own / have",
+     "note": "ég á"
+    },
+    {
+     "is": "að fara",
+     "en": "to go",
+     "note": "ég fer"
+    },
+    {
+     "is": "að koma",
+     "en": "to come",
+     "note": "ég kem"
+    },
+    {
+     "is": "að tala",
+     "en": "to speak",
+     "note": "ég tala"
+    },
+    {
+     "is": "að skilja",
+     "en": "to understand",
+     "note": "ég skil"
+    },
+    {
+     "is": "að borða",
+     "en": "to eat",
+     "note": "ég borða"
+    },
+    {
+     "is": "að drekka",
+     "en": "to drink",
+     "note": "ég drekk"
+    },
+    {
+     "is": "að sjá",
+     "en": "to see",
+     "note": "ég sé"
+    },
+    {
+     "is": "að vilja",
+     "en": "to want",
+     "note": "ég vil"
+    },
+    {
+     "is": "að búa",
+     "en": "to live (reside)",
+     "note": "ég bý"
+    },
+    {
+     "is": "að heita",
+     "en": "to be called",
+     "note": "ég heiti"
+    },
+    {
+     "is": "að læra",
+     "en": "to learn",
+     "note": "ég læri"
+    },
+    {
+     "is": "að kaupa",
+     "en": "to buy",
+     "note": "ég kaupi"
+    }
+   ]
+  },
+  {
+   "cat": "Lýsingarorð — Adjectives",
+   "items": [
+    {
+     "is": "góður",
+     "en": "good",
+     "note": "góð f., gott n."
+    },
+    {
+     "is": "stór",
+     "en": "big",
+     "note": "stór f., stórt n."
+    },
+    {
+     "is": "lítill",
+     "en": "small",
+     "note": "lítil f., lítið n."
+    },
+    {
+     "is": "nýr",
+     "en": "new",
+     "note": "ný f., nýtt n."
+    },
+    {
+     "is": "gamall",
+     "en": "old",
+     "note": "gömul f., gamalt n."
+    },
+    {
+     "is": "fallegur",
+     "en": "beautiful",
+     "note": "falleg f., fallegt n."
+    },
+    {
+     "is": "dýr",
+     "en": "expensive",
+     "note": "dýr f., dýrt n."
+    },
+    {
+     "is": "ódýr",
+     "en": "cheap",
+     "note": "ódýr f., ódýrt n."
+    },
+    {
+     "is": "glaður",
+     "en": "happy",
+     "note": "glöð f., glatt n."
+    },
+    {
+     "is": "þreyttur",
+     "en": "tired",
+     "note": "þreytt f., þreytt n."
+    },
+    {
+     "is": "rauður",
+     "en": "red",
+     "note": "rauð f., rautt n."
+    },
+    {
+     "is": "blár",
+     "en": "blue",
+     "note": "blá f., blátt n."
+    },
+    {
+     "is": "grænn",
+     "en": "green",
+     "note": "græn f., grænt n."
+    },
+    {
+     "is": "hvítur",
+     "en": "white",
+     "note": "hvít f., hvítt n."
+    },
+    {
+     "is": "svartur",
+     "en": "black",
+     "note": "svört f., svart n."
+    }
+   ]
+  }
+ ],
+ "grammar": [
+  {
+   "id": "sounds",
+   "title": "1 · Letters & sounds",
+   "intro": "Icelandic spelling is very regular once you know a few rules. The accent marks don't mean stress — stress is always on the first syllable. They mark different vowels.",
+   "tables": [
+    {
+     "caption": "Special letters",
+     "head": [
+      "Letter",
+      "Sounds like",
+      "Example"
+     ],
+     "rows": [
+      [
+       "þ",
+       "th in “think”",
+       "þrír"
+      ],
+      [
+       "ð",
+       "th in “this” (never at word start)",
+       "góður"
+      ],
+      [
+       "á",
+       "ow in “cow”",
+       "já"
+      ],
+      [
+       "é",
+       "ye in “yes”",
+       "ég"
+      ],
+      [
+       "í / ý",
+       "ee in “see”",
+       "níu"
+      ],
+      [
+       "ó",
+       "o in “go”",
+       "sól"
+      ],
+      [
+       "ú",
+       "oo in “food”",
+       "hús"
+      ],
+      [
+       "æ",
+       "i in “eye”",
+       "æfing"
+      ],
+      [
+       "ö",
+       "German ö / u in “fur”",
+       "sjö"
+      ],
+      [
+       "au",
+       "like French “œil” — öy",
+       "auga"
+      ],
+      [
+       "ei / ey",
+       "ay in “day”",
+       "nei"
+      ]
+     ]
+    },
+    {
+     "caption": "Consonant combinations",
+     "head": [
+      "Spelling",
+      "Said like",
+      "Example"
+     ],
+     "rows": [
+      [
+       "ll",
+       "tl",
+       "fjall"
+      ],
+      [
+       "hv",
+       "kv",
+       "hvað"
+      ],
+      [
+       "rn",
+       "rdn",
+       "barn"
+      ],
+      [
+       "nn (after á é í ó ú ý æ ei au)",
+       "dn",
+       "steinn"
+      ],
+      [
+       "fn",
+       "pn",
+       "nafn"
+      ],
+      [
+       "pp tt kk",
+       "h + p/t/k (pre-aspiration)",
+       "takk"
+      ],
+      [
+       "hl hr hn",
+       "breathy, voiceless l/r/n",
+       "hratt"
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "þrír",
+     "en": "three"
+    },
+    {
+     "is": "góður",
+     "en": "good"
+    },
+    {
+     "is": "fjall",
+     "en": "mountain"
+    },
+    {
+     "is": "hvað",
+     "en": "what"
+    },
+    {
+     "is": "takk",
+     "en": "thanks"
+    },
+    {
+     "is": "steinn",
+     "en": "stone"
+    },
+    {
+     "is": "nafn",
+     "en": "name"
+    },
+    {
+     "is": "auga",
+     "en": "eye"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "How is “hv” in hvað pronounced?",
+     "opts": [
+      "hw",
+      "kv",
+      "v",
+      "f"
+     ],
+     "a": 1,
+     "why": "hv is always kv: hvað ≈ kvath."
+    },
+    {
+     "q": "Where does stress fall in Icelandic words?",
+     "opts": [
+      "Last syllable",
+      "On the accented vowel",
+      "First syllable",
+      "It varies"
+     ],
+     "a": 2,
+     "why": "Always the first syllable. Accents mark vowel quality, not stress."
+    },
+    {
+     "q": "“ll” in fjall sounds most like…",
+     "opts": [
+      "l",
+      "y",
+      "tl",
+      "dl"
+     ],
+     "a": 2,
+     "why": "ll is a tl-like sound: fjatl."
+    },
+    {
+     "q": "Which letter never starts a word?",
+     "opts": [
+      "þ",
+      "ð",
+      "æ",
+      "ö"
+     ],
+     "a": 1,
+     "why": "ð only appears in the middle or end of words."
+    },
+    {
+     "q": "“á” sounds like…",
+     "opts": [
+      "a in father",
+      "ow in cow",
+      "ay in day",
+      "aw in saw"
+     ],
+     "a": 1,
+     "why": "á = ow, as in cow: já ≈ yow."
+    }
+   ]
+  },
+  {
+   "id": "vera",
+   "title": "2 · Pronouns & “að vera” (to be)",
+   "intro": "Icelandic has three genders for “they”: þeir (all men / masculine), þær (all women / feminine) and þau (mixed group or neuter). “Það” means “it” and is also used like English “there/it” (Það er kalt — It's cold).",
+   "tables": [
+    {
+     "caption": "að vera — to be (present)",
+     "head": [
+      "Person",
+      "Pronoun",
+      "Verb"
+     ],
+     "rows": [
+      [
+       "I",
+       "ég",
+       "er"
+      ],
+      [
+       "you (one)",
+       "þú",
+       "ert"
+      ],
+      [
+       "he / she / it",
+       "hann / hún / það",
+       "er"
+      ],
+      [
+       "we",
+       "við",
+       "erum"
+      ],
+      [
+       "you (several)",
+       "þið",
+       "eruð"
+      ],
+      [
+       "they",
+       "þeir / þær / þau",
+       "eru"
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "Ég er þreyttur.",
+     "en": "I am tired."
+    },
+    {
+     "is": "Hún er í Reykjavík.",
+     "en": "She is in Reykjavík."
+    },
+    {
+     "is": "Við erum frá Ameríku.",
+     "en": "We are from America."
+    },
+    {
+     "is": "Þau eru heima.",
+     "en": "They are at home."
+    },
+    {
+     "is": "Ert þú Íslendingur?",
+     "en": "Are you Icelandic?"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Við ___ glaðir.",
+     "opts": [
+      "er",
+      "erum",
+      "eru",
+      "eruð"
+     ],
+     "a": 1,
+     "why": "við → erum."
+    },
+    {
+     "q": "A mixed group of a man and a woman is…",
+     "opts": [
+      "þeir",
+      "þær",
+      "þau",
+      "þið"
+     ],
+     "a": 2,
+     "why": "Mixed groups use the neuter plural þau."
+    },
+    {
+     "q": "Þú ___ góður kennari.",
+     "opts": [
+      "ert",
+      "er",
+      "eruð",
+      "erum"
+     ],
+     "a": 0,
+     "why": "þú → ert."
+    },
+    {
+     "q": "“Það er kalt” means…",
+     "opts": [
+      "He is cold",
+      "It is cold",
+      "That is a cold",
+      "They are cold"
+     ],
+     "a": 1,
+     "why": "Það is used for weather and general statements."
+    }
+   ]
+  },
+  {
+   "id": "article",
+   "title": "3 · Gender & “the”",
+   "intro": "Every noun is masculine, feminine or neuter. There is no word for “a” — just leave it out. “The” is a suffix glued onto the end of the noun, and it changes with gender.",
+   "tables": [
+    {
+     "caption": "The definite suffix (nominative singular)",
+     "head": [
+      "Gender",
+      "a / indefinite",
+      "the / definite"
+     ],
+     "rows": [
+      [
+       "masculine",
+       "hestur (a horse)",
+       "hesturinn"
+      ],
+      [
+       "masculine",
+       "bíll (a car)",
+       "bíllinn"
+      ],
+      [
+       "feminine",
+       "kona (a woman)",
+       "konan"
+      ],
+      [
+       "feminine",
+       "búð (a shop)",
+       "búðin"
+      ],
+      [
+       "neuter",
+       "barn (a child)",
+       "barnið"
+      ],
+      [
+       "neuter",
+       "hús (a house)",
+       "húsið"
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "Hesturinn er stór.",
+     "en": "The horse is big."
+    },
+    {
+     "is": "Konan talar íslensku.",
+     "en": "The woman speaks Icelandic."
+    },
+    {
+     "is": "Húsið er gamalt.",
+     "en": "The house is old."
+    },
+    {
+     "is": "Þetta er bíll.",
+     "en": "This is a car."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "“The child” is…",
+     "opts": [
+      "barnin",
+      "barnið",
+      "barninn",
+      "barnan"
+     ],
+     "a": 1,
+     "why": "Neuter → -ið: barnið."
+    },
+    {
+     "q": "“The shop” (búð, f.) is…",
+     "opts": [
+      "búðið",
+      "búðinn",
+      "búðin",
+      "búðan"
+     ],
+     "a": 2,
+     "why": "Feminine → -in: búðin."
+    },
+    {
+     "q": "How do you say “a dog”?",
+     "opts": [
+      "einn hundur",
+      "hundur",
+      "hundurinn",
+      "a hundur"
+     ],
+     "a": 1,
+     "why": "No indefinite article — just hundur."
+    },
+    {
+     "q": "Masculine nouns take…",
+     "opts": [
+      "-inn",
+      "-in",
+      "-ið",
+      "-ann"
+     ],
+     "a": 0,
+     "why": "Masculine → -(i)nn: hesturinn."
+    }
+   ]
+  },
+  {
+   "id": "cases",
+   "title": "4 · The four cases",
+   "intro": "Nouns change their endings depending on their role in the sentence. Nominative is the subject. Accusative is most direct objects. Dative follows many verbs and prepositions. Genitive shows possession and follows a few prepositions like “til” (to). Prepositions decide the case — learn them as pairs.",
+   "tables": [
+    {
+     "caption": "One noun of each gender",
+     "head": [
+      "Case",
+      "hestur (m.)",
+      "kona (f.)",
+      "barn (n.)"
+     ],
+     "rows": [
+      [
+       "Nominative",
+       "hestur",
+       "kona",
+       "barn"
+      ],
+      [
+       "Accusative",
+       "hest",
+       "konu",
+       "barn"
+      ],
+      [
+       "Dative",
+       "hesti",
+       "konu",
+       "barni"
+      ],
+      [
+       "Genitive",
+       "hests",
+       "konu",
+       "barns"
+      ]
+     ]
+    },
+    {
+     "caption": "Prepositions and their case",
+     "head": [
+      "Preposition",
+      "Case",
+      "Example"
+     ],
+     "rows": [
+      [
+       "um (about)",
+       "accusative",
+       "um hestinn"
+      ],
+      [
+       "frá (from)",
+       "dative",
+       "frá Íslandi"
+      ],
+      [
+       "með (with)",
+       "dative (usually)",
+       "með mjólk"
+      ],
+      [
+       "til (to)",
+       "genitive",
+       "til Akureyrar"
+      ],
+      [
+       "í / á — where something is",
+       "dative",
+       "í Reykjavík, á Íslandi"
+      ],
+      [
+       "í / á — moving into/onto",
+       "accusative",
+       "í bæinn"
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "Ég sé hest.",
+     "en": "I see a horse. (accusative)"
+    },
+    {
+     "is": "Ég kem frá Íslandi.",
+     "en": "I come from Iceland. (dative)"
+    },
+    {
+     "is": "Við förum til Akureyrar.",
+     "en": "We're going to Akureyri. (genitive)"
+    },
+    {
+     "is": "Kaffi með mjólk, takk.",
+     "en": "Coffee with milk, please."
+    },
+    {
+     "is": "Ég bý á Íslandi.",
+     "en": "I live in Iceland."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Ég kem frá ___ (Ísland).",
+     "opts": [
+      "Ísland",
+      "Íslandi",
+      "Íslands",
+      "Íslandið"
+     ],
+     "a": 1,
+     "why": "frá takes dative: Íslandi."
+    },
+    {
+     "q": "Which case is the sentence subject?",
+     "opts": [
+      "Accusative",
+      "Dative",
+      "Genitive",
+      "Nominative"
+     ],
+     "a": 3,
+     "why": "The subject is nominative."
+    },
+    {
+     "q": "“til” takes which case?",
+     "opts": [
+      "Nominative",
+      "Accusative",
+      "Dative",
+      "Genitive"
+     ],
+     "a": 3,
+     "why": "til + genitive: til Akureyrar."
+    },
+    {
+     "q": "Ég sé ___ (hestur).",
+     "opts": [
+      "hestur",
+      "hest",
+      "hesti",
+      "hests"
+     ],
+     "a": 1,
+     "why": "að sjá takes an accusative object: hest."
+    }
+   ]
+  },
+  {
+   "id": "present",
+   "title": "5 · Present tense verbs",
+   "intro": "Most verbs follow a few regular patterns. Learn the infinitive (að tala) and the “ég” form, and the rest follows. Watch for a → ö in the “við” form of many verbs (tala → tölum).",
+   "tables": [
+    {
+     "caption": "Two common patterns",
+     "head": [
+      "Pronoun",
+      "að tala (speak)",
+      "að læra (learn)"
+     ],
+     "rows": [
+      [
+       "ég",
+       "tala",
+       "læri"
+      ],
+      [
+       "þú",
+       "talar",
+       "lærir"
+      ],
+      [
+       "hann/hún/það",
+       "talar",
+       "lærir"
+      ],
+      [
+       "við",
+       "tölum",
+       "lærum"
+      ],
+      [
+       "þið",
+       "talið",
+       "lærið"
+      ],
+      [
+       "þeir/þær/þau",
+       "tala",
+       "læra"
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "Ég tala smá íslensku.",
+     "en": "I speak a little Icelandic."
+    },
+    {
+     "is": "Við tölum ensku heima.",
+     "en": "We speak English at home."
+    },
+    {
+     "is": "Hún lærir íslensku.",
+     "en": "She is learning Icelandic."
+    },
+    {
+     "is": "Þið lærið hratt.",
+     "en": "You (pl.) learn quickly."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Við ___ íslensku. (tala)",
+     "opts": [
+      "talum",
+      "tölum",
+      "talar",
+      "talið"
+     ],
+     "a": 1,
+     "why": "a → ö before -um: tölum."
+    },
+    {
+     "q": "Þú ___ dönsku. (læra)",
+     "opts": [
+      "lærir",
+      "læri",
+      "lærið",
+      "læra"
+     ],
+     "a": 0,
+     "why": "þú → lærir."
+    },
+    {
+     "q": "Þau ___ mikið. (tala)",
+     "opts": [
+      "talar",
+      "tölum",
+      "tala",
+      "talið"
+     ],
+     "a": 2,
+     "why": "Plural they → tala."
+    }
+   ]
+  },
+  {
+   "id": "wordorder",
+   "title": "6 · Word order, questions, “ekki”",
+   "intro": "The verb is always the second element of a statement (V2). If you start with a time or place, the subject moves after the verb. Questions start with the verb. “Ekki” (not) goes right after the verb. In speech, “þú” after a verb merges into it: talar þú → talarðu.",
+   "tables": [
+    {
+     "caption": "Patterns",
+     "head": [
+      "Type",
+      "Example",
+      "Meaning"
+     ],
+     "rows": [
+      [
+       "Statement",
+       "Ég fer í sund í dag.",
+       "I'm going swimming today."
+      ],
+      [
+       "Starts with time (V2)",
+       "Í dag fer ég í sund.",
+       "Today I'm going swimming."
+      ],
+      [
+       "Yes/no question",
+       "Talarðu íslensku?",
+       "Do you speak Icelandic?"
+      ],
+      [
+       "Negation",
+       "Ég tala ekki íslensku.",
+       "I don't speak Icelandic."
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "Í dag fer ég í sund.",
+     "en": "Today I'm going swimming."
+    },
+    {
+     "is": "Talarðu íslensku?",
+     "en": "Do you speak Icelandic?"
+    },
+    {
+     "is": "Ég skil ekki.",
+     "en": "I don't understand."
+    },
+    {
+     "is": "Á morgun kemur hann.",
+     "en": "Tomorrow he comes."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Correct order: “Tomorrow I'll go”",
+     "opts": [
+      "Á morgun ég fer.",
+      "Á morgun fer ég.",
+      "Ég á morgun fer.",
+      "Fer á morgun ég."
+     ],
+     "a": 1,
+     "why": "Verb second: Á morgun fer ég."
+    },
+    {
+     "q": "Where does “ekki” go in “Ég skil”?",
+     "opts": [
+      "Ekki ég skil.",
+      "Ég ekki skil.",
+      "Ég skil ekki.",
+      "Skil ég ekki."
+     ],
+     "a": 2,
+     "why": "Right after the verb: Ég skil ekki."
+    },
+    {
+     "q": "“Do you understand?”",
+     "opts": [
+      "Þú skilur?",
+      "Skilurðu?",
+      "Skilur ekki?",
+      "Ert þú skilur?"
+     ],
+     "a": 1,
+     "why": "Verb first, þú merges: Skilurðu?"
+    }
+   ]
+  },
+  {
+   "id": "numbers",
+   "title": "7 · Numbers 1–4 have genders",
+   "intro": "Only 1–4 change form. They agree with the noun's gender. From five upward, numbers never change.",
+   "tables": [
+    {
+     "caption": "1–4 by gender (nominative)",
+     "head": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter"
+     ],
+     "rows": [
+      [
+       "1",
+       "einn",
+       "ein",
+       "eitt"
+      ],
+      [
+       "2",
+       "tveir",
+       "tvær",
+       "tvö"
+      ],
+      [
+       "3",
+       "þrír",
+       "þrjár",
+       "þrjú"
+      ],
+      [
+       "4",
+       "fjórir",
+       "fjórar",
+       "fjögur"
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "tveir bílar",
+     "en": "two cars"
+    },
+    {
+     "is": "tvær konur",
+     "en": "two women"
+    },
+    {
+     "is": "tvö börn",
+     "en": "two children"
+    },
+    {
+     "is": "þrjú epli",
+     "en": "three apples"
+    },
+    {
+     "is": "fimm hundar",
+     "en": "five dogs"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "___ börn (2, neuter)",
+     "opts": [
+      "tveir",
+      "tvær",
+      "tvö",
+      "tvo"
+     ],
+     "a": 2,
+     "why": "Neuter: tvö."
+    },
+    {
+     "q": "___ systur (3, feminine)",
+     "opts": [
+      "þrír",
+      "þrjár",
+      "þrjú",
+      "þrem"
+     ],
+     "a": 1,
+     "why": "Feminine: þrjár."
+    },
+    {
+     "q": "Which number never changes?",
+     "opts": [
+      "einn",
+      "fjórir",
+      "fimm",
+      "tveir"
+     ],
+     "a": 2,
+     "why": "Only 1–4 change; fimm is fixed."
+    }
+   ]
+  },
+  {
+   "id": "adjectives",
+   "title": "8 · Adjectives agree",
+   "intro": "Adjectives match the noun's gender, number and case. In the nominative, the pattern for most adjectives is: masculine -ur, feminine no ending, neuter -t.",
+   "tables": [
+    {
+     "caption": "góður (good), nominative",
+     "head": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter"
+     ],
+     "rows": [
+      [
+       "singular",
+       "góður maður",
+       "góð kona",
+       "gott barn"
+      ],
+      [
+       "plural",
+       "góðir menn",
+       "góðar konur",
+       "góð börn"
+      ]
+     ]
+    }
+   ],
+   "examples": [
+    {
+     "is": "góður maður",
+     "en": "a good man"
+    },
+    {
+     "is": "góð kona",
+     "en": "a good woman"
+    },
+    {
+     "is": "gott barn",
+     "en": "a good child"
+    },
+    {
+     "is": "Veðrið er gott.",
+     "en": "The weather is good."
+    },
+    {
+     "is": "Bíllinn er rauður.",
+     "en": "The car is red."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Veðrið (n.) er ___.",
+     "opts": [
+      "góður",
+      "góð",
+      "gott",
+      "góðir"
+     ],
+     "a": 2,
+     "why": "Neuter singular: gott."
+    },
+    {
+     "q": "___ kona",
+     "opts": [
+      "fallegur",
+      "falleg",
+      "fallegt",
+      "fallegir"
+     ],
+     "a": 1,
+     "why": "Feminine: falleg."
+    },
+    {
+     "q": "Hundurinn (m.) er ___.",
+     "opts": [
+      "svartur",
+      "svört",
+      "svart",
+      "svartar"
+     ],
+     "a": 0,
+     "why": "Masculine: svartur."
+    }
+   ]
+  }
+ ],
+ "reading": [
+  {
+   "id": "anna",
+   "title": "Ég heiti Anna",
+   "level": "A1",
+   "voice": "salka",
+   "sentences": [
+    {
+     "is": "Ég heiti Anna.",
+     "en": "My name is Anna."
+    },
+    {
+     "is": "Ég er þrjátíu ára og ég bý í Reykjavík.",
+     "en": "I am thirty years old and I live in Reykjavík."
+    },
+    {
+     "is": "Ég á einn bróður og eina systur.",
+     "en": "I have one brother and one sister."
+    },
+    {
+     "is": "Ég vinn á kaffihúsi í miðbænum.",
+     "en": "I work at a café downtown."
+    },
+    {
+     "is": "Á kvöldin les ég bækur og fer í sund.",
+     "en": "In the evenings I read books and go swimming."
+    },
+    {
+     "is": "Ég tala íslensku og ensku.",
+     "en": "I speak Icelandic and English."
+    }
+   ],
+   "glossary": [
+    {
+     "is": "ára",
+     "en": "years old"
+    },
+    {
+     "is": "ég á",
+     "en": "I have (own)"
+    },
+    {
+     "is": "ég vinn",
+     "en": "I work"
+    },
+    {
+     "is": "miðbænum",
+     "en": "downtown (dat.)"
+    },
+    {
+     "is": "á kvöldin",
+     "en": "in the evenings"
+    },
+    {
+     "is": "les",
+     "en": "read(s)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Where does Anna live?",
+     "opts": [
+      "Akureyri",
+      "Reykjavík",
+      "Selfoss",
+      "Ísafjörður"
+     ],
+     "a": 1
+    },
+    {
+     "q": "Where does she work?",
+     "opts": [
+      "At a bank",
+      "At a hotel",
+      "At a café",
+      "At a school"
+     ],
+     "a": 2
+    },
+    {
+     "q": "What does she do in the evenings?",
+     "opts": [
+      "Watches TV",
+      "Reads and swims",
+      "Cooks",
+      "Runs"
+     ],
+     "a": 1
+    }
+   ]
+  },
+  {
+   "id": "shop",
+   "title": "Í búðinni — At the shop",
+   "level": "A1",
+   "dialogue": true,
+   "sentences": [
+    {
+     "is": "Góðan daginn. Get ég aðstoðað?",
+     "en": "Good day. Can I help?",
+     "spk": "A"
+    },
+    {
+     "is": "Já, takk. Ég ætla að fá eitt brauð og mjólk.",
+     "en": "Yes, thanks. I'd like a loaf of bread and milk.",
+     "spk": "B"
+    },
+    {
+     "is": "Eitthvað fleira?",
+     "en": "Anything else?",
+     "spk": "A"
+    },
+    {
+     "is": "Já, áttu skyr?",
+     "en": "Yes, do you have skyr?",
+     "spk": "B"
+    },
+    {
+     "is": "Já, það er þarna við hliðina á ostinum.",
+     "en": "Yes, it's over there next to the cheese.",
+     "spk": "A"
+    },
+    {
+     "is": "Frábært. Hvað kostar þetta?",
+     "en": "Great. How much is this?",
+     "spk": "B"
+    },
+    {
+     "is": "Það eru átta hundruð og fimmtíu krónur.",
+     "en": "That's eight hundred and fifty krónur.",
+     "spk": "A"
+    },
+    {
+     "is": "Gjörðu svo vel.",
+     "en": "Here you go.",
+     "spk": "B"
+    },
+    {
+     "is": "Takk fyrir. Eigðu góðan dag!",
+     "en": "Thank you. Have a good day!",
+     "spk": "A"
+    }
+   ],
+   "glossary": [
+    {
+     "is": "aðstoðað",
+     "en": "help(ed)"
+    },
+    {
+     "is": "ég ætla að fá",
+     "en": "I'd like (lit. I intend to get)"
+    },
+    {
+     "is": "eitthvað fleira",
+     "en": "anything more"
+    },
+    {
+     "is": "áttu",
+     "en": "do you have (= átt þú)"
+    },
+    {
+     "is": "við hliðina á",
+     "en": "next to"
+    },
+    {
+     "is": "eigðu góðan dag",
+     "en": "have a good day"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What does B buy first?",
+     "opts": [
+      "Coffee and cake",
+      "Bread and milk",
+      "Fish",
+      "Cheese"
+     ],
+     "a": 1
+    },
+    {
+     "q": "Where is the skyr?",
+     "opts": [
+      "In the freezer",
+      "Next to the cheese",
+      "By the door",
+      "They're out"
+     ],
+     "a": 1
+    },
+    {
+     "q": "How much does it cost?",
+     "opts": [
+      "580 kr.",
+      "850 kr.",
+      "1,850 kr.",
+      "8,500 kr."
+     ],
+     "a": 1
+    }
+   ]
+  },
+  {
+   "id": "weather",
+   "title": "Veðrið á Íslandi",
+   "level": "A2",
+   "voice": "steinn",
+   "sentences": [
+    {
+     "is": "Veðrið á Íslandi breytist mjög hratt.",
+     "en": "The weather in Iceland changes very quickly."
+    },
+    {
+     "is": "Á morgnana getur verið sól, en eftir hádegi kemur oft rigning og vindur.",
+     "en": "In the mornings it can be sunny, but in the afternoon rain and wind often come."
+    },
+    {
+     "is": "Á veturna er dimmt og kalt, en þá sjást stundum norðurljósin.",
+     "en": "In winter it is dark and cold, but then the northern lights are sometimes seen."
+    },
+    {
+     "is": "Á sumrin er bjart allan sólarhringinn.",
+     "en": "In summer it is light around the clock."
+    },
+    {
+     "is": "Íslendingar segja: Ef þér líkar ekki veðrið, bíddu þá í fimm mínútur.",
+     "en": "Icelanders say: If you don't like the weather, wait five minutes."
+    }
+   ],
+   "glossary": [
+    {
+     "is": "breytist",
+     "en": "changes"
+    },
+    {
+     "is": "hratt",
+     "en": "quickly"
+    },
+    {
+     "is": "eftir hádegi",
+     "en": "in the afternoon"
+    },
+    {
+     "is": "dimmt",
+     "en": "dark"
+    },
+    {
+     "is": "sjást",
+     "en": "are seen"
+    },
+    {
+     "is": "sólarhringinn",
+     "en": "the 24-hour day"
+    },
+    {
+     "is": "bíddu",
+     "en": "wait (imperative)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "How does Icelandic weather change?",
+     "opts": [
+      "Slowly",
+      "Very quickly",
+      "Only in winter",
+      "Never"
+     ],
+     "a": 1
+    },
+    {
+     "q": "When can you sometimes see the northern lights?",
+     "opts": [
+      "Summer mornings",
+      "In winter",
+      "In the afternoon rain",
+      "Never"
+     ],
+     "a": 1
+    },
+    {
+     "q": "How long should you wait if you don't like the weather?",
+     "opts": [
+      "Five minutes",
+      "One hour",
+      "A day",
+      "A week"
+     ],
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "akureyri",
+   "title": "Ferð til Akureyrar",
+   "level": "A2",
+   "voice": "bui",
+   "sentences": [
+    {
+     "is": "Á laugardaginn fórum við til Akureyrar.",
+     "en": "On Saturday we went to Akureyri."
+    },
+    {
+     "is": "Við keyrðum norður í fimm klukkutíma.",
+     "en": "We drove north for five hours."
+    },
+    {
+     "is": "Á leiðinni stoppuðum við í Borgarnesi og fengum okkur kaffi.",
+     "en": "On the way we stopped in Borgarnes and had some coffee."
+    },
+    {
+     "is": "Akureyri er fallegur bær við Eyjafjörð.",
+     "en": "Akureyri is a beautiful town on Eyjafjörður."
+    },
+    {
+     "is": "Við borðuðum ís og gengum um bæinn.",
+     "en": "We ate ice cream and walked around the town."
+    },
+    {
+     "is": "Á sunnudaginn fórum við í sund.",
+     "en": "On Sunday we went swimming."
+    }
+   ],
+   "glossary": [
+    {
+     "is": "fórum",
+     "en": "went (we)"
+    },
+    {
+     "is": "keyrðum",
+     "en": "drove (we)"
+    },
+    {
+     "is": "á leiðinni",
+     "en": "on the way"
+    },
+    {
+     "is": "fengum okkur",
+     "en": "got ourselves / had"
+    },
+    {
+     "is": "gengum",
+     "en": "walked (we)"
+    },
+    {
+     "is": "ís",
+     "en": "ice cream"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "How long was the drive?",
+     "opts": [
+      "Two hours",
+      "Five hours",
+      "Eight hours",
+      "One day"
+     ],
+     "a": 1
+    },
+    {
+     "q": "Where did they stop for coffee?",
+     "opts": [
+      "Selfoss",
+      "Borgarnes",
+      "Húsavík",
+      "Vík"
+     ],
+     "a": 1
+    },
+    {
+     "q": "What did they do on Sunday?",
+     "opts": [
+      "Drove home",
+      "Went swimming",
+      "Went to church",
+      "Ate fish"
+     ],
+     "a": 1
+    }
+   ]
+  },
+  {
+   "id": "jol",
+   "title": "Jólasveinarnir — The Yule Lads",
+   "level": "A2",
+   "voice": "ugla",
+   "sentences": [
+    {
+     "is": "Á Íslandi eru þrettán jólasveinar.",
+     "en": "In Iceland there are thirteen Yule Lads."
+    },
+    {
+     "is": "Þeir búa uppi í fjöllum með Grýlu og Leppalúða.",
+     "en": "They live up in the mountains with Grýla and Leppalúði."
+    },
+    {
+     "is": "Síðustu þrettán dagana fyrir jól kemur einn jólasveinn til byggða á hverri nóttu.",
+     "en": "During the last thirteen days before Christmas, one Yule Lad comes down to town each night."
+    },
+    {
+     "is": "Börnin setja skó út í glugga.",
+     "en": "The children put a shoe in the window."
+    },
+    {
+     "is": "Góð börn fá eitthvað lítið í skóinn, en óþæg börn fá kartöflu.",
+     "en": "Good children get a little something in the shoe, but naughty children get a potato."
+    }
+   ],
+   "glossary": [
+    {
+     "is": "þrettán",
+     "en": "thirteen"
+    },
+    {
+     "is": "jólasveinn",
+     "en": "Yule Lad"
+    },
+    {
+     "is": "til byggða",
+     "en": "to inhabited areas"
+    },
+    {
+     "is": "á hverri nóttu",
+     "en": "every night"
+    },
+    {
+     "is": "skóinn",
+     "en": "the shoe (acc.)"
+    },
+    {
+     "is": "óþæg",
+     "en": "naughty"
+    },
+    {
+     "is": "kartafla / kartöflu",
+     "en": "potato"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "How many Yule Lads are there?",
+     "opts": [
+      "Nine",
+      "Twelve",
+      "Thirteen",
+      "Twenty-four"
+     ],
+     "a": 2
+    },
+    {
+     "q": "Where do they live?",
+     "opts": [
+      "In the sea",
+      "Up in the mountains",
+      "In Reykjavík",
+      "Under the church"
+     ],
+     "a": 1
+    },
+    {
+     "q": "What do naughty children get?",
+     "opts": [
+      "Coal",
+      "Nothing",
+      "A potato",
+      "A fish"
+     ],
+     "a": 2
+    }
+   ]
+  }
+ ],
+ "sentences": [
+  {
+   "is": "Ég tala smá íslensku.",
+   "en": "I speak a little Icelandic."
+  },
+  {
+   "is": "Geturðu talað hægar?",
+   "en": "Can you speak more slowly?"
+  },
+  {
+   "is": "Hvað kostar þetta?",
+   "en": "How much does this cost?"
+  },
+  {
+   "is": "Hvar er klósettið?",
+   "en": "Where is the toilet?"
+  },
+  {
+   "is": "Ég skil ekki.",
+   "en": "I don't understand."
+  },
+  {
+   "is": "Ég er frá Bandaríkjunum.",
+   "en": "I'm from the United States."
+  },
+  {
+   "is": "Mig langar í kaffi.",
+   "en": "I'd like some coffee."
+  },
+  {
+   "is": "Hvernig segir maður þetta á íslensku?",
+   "en": "How do you say this in Icelandic?"
+  },
+  {
+   "is": "Veðrið er gott í dag.",
+   "en": "The weather is good today."
+  },
+  {
+   "is": "Það er kalt úti.",
+   "en": "It's cold outside."
+  },
+  {
+   "is": "Ég bý í litlum bæ.",
+   "en": "I live in a small town."
+  },
+  {
+   "is": "Hvað heitir þú?",
+   "en": "What's your name?"
+  },
+  {
+   "is": "Gaman að kynnast þér.",
+   "en": "Nice to meet you."
+  },
+  {
+   "is": "Ég ætla að fara í sund.",
+   "en": "I'm going to go swimming."
+  },
+  {
+   "is": "Má ég fá reikninginn?",
+   "en": "May I have the bill?"
+  },
+  {
+   "is": "Ég á tvo hunda.",
+   "en": "I have two dogs."
+  },
+  {
+   "is": "Klukkan hvað opnar búðin?",
+   "en": "What time does the shop open?"
+  },
+  {
+   "is": "Ég er svangur.",
+   "en": "I'm hungry. (said by a man; svöng for a woman)"
+  },
+  {
+   "is": "Sjáumst á morgun.",
+   "en": "See you tomorrow."
+  },
+  {
+   "is": "Hvar er stoppistöðin?",
+   "en": "Where is the bus stop?"
+  },
+  {
+   "is": "Ég elska Ísland.",
+   "en": "I love Iceland."
+  },
+  {
+   "is": "Takk fyrir matinn.",
+   "en": "Thanks for the food."
+  },
+  {
+   "is": "Hvað er klukkan?",
+   "en": "What time is it?"
+  },
+  {
+   "is": "Ég er að læra íslensku.",
+   "en": "I'm learning Icelandic."
+  }
+ ],
+ "drills": [
+  {
+   "sound": "þ",
+   "tip": "Tongue between teeth, breathy — the th in “think”.",
+   "words": [
+    "þak",
+    "þrír",
+    "það"
+   ]
+  },
+  {
+   "sound": "ð",
+   "tip": "Voiced th, as in “this”. Soft and buzzy.",
+   "words": [
+    "góður",
+    "maður",
+    "bað"
+   ]
+  },
+  {
+   "sound": "ll",
+   "tip": "Say a quick t, then let air escape past the sides of your tongue: fjatl.",
+   "words": [
+    "fjall",
+    "allt",
+    "Halla"
+   ]
+  },
+  {
+   "sound": "hv",
+   "tip": "Always kv: hvað ≈ kvath.",
+   "words": [
+    "hvað",
+    "hvar",
+    "hvalur"
+   ]
+  },
+  {
+   "sound": "au",
+   "tip": "Round your lips: start at ö, glide to y — öy.",
+   "words": [
+    "auga",
+    "haust",
+    "sauður"
+   ]
+  },
+  {
+   "sound": "á",
+   "tip": "ow, as in “cow”.",
+   "words": [
+    "já",
+    "ár",
+    "bátur"
+   ]
+  },
+  {
+   "sound": "æ",
+   "tip": "eye, as in “I”.",
+   "words": [
+    "æfing",
+    "sæti",
+    "bær"
+   ]
+  },
+  {
+   "sound": "ö",
+   "tip": "Lips rounded, tongue forward — like the u in “fur”.",
+   "words": [
+    "sjö",
+    "köttur",
+    "börn"
+   ]
+  },
+  {
+   "sound": "pp tt kk",
+   "tip": "Pre-aspiration: a little h before the stop. takk ≈ tahk.",
+   "words": [
+    "takk",
+    "hattur",
+    "þakka"
+   ]
+  },
+  {
+   "sound": "rn / nn",
+   "tip": "rn → rdn, and nn after a long vowel → dn: barn ≈ bardn, steinn ≈ steidn.",
+   "words": [
+    "barn",
+    "steinn",
+    "fínn"
+   ]
+  },
+  {
+   "sound": "hl hr hn",
+   "tip": "Breathe out through the l / r / n — no voice.",
+   "words": [
+    "hlaupa",
+    "hratt",
+    "hnífur"
+   ]
+  },
+  {
+   "sound": "r",
+   "tip": "Tapped or trilled, never the English r.",
+   "words": [
+    "rigning",
+    "Reykjavík",
+    "rauður"
+   ]
+  }
+ ]
+}

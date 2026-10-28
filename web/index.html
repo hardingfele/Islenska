@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Íslenska — Learn Icelandic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1d33; --ink2:#43506a; --mute:#7a8599; --line:#e2e7ef; --bg:#f4f6fa; --card:#fff;
+  --blue:#02529c; --blue2:#0b6fc9; --ice:#e6f0fb; --red:#dc1e35; --red-soft:#fde8eb;
+  --good:#1d8a5a; --good-soft:#e3f5ec; --warn:#c77700; --warn-soft:#fff3dc;
+  --r:16px; --shadow:0 1px 2px rgba(15,29,51,.06),0 4px 14px rgba(15,29,51,.06);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 Inter,system-ui,sans-serif}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;margin:0;letter-spacing:-.01em}
+.app{max-width:720px;margin:0 auto;min-height:100vh;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+header.top{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,var(--blue) 0%,#013f7a 100%);color:#fff;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 12px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand h1{font-size:22px}
+.brand .flag{display:inline-block;width:22px;height:16px;border-radius:3px;vertical-align:-2px;margin-right:8px;
+  background:linear-gradient(90deg,transparent 30%,#fff 30%,#fff 33%,var(--red) 33%,var(--red) 40%,#fff 40%,#fff 43%,transparent 43%),
+  linear-gradient(0deg,#02529c 37%,#fff 37%,#fff 42%,var(--red) 42%,var(--red) 58%,#fff 58%,#fff 63%,#02529c 63%)}
+.iconbtn{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14)}
+.voices{display:flex;gap:6px;margin-top:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.voices::-webkit-scrollbar{display:none}
+.vchip{flex:0 0 auto;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.12);color:#dbe8f7;font-size:13.5px;font-weight:600;white-space:nowrap}
+.vchip small{opacity:.75;font-weight:500;margin-left:3px}
+.vchip.on{background:#fff;color:var(--blue)}
+.speed{flex:0 0 auto;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#fff;font-size:13px;font-weight:600}
+main{padding:16px}
+.crumbs{display:flex;align-items:center;gap:6px;margin:0 0 12px;color:var(--mute);font-size:14px}
+.crumbs button{color:var(--blue2);font-weight:600;padding:4px 0}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;margin-bottom:12px}
+.list{display:grid;gap:10px}
+.row{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px;text-align:left;width:100%}
+.row .t{flex:1;min-width:0}
+.row .t b{display:block;font-weight:600}
+.row .t span{color:var(--mute);font-size:13.5px}
+.row .chev{color:var(--mute);font-size:20px}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--ice);color:var(--blue)}
+.bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--good);border-radius:6px}
+.sectiontitle{font-size:24px;margin:2px 0 4px}
+.lede{color:var(--ink2);margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;font-weight:600;background:var(--ice);color:var(--blue)}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.red{background:var(--red);color:#fff}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink2)}
+.btn.block{width:100%}
+.btn:disabled{opacity:.45}
+.btn svg{width:15px;height:15px;flex:0 0 15px}
+.play .slowtxt{font-size:12.5px;font-weight:700}
+.listenbig .play .slowtxt{font-size:16px}
+.brand .right{display:flex;gap:8px;align-items:center}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btns .btn{flex:1}
+.play{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;background:var(--ice);color:var(--blue)}
+.play.sm{width:32px;height:32px;flex-basis:32px}
+.play.playing{background:var(--blue);color:#fff}
+.play svg{width:16px;height:16px}
+.is{font-weight:600}
+.en{color:var(--ink2)}
+.note{color:var(--mute);font-size:13px}
+/* flashcard */
+.flash{min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;cursor:pointer}
+.flash .big{font-family:Fraunces,serif;font-size:36px;font-weight:700;line-height:1.15}
+.flash .meaning{font-size:20px;color:var(--ink2)}
+.flash .hint{color:var(--mute);font-size:13px}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.grade .btn{flex-direction:column;gap:0;padding:10px}
+.grade small{font-weight:500;opacity:.75;font-size:12px}
+.tabs{display:flex;gap:6px;background:var(--line);padding:4px;border-radius:12px;margin-bottom:12px}
+.tabs button{flex:1;padding:8px;border-radius:9px;font-weight:600;font-size:14px;color:var(--ink2)}
+.tabs button.on{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+/* quiz */
+.q{font-size:18px;font-weight:600;margin:0 0 12px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:500}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)}
+.why{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--ice);color:var(--ink2);font-size:14.5px}
+.progress{display:flex;justify-content:space-between;color:var(--mute);font-size:13px;margin-bottom:8px}
+/* grammar */
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute)}
+.tablewrap{overflow-x:auto;margin:0 -4px}
+caption{text-align:left;font-weight:700;padding:0 6px 6px;font-size:14px}
+.ex{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.ex:last-child{border:0}
+/* reading */
+.passage .sent{display:inline;padding:2px 1px;border-radius:5px;cursor:pointer;transition:background .2s}
+.passage .sent.hl{background:#ffe9a8}
+.passage p{font-size:18px;line-height:1.7;margin:0}
+.dline{display:flex;gap:10px;align-items:flex-start;padding:8px 0}
+.dline .who{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff;background:var(--blue)}
+.dline.B .who{background:var(--red)}
+.dline .txt{flex:1}
+.dline.hl .txt .is{background:#ffe9a8;border-radius:4px}
+.tr{display:block;color:var(--ink2);font-size:14.5px;margin-top:2px}
+.gloss{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14.5px}
+.gloss b{font-weight:600}
+/* listening */
+.listenbig{display:flex;justify-content:center;gap:14px;margin:6px 0 14px}
+.listenbig .play{width:72px;height:72px;flex-basis:72px}
+.listenbig .play svg{width:26px;height:26px}
+input.answer{width:100%;font:inherit;font-size:18px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);outline:none}
+input.answer:focus{border-color:var(--blue2)}
+.keys{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.keys button{min-width:38px;padding:8px 10px;border-radius:9px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:16px}
+.diff span{padding:1px 3px;border-radius:4px;margin-right:2px}
+.diff .ok{background:var(--good-soft);color:var(--good)}
+.diff .near{background:var(--warn-soft);color:var(--warn)}
+.diff .bad{background:var(--red-soft);color:var(--red);text-decoration:line-through}
+.diff .miss{background:var(--red-soft);color:var(--red)}
+/* speaking */
+.target{font-family:Fraunces,serif;font-size:28px;font-weight:700;text-align:center;margin:6px 0 2px;line-height:1.2}
+.target .ch{transition:color .3s}
+.target-en{text-align:center;color:var(--ink2);margin-bottom:14px}
+.rec{width:84px;height:84px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(220,30,53,.35)}
+.rec.on{animation:pulse 1.2s infinite}
+.rec svg{width:30px;height:30px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(220,30,53,.5)}70%{box-shadow:0 0 0 18px rgba(220,30,53,0)}100%{box-shadow:0 0 0 0 rgba(220,30,53,0)}}
+.recrow{display:flex;align-items:center;justify-content:center;gap:18px;margin:8px 0}
+.score{display:flex;align-items:center;gap:16px;margin-top:14px;padding:14px;border-radius:14px;background:var(--bg)}
+.ring{--p:0;width:78px;height:78px;flex:0 0 78px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--c,var(--good)) calc(var(--p)*1%),var(--line) 0)}
+.ring b{width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:22px;font-family:Fraunces,serif}
+.score .fb{flex:1;font-size:14.5px;color:var(--ink2)}
+.score .fb strong{color:var(--ink);display:block;font-size:16px}
+.segs{display:flex;gap:3px;margin-top:8px}
+.segs i{flex:1;height:8px;border-radius:3px}
+.upload{display:block;text-align:center;font-size:14px;color:var(--blue2);font-weight:600;margin-top:6px}
+.upload input{display:none}
+.notice{font-size:13.5px;color:var(--ink2);background:var(--warn-soft);border-radius:12px;padding:10px 12px;margin-bottom:12px}
+/* nav */
+nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+nav.bottom .in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(var(--n,4),1fr)}
+nav.bottom button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;color:var(--mute);font-size:11.5px;font-weight:600}
+nav.bottom button svg{width:23px;height:23px}
+nav.bottom button.on{color:var(--blue)}
+nav.bottom .ic{font-size:11px;font-weight:500;opacity:.8}
+/* sheet */
+.sheet{position:fixed;inset:0;z-index:50;background:rgba(15,29,51,.45);display:none;align-items:flex-end;justify-content:center}
+.sheet.open{display:flex}
+.sheet .panel{background:#fff;width:100%;max-width:720px;max-height:85vh;overflow:auto;border-radius:20px 20px 0 0;padding:20px 18px calc(24px + env(safe-area-inset-bottom))}
+.sheet h3{font-size:20px;margin-bottom:8px}
+.sheet p{color:var(--ink2);font-size:15px}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 14px;border-radius:12px;font-size:14px;z-index:60;opacity:0;transition:opacity .25s;pointer-events:none;max-width:90vw}
+.toast.show{opacity:1}
+.loading{color:var(--mute);font-size:13px;text-align:center;padding:4px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <h1><span class="flag"></span>Íslenska</h1>
+      <div class="right"><button class="speed" id="speedBtn" aria-label="Playback speed"></button><button class="iconbtn" id="infoBtn" aria-label="About voices and scoring">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
+      </button></div>
+    </div>
+    <div class="voices" id="voices"></div>
+  </header>
+  <main id="main"></main>
+</div>
+<nav class="bottom"><div class="in" id="nav"></div></nav>
+<div class="sheet" id="sheet"><div class="panel" id="sheetPanel"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="scorer.js"></script>
+<script>
+let C = null, IDS = null, SC = null, REACT = [];
+const VOICES = [
+  {id:"salka", name:"Salka", g:"♀"},
+  {id:"ugla", name:"Ugla", g:"♀"},
+  {id:"hekla", name:"Hekla", g:"♀", variant:true},
+  {id:"bui", name:"Búi", g:"♂"},
+  {id:"steinn", name:"Steinn", g:"♂"},
+];
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ICON = {
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>',
+  stop:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>',
+  mic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+  slow:'<span class="slowtxt">0.7×</span>',
+};
+
+/* ---------- storage (best effort, this browser only) ---------- */
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem("isl_"+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem("isl_"+k, JSON.stringify(v)); }catch(e){} }
+};
+let state = { voice: store.get("voice","salka"), slow: store.get("slow",false) };
+
+/* ---------- audio ---------- */
+const packs = {}; const packLoading = {};
+function loadPack(v){
+  if (packs[v]) return Promise.resolve(packs[v]);
+  if (!packLoading[v]) packLoading[v] = fetch("audio/"+v+".json").then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(j => (packs[v] = j)).catch(e => { delete packLoading[v]; throw e; });
+  return packLoading[v];
+}
+const player = new Audio(); player.preload = "auto";
+let playingBtn = null, playToken = 0;
+function stopAudio(){ playToken++; player.pause(); if (playingBtn) playingBtn.classList.remove("playing"); playingBtn = null; }
+async function say(text, opts={}){
+  const v = opts.voice || state.voice, id = IDS[text];
+  if (!id) return;
+  const my = ++playToken;
+  player.pause();
+  if (playingBtn) playingBtn.classList.remove("playing");
+  playingBtn = opts.btn || null; if (playingBtn) playingBtn.classList.add("playing");
+  try {
+    const p = packs[v] || await loadPack(v);
+    if (my !== playToken) return;
+    player.src = "data:audio/mpeg;base64," + p[id];
+    player.playbackRate = (opts.rate) || (state.slow ? 0.75 : 1);
+    player.preservesPitch = true;
+    await player.play();
+    await new Promise(res => { player.onended = res; player.onpause = res; });
+  } catch(e) {
+    if (my === playToken) toast("Couldn't play audio — tap again.");
+  } finally {
+    if (my === playToken && playingBtn) { playingBtn.classList.remove("playing"); playingBtn = null; }
+  }
+  return my === playToken;
+}
+function playBtn(text, cls="", voice=""){ return `<button class="play ${cls}" data-say="${esc(text)}" ${voice?`data-voice="${voice}"`:""} aria-label="Play">${ICON.play}</button>`; }
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-say]");
+  if (b) { e.stopPropagation(); say(b.dataset.say, {btn:b, voice:b.dataset.voice||undefined}); }
+}, true);
+
+/* decoded reference features for scoring */
+let actx = null;
+function ctx(){ if(!actx) actx = new (window.AudioContext||window.webkitAudioContext)(); return actx; }
+const featCache = {};
+function b64ToBuf(b64){ const s = atob(b64), u = new Uint8Array(s.length); for (let i=0;i<s.length;i++) u[i]=s.charCodeAt(i); return u.buffer; }
+async function decode(buf){ return await new Promise((res,rej)=>{ const p = ctx().decodeAudioData(buf, res, rej); if (p && p.then) p.then(res, rej); }); }
+async function refFeats(v, text){
+  const key = v+"|"+text; if (featCache[key]) return featCache[key];
+  const p = packs[v] || await loadPack(v);
+  const ab = await decode(b64ToBuf(p[IDS[text]]));
+  const f = Scorer.mfcc(ab.getChannelData(0), ab.sampleRate);
+  return (featCache[key] = {name:v, ...f});
+}
+
+/* ---------- ui helpers ---------- */
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),2600); }
+function sheet(html){ $("#sheetPanel").innerHTML = html + `<div style="margin-top:16px"><button class="btn primary block" data-close>Close</button></div>`; $("#sheet").classList.add("open"); }
+$("#sheet").addEventListener("click", e => { if (e.target.id==="sheet" || e.target.closest("[data-close]")) $("#sheet").classList.remove("open"); });
+function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+const norm = s => s.toLowerCase().replace(/[.,!?;:„“”"«»—–\-]/g," ").replace(/\s+/g," ").trim();
+const strip = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/þ/g,"th").replace(/ð/g,"d").replace(/æ/g,"ae").replace(/ö/g,"o");
+
+function renderVoices(){
+  $("#voices").innerHTML = VOICES.map(v => `<button class="vchip ${v.id===state.voice?"on":""}" data-v="${v.id}">${v.name}<small>${v.g}</small></button>`).join("");
+  $("#speedBtn").textContent = state.slow ? "Speed 0.75×" : "Speed 1×";
+}
+$("#voices").addEventListener("click", e => {
+  const b = e.target.closest("[data-v]");
+  if (b) { state.voice = b.dataset.v; store.set("voice", state.voice); renderVoices(); loadPack(state.voice).catch(()=>{});
+    const v = VOICES.find(x=>x.id===state.voice); toast(`Voice: ${v.name}${v.variant?" (pitch-shifted Salka)":""}`); return; }
+});
+$("#speedBtn").onclick = () => { state.slow = !state.slow; store.set("slow", state.slow); renderVoices(); };
+function showAbout(){ sheet(`
+  <h3>About the voices</h3>
+  <p>Salka, Ugla, Búi and Steinn are open-source Icelandic voices from the Piper project, trained on the Talrómur recordings. <b>Hekla is not a separate speaker</b> — she's Salka pitch-shifted up, so you hear a third female timbre.</p>
+  <p>They're synthetic. They sound natural on most words but can stumble on rare words or odd stress. Treat them as a good guide, not gospel. Switch voices often: hearing several speakers trains your ear faster.</p>
+  <h3 style="margin-top:14px">How pronunciation is scored</h3>
+  <p><b>Sound match</b> compares the acoustic shape of your recording with all five voices saying the same thing (MFCC features and dynamic time warping), after adjusting for voice pitch and length. The coloured bar shows which part of the phrase matched least.</p>
+  <p><b>Word check</b> (Chrome only, with live mic) also runs your speech through Google's Icelandic speech recognition and checks you said the right words.</p>
+  <p>Be realistic: sound match is a rough score. It works better on whole phrases than single words, and a quiet room helps a lot. Use it to compare your own attempts over time, not as a certificate.</p>
+  <h3 style="margin-top:14px">Recording</h3>
+  <p>${MIC_NOTE}</p>
+  <h3 style="margin-top:14px">Credits</h3>
+  <p>Voices Búi, Salka, Steinn and Ugla: Piper voice models trained on the Talrómur corpus (Language and Voice Lab, Reykjavík University), licensed CC BY 4.0. Hekla is derived from Salka. Speech engine: Piper. Course content: original.</p>`); }
+$("#infoBtn").onclick = showAbout;
+
+/* ---------- navigation ---------- */
+const SECTIONS = [ // reference sections (the original course)
+  {id:"vocab", is:"Orð", en:"Vocabulary", d:"132 words by topic, flashcards and quizzes", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="5" width="13" height="15" rx="2"/><path d="M8 3h11a1 1 0 0 1 1 1v14"/></svg>'},
+  {id:"grammar", is:"Málfræði", en:"Grammar", d:"8 short lessons with tables and checks", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2"/><path d="M8 8h6M8 12h4"/></svg>'},
+  {id:"reading", is:"Lestur", en:"Reading", d:"5 short texts with audio and questions", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6c3-1.5 6-1.5 9 0v13c-3-1.5-6-1.5-9 0zM21 6c-3-1.5-6-1.5-9 0v13c3-1.5 6-1.5 9 0z"/></svg>'},
+  {id:"listening", is:"Hlustun", en:"Listening", d:"Dictation and comprehension drills", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>'},
+  {id:"speaking", is:"Tal", en:"Speaking", d:"Phrases, tricky sounds, role-play", icon:ICON.mic},
+];
+const TABS = [
+  {id:"journey", is:"Ferðin", en:"Journey", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-14 4 8 3-5 6 11z"/></svg>'},
+  {id:"review", is:"Upprifjun", en:"Review", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></svg>'},
+  {id:"chat", is:"Spjall", en:"Chat", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>'},
+  {id:"ref", is:"Uppfletting", en:"Reference", icon:SECTIONS[0].icon},
+];
+let route = {s: store.get("tab","journey"), ref:null, sub:null};
+if (!TABS.some(t=>t.id===route.s)) route.s = "journey";
+function renderNav(){
+  $("#nav").style.setProperty("--n", TABS.length);
+  $("#nav").innerHTML = TABS.map(s => `<button class="${route.s===s.id?"on":""}" data-sec="${s.id}">${s.icon}<span>${s.en}</span><span class="ic">${s.is}</span></button>`).join("");
+}
+$("#nav").addEventListener("click", e => { const b = e.target.closest("[data-sec]"); if (b) go(b.dataset.sec); });
+function go(s, ref=null){ stopAudio(); stopRecording(true); route = {s, ref, sub:null}; store.set("tab", s); renderNav(); render(); window.scrollTo(0,0); }
+function crumbs(label){
+  const parent = route.ref ? SECTIONS.find(x=>x.id===route.ref).en : TABS.find(x=>x.id===route.s).en;
+  return `<div class="crumbs"><button data-back>‹ ${esc(parent)}</button><span>/ ${esc(label)}</span></div>`;
+}
+$("#main").addEventListener("click", e => {
+  if (!e.target.closest("[data-back]")) return;
+  stopAudio(); stopRecording(true);
+  if (route.sub != null) route.sub = null; else route.ref = null;
+  render(); window.scrollTo(0,0);
+});
+function render(){
+  if (route.s === "ref") {
+    if (!route.ref) return RefHome();
+    ({vocab:Vocab, grammar:Grammar, reading:Reading, listening:Listening, speaking:Speaking})[route.ref]();
+    if (route.sub == null) $("#main").insertAdjacentHTML("afterbegin", `<div class="crumbs"><button data-back>‹ Reference</button></div>`);
+    return;
+  }
+  ({journey:Journey, review:Review, chat:Chat})[route.s]();
+}
+function RefHome(){
+  $("#main").innerHTML = `<h2 class="sectiontitle">Reference</h2><p class="lede">The full course material, for when you want to dig into one skill.</p>
+    <div class="list">${SECTIONS.map(s=>`<button class="row" data-ref="${s.id}"><span class="play" style="pointer-events:none">${s.icon}</span><div class="t"><b>${s.en} <span class="note">· ${s.is}</span></b><span>${s.d}</span></div><span class="chev">›</span></button>`).join("")}</div>
+    <button class="row" id="credits" style="margin-top:10px"><div class="t"><b>About &amp; credits</b><span>Voices, licences, how scoring works</span></div><span class="chev">›</span></button>`;
+  $("#main").querySelectorAll("[data-ref]").forEach(b => b.onclick = () => { route.ref = b.dataset.ref; route.sub = null; render(); window.scrollTo(0,0); });
+  $("#credits").onclick = showAbout;
+}
+
+/* ================= VOCAB ================= */
+// Leitner boxes: 0 new … 4 known
+function box(w){ return store.get("box",{})[w] || 0; }
+function setBox(w,b){ const m = store.get("box",{}); m[w]=b; store.set("box",m); }
+function Vocab(){
+  const m = $("#main");
+  if (route.sub == null) {
+    let total=0, known=0;
+    const rows = C.vocab.map((c,i) => {
+      const k = c.items.filter(x=>box(x.is)>=3).length; total+=c.items.length; known+=k;
+      const [is,en] = c.cat.split(" — ");
+      return `<button class="row" data-cat="${i}"><div class="t"><b>${esc(en)}</b><span>${esc(is)} · ${k}/${c.items.length} learned</span><div class="bar"><i style="width:${Math.round(100*k/c.items.length)}%"></i></div></div><span class="chev">›</span></button>`;
+    }).join("");
+    m.innerHTML = `<h2 class="sectiontitle">Vocabulary</h2><p class="lede">${known} of ${total} words learned. Flashcards bring back the words you miss more often.</p><div class="list">${rows}</div>`;
+    m.querySelectorAll("[data-cat]").forEach(b => b.onclick = () => { route.sub = {cat:+b.dataset.cat, mode:"cards"}; Vocab(); });
+    return;
+  }
+  const cat = C.vocab[route.sub.cat], [catIs, catEn] = cat.cat.split(" — ");
+  const mode = route.sub.mode;
+  m.innerHTML = crumbs(catEn) + `<div class="tabs">${["cards","quiz","list"].map(x=>`<button class="${mode===x?"on":""}" data-mode="${x}">${{cards:"Flashcards",quiz:"Quiz",list:"Word list"}[x]}</button>`).join("")}</div><div id="vbody"></div>`;
+  m.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { route.sub.mode = b.dataset.mode; route.sub.q = null; Vocab(); });
+  const body = $("#vbody");
+  if (mode === "list") {
+    body.innerHTML = `<div class="card">${cat.items.map(w => `<div class="ex">${playBtn(w.is,"sm")}<div style="flex:1"><span class="is">${esc(w.is)}</span> <span class="en">— ${esc(w.en)}</span>${w.note?`<div class="note">${esc(w.note)}</div>`:""}</div><span class="pill" title="Leitner box">${["new","1","2","3","✓"][box(w.is)]}</span></div>`).join("")}</div>`;
+  } else if (mode === "cards") {
+    // pick card: lowest box first, random within
+    const deck = [...cat.items].sort((a,b)=>box(a.is)-box(b.is) || Math.random()-.5);
+    const w = deck[0]; let flipped = false;
+    const draw = () => {
+      body.innerHTML = `<div class="card flash" id="fc">
+        <div class="big">${esc(w.is)}</div>
+        ${flipped ? `<div class="meaning">${esc(w.en)}</div>${w.note?`<div class="note">${esc(w.note)}</div>`:""}` : `<div class="hint">Tap to reveal</div>`}
+        <div class="btns" style="margin-top:6px">${playBtn(w.is)}<button class="play" id="slowp" aria-label="Play slowly">${ICON.slow}</button></div>
+      </div>
+      ${flipped ? `<div class="grade"><button class="btn" style="background:var(--red-soft);color:var(--red)" data-g="0">Again<small>didn't know</small></button><button class="btn" data-g="1">Good<small>got it</small></button><button class="btn primary" data-g="2">Easy<small>knew it cold</small></button></div>`
+        : `<button class="btn primary block" id="flip">Show meaning</button>`}
+      <p class="note" style="text-align:center;margin-top:10px">Box ${box(w.is)} of 4 · words in low boxes come back sooner</p>`;
+      $("#fc").onclick = e => { if (!e.target.closest("button")) { flipped = true; draw(); } };
+      $("#slowp").onclick = e => { e.stopPropagation(); say(w.is, {btn:e.currentTarget, rate:0.7}); };
+      const f = $("#flip"); if (f) f.onclick = () => { flipped = true; draw(); };
+      body.querySelectorAll("[data-g]").forEach(b => b.onclick = () => {
+        const g = +b.dataset.g, cur = box(w.is);
+        setBox(w.is, g===0 ? 0 : Math.min(4, cur + g)); Vocab();
+      });
+    };
+    draw();
+    say(w.is).catch(()=>{});
+  } else {
+    // quiz: hear/see Icelandic, pick English. 8 questions
+    if (!route.sub.q) route.sub.q = {list: shuffle(cat.items).slice(0,8), i:0, right:0};
+    const Q = route.sub.q;
+    if (Q.i >= Q.list.length) {
+      body.innerHTML = `<div class="card" style="text-align:center"><h3>${Q.right} / ${Q.list.length}</h3><p class="lede">${Q.right===Q.list.length?"Flawless.":Q.right>=Q.list.length*.7?"Solid.":"Run the flashcards again and retry."}</p><button class="btn primary block" id="again">Another round</button></div>`;
+      $("#again").onclick = () => { route.sub.q = null; Vocab(); }; return;
+    }
+    const w = Q.list[Q.i];
+    const opts = shuffle([w, ...shuffle(cat.items.filter(x=>x!==w)).slice(0,3)]);
+    body.innerHTML = `<div class="card"><div class="progress"><span>Question ${Q.i+1} of ${Q.list.length}</span><span>${Q.right} right</span></div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">${playBtn(w.is)}<div class="q" style="margin:0">${esc(w.is)}</div></div>
+      <div class="opts">${opts.map(o=>`<button class="opt" data-o="${esc(o.is)}">${esc(o.en)}</button>`).join("")}</div><div id="after"></div></div>`;
+    say(w.is).catch(()=>{});
+    body.querySelectorAll("[data-o]").forEach(b => b.onclick = () => {
+      if (body.querySelector(".opt.right")) return;
+      const ok = b.dataset.o === w.is;
+      body.querySelectorAll("[data-o]").forEach(x => { if (x.dataset.o===w.is) x.classList.add("right"); });
+      if (!ok) b.classList.add("wrong"); else Q.right++;
+      setBox(w.is, ok ? Math.min(4, box(w.is)+1) : 0);
+      $("#after").innerHTML = `<button class="btn primary block" style="margin-top:12px" id="nx">Next</button>`;
+      $("#nx").onclick = () => { Q.i++; Vocab(); };
+    });
+  }
+}
+
+/* ================= QUIZ (shared) ================= */
+function quiz(el, items, onDone){
+  let i=0, right=0;
+  const draw = () => {
+    if (i >= items.length) { el.innerHTML = `<div style="text-align:center"><h3>${right} / ${items.length}</h3><button class="btn block" style="margin-top:10px" id="qa">Try again</button></div>`; el.querySelector("#qa").onclick = () => { i=0; right=0; draw(); }; onDone && onDone(right, items.length); return; }
+    const it = items[i];
+    el.innerHTML = `<div class="progress"><span>${i+1} of ${items.length}</span><span>${right} right</span></div><p class="q">${esc(it.q)}</p>
+      <div class="opts">${it.opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("")}</div><div class="qa"></div>`;
+    el.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
+      if (el.querySelector(".opt.right")) return;
+      const k = +b.dataset.k; el.querySelector(`[data-k="${it.a}"]`).classList.add("right");
+      if (k !== it.a) b.classList.add("wrong"); else right++;
+      el.querySelector(".qa").innerHTML = (it.why?`<div class="why">${esc(it.why)}</div>`:"") + `<button class="btn primary block" style="margin-top:10px">Next</button>`;
+      el.querySelector(".qa .btn").onclick = () => { i++; draw(); };
+    });
+  };
+  draw();
+}
+
+/* ================= GRAMMAR ================= */
+function Grammar(){
+  const m = $("#main"), done = store.get("gdone",{});
+  if (route.sub == null) {
+    m.innerHTML = `<h2 class="sectiontitle">Grammar</h2><p class="lede">Short lessons with examples you can hear, each ending with a quick check.</p><div class="list">${C.grammar.map((g,i)=>`<button class="row" data-g="${i}"><div class="t"><b>${esc(g.title)}</b><span>${done[g.id]!=null?`Best: ${done[g.id]}/${g.quiz.length}`:"Not started"}</span></div><span class="chev">›</span></button>`).join("")}</div>`;
+    m.querySelectorAll("[data-g]").forEach(b => b.onclick = () => { route.sub = +b.dataset.g; Grammar(); window.scrollTo(0,0); });
+    return;
+  }
+  const g = C.grammar[route.sub];
+  m.innerHTML = crumbs(g.title.replace(/^\d+ · /,"")) + `
+    <h2 class="sectiontitle">${esc(g.title)}</h2>
+    <div class="card"><p style="margin:0">${esc(g.intro)}</p></div>
+    ${g.tables.map(t => `<div class="card"><div class="tablewrap"><table><caption>${esc(t.caption)}</caption><thead><tr>${t.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${t.rows.map(r=>`<tr>${r.map((c,k)=>`<td${k?' class="is"':''}>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`).join("")}
+    <div class="card"><h3 style="font-size:17px;margin-bottom:4px">Examples</h3>${g.examples.map(e=>`<div class="ex">${playBtn(e.is,"sm")}<div><div class="is">${esc(e.is)}</div><div class="en" style="font-size:14.5px">${esc(e.en)}</div></div></div>`).join("")}</div>
+    <div class="card"><h3 style="font-size:17px;margin-bottom:10px">Check yourself</h3><div id="gq"></div></div>
+    ${route.sub < C.grammar.length-1 ? `<button class="btn block" id="gnext">Next lesson: ${esc(C.grammar[route.sub+1].title)} ›</button>` : ""}`;
+  quiz($("#gq"), g.quiz, (r) => { const d = store.get("gdone",{}); d[g.id] = Math.max(d[g.id]||0, r); store.set("gdone", d); });
+  const n = $("#gnext"); if (n) n.onclick = () => { route.sub++; Grammar(); window.scrollTo(0,0); };
+}
+
+/* ================= READING ================= */
+function otherVoice(v){ const me = VOICES.find(x=>x.id===v); const o = VOICES.filter(x=>x.g!==me.g && !x.variant); return o[0].id; }
+function Reading(){
+  const m = $("#main");
+  if (route.sub == null) {
+    m.innerHTML = `<h2 class="sectiontitle">Reading</h2><p class="lede">Tap any sentence to hear it. Reveal the translation only after you've had a go.</p><div class="list">${C.reading.map((r,i)=>`<button class="row" data-r="${i}"><div class="t"><b>${esc(r.title)}</b><span>${r.dialogue?"Dialogue":"Text"} · ${r.sentences.length} sentences</span></div><span class="pill">${r.level}</span><span class="chev">›</span></button>`).join("")}</div>`;
+    m.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { route.sub = {i:+b.dataset.r, tr:false}; Reading(); });
+    return;
+  }
+  const r = C.reading[route.sub.i], tr = route.sub.tr;
+  const vA = state.voice, vB = otherVoice(state.voice);
+  const voiceFor = s => r.dialogue ? (s.spk==="A" ? vA : vB) : state.voice;
+  const body = r.dialogue
+    ? r.sentences.map((s,k)=>`<div class="dline ${s.spk}" data-k="${k}"><div class="who">${s.spk}</div><div class="txt"><span class="is">${esc(s.is)}</span>${tr?`<span class="tr">${esc(s.en)}</span>`:""}</div>${playBtn(s.is,"sm",voiceFor(s))}</div>`).join("")
+    : `<p>${r.sentences.map((s,k)=>`<span class="sent" data-k="${k}">${esc(s.is)}</span>${tr?`<span class="tr" style="margin-bottom:8px">${esc(s.en)}</span>`:" "}`).join("")}</p>`;
+  m.innerHTML = crumbs(r.title) + `
+    <div class="card passage"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h3 style="font-size:20px">${esc(r.title)}</h3><span class="pill">${r.level}</span></div>${body}</div>
+    <div class="btns" style="margin-bottom:12px"><button class="btn primary" id="playall">${ICON.play} Play all</button><button class="btn" id="trbtn">${tr?"Hide":"Show"} translation</button></div>
+    ${r.dialogue?`<p class="note" style="margin-top:-4px">A = ${VOICES.find(v=>v.id===vA).name}, B = ${VOICES.find(v=>v.id===vB).name}. Practise B's lines in Speaking › Role-play.</p>`:""}
+    <div class="card"><h3 style="font-size:17px;margin-bottom:8px">Words</h3><div class="gloss">${r.glossary.map(g=>`<b>${esc(g.is)}</b><span>${esc(g.en)}</span>`).join("")}</div></div>
+    <div class="card"><h3 style="font-size:17px;margin-bottom:10px">Questions</h3><div id="rq"></div></div>`;
+  m.querySelectorAll(".sent").forEach(el => el.onclick = () => { hl(+el.dataset.k); say(r.sentences[+el.dataset.k].is).then(()=>hl(-1)); });
+  const hl = k => m.querySelectorAll("[data-k]").forEach(el => el.classList.toggle("hl", +el.dataset.k===k));
+  $("#trbtn").onclick = () => { route.sub.tr = !tr; Reading(); };
+  $("#playall").onclick = async (e) => {
+    const btn = e.currentTarget;
+    if (btn.dataset.on) { stopAudio(); return; }
+    btn.dataset.on = "1"; btn.innerHTML = ICON.stop + " Stop";
+    for (let k=0;k<r.sentences.length;k++) { hl(k); const ok = await say(r.sentences[k].is, {voice:voiceFor(r.sentences[k])}); if (!ok) break; await new Promise(z=>setTimeout(z, 350)); }
+    hl(-1); if (document.body.contains(btn)) { delete btn.dataset.on; btn.innerHTML = ICON.play + " Play all"; }
+  };
+  quiz($("#rq"), r.quiz);
+}
+
+/* ================= LISTENING ================= */
+function Listening(){
+  const m = $("#main");
+  if (route.sub == null) {
+    m.innerHTML = `<h2 class="sectiontitle">Listening</h2><p class="lede">Train your ear with sentences in a random voice each time.</p>
+      <div class="list">
+        <button class="row" data-l="dict"><div class="t"><b>Dictation</b><span>Hear a sentence, type what you heard</span></div><span class="chev">›</span></button>
+        <button class="row" data-l="mean"><div class="t"><b>What did they say?</b><span>Hear a sentence, pick its meaning</span></div><span class="chev">›</span></button>
+        <button class="row" data-l="sound"><div class="t"><b>Which word?</b><span>Hear one word, pick it from similar-looking options</span></div><span class="chev">›</span></button>
+      </div>
+      <div class="card" style="margin-top:12px"><label style="display:flex;align-items:center;gap:10px"><input type="checkbox" id="mix" ${store.get("mix",true)?"checked":""}> <span>Mix voices (recommended)</span></label></div>`;
+    m.querySelectorAll("[data-l]").forEach(b => b.onclick = () => { route.sub = {mode:b.dataset.l, n:0, right:0}; Listening(); });
+    $("#mix").onchange = e => store.set("mix", e.target.checked);
+    return;
+  }
+  const L = route.sub, mix = store.get("mix",true);
+  const v = mix ? VOICES[Math.floor(Math.random()*VOICES.length)].id : state.voice;
+  const vname = VOICES.find(x=>x.id===v).name;
+  const title = {dict:"Dictation", mean:"What did they say?", sound:"Which word?"}[L.mode];
+  let item, opts;
+  if (L.mode === "sound") {
+    const words = C.vocab.flatMap(c=>c.items.map(x=>x.is)).filter(w=>!w.includes(" "));
+    item = {is: words[Math.floor(Math.random()*words.length)]};
+    const sim = words.filter(w=>w!==item.is).map(w=>({w, d: lev(strip(w),strip(item.is)) + Math.abs(w.length-item.is.length)*.3})).sort((a,b)=>a.d-b.d).slice(0,6);
+    opts = shuffle([item.is, ...shuffle(sim).slice(0,3).map(x=>x.w)]);
+  } else {
+    item = C.sentences[Math.floor(Math.random()*C.sentences.length)];
+    if (L.mode==="mean") opts = shuffle([item, ...shuffle(C.sentences.filter(x=>x!==item)).slice(0,3)]);
+  }
+  m.innerHTML = crumbs(title) + `<div class="card">
+    <div class="progress"><span>Round ${L.n+1}</span><span>${L.right} right · voice: ${vname}</span></div>
+    <div class="listenbig"><button class="play" id="lp" aria-label="Play">${ICON.play}</button><button class="play" id="ls" aria-label="Play slowly">${ICON.slow}</button></div>
+    <div id="lbody"></div></div>`;
+  const play = (rate) => say(item.is, {voice:v, btn: rate? $("#ls") : $("#lp"), rate});
+  $("#lp").onclick = () => play(); $("#ls").onclick = () => play(0.7);
+  play();
+  const next = (ok) => `<button class="btn primary block" style="margin-top:12px" id="lnext">Next</button>`;
+  const bindNext = () => $("#lnext").onclick = () => { L.n++; Listening(); };
+  const body = $("#lbody");
+  if (L.mode === "dict") {
+    body.innerHTML = `<input class="answer" id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type what you hear…">
+      <div class="keys">${"á é í ó ú ý þ ð æ ö".split(" ").map(k=>`<button data-key="${k}">${k}</button>`).join("")}</div>
+      <button class="btn primary block" id="chk">Check</button><div id="res"></div>`;
+    const ans = $("#ans");
+    body.querySelectorAll("[data-key]").forEach(b => b.onclick = () => { const s=ans.selectionStart??ans.value.length; ans.value = ans.value.slice(0,s)+b.dataset.key+ans.value.slice(ans.selectionEnd??s); ans.focus(); ans.setSelectionRange(s+1,s+1); });
+    const check = () => {
+      const res = diffWords(item.is, ans.value);
+      if (res.perfect) L.right++;
+      $("#res").innerHTML = `<div class="why" style="margin-top:12px"><div class="diff" style="font-size:17px;margin-bottom:6px">${res.html}</div><div class="is">${esc(item.is)}</div><div>${esc(item.en)}</div>${res.accentsOnly?`<div style="margin-top:4px;color:var(--warn)">Almost — only accents/special letters were off.</div>`:""}</div>` + next();
+      $("#chk").remove(); bindNext();
+    };
+    $("#chk").onclick = check; ans.onkeydown = e => { if (e.key==="Enter") check(); };
+  } else {
+    const isMean = L.mode==="mean";
+    body.innerHTML = `<div class="opts">${opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(isMean?o.en:o)}</button>`).join("")}</div><div id="res"></div>`;
+    body.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
+      if (body.querySelector(".opt.right")) return;
+      const pick = opts[+b.dataset.k], correct = isMean ? pick===item : pick===item.is;
+      body.querySelectorAll("[data-k]").forEach(x => { const o = opts[+x.dataset.k]; if (isMean ? o===item : o===item.is) x.classList.add("right"); });
+      if (!correct) b.classList.add("wrong"); else L.right++;
+      $("#res").innerHTML = (isMean?`<div class="why"><span class="is">${esc(item.is)}</span></div>`:`<div class="why">${esc(C.vocab.flatMap(c=>c.items).find(x=>x.is===item.is).en)}</div>`) + next();
+      bindNext();
+    });
+  }
+}
+function lev(a,b){ const d=[...Array(b.length+1).keys()]; for(let i=1;i<=a.length;i++){ let p=d[0]; d[0]=i; for(let j=1;j<=b.length;j++){ const t=d[j]; d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1)); p=t; } } return d[b.length]; }
+function diffWords(target, typed){
+  const T = norm(target).split(" "), U = norm(typed).split(" ").filter(Boolean);
+  // align words by DP
+  const n=T.length, m=U.length, D=[...Array(n+1)].map(()=>Array(m+1).fill(0));
+  const cost=(a,b)=> a===b?0 : strip(a)===strip(b)?0.3 : lev(a,b)<=Math.max(1,Math.floor(a.length/4))?0.6:1;
+  for(let i=0;i<=n;i++) D[i][0]=i; for(let j=0;j<=m;j++) D[0][j]=j;
+  for(let i=1;i<=n;i++) for(let j=1;j<=m;j++) D[i][j]=Math.min(D[i-1][j]+1, D[i][j-1]+1, D[i-1][j-1]+cost(T[i-1],U[j-1]));
+  const out=[]; let i=n, j=m;
+  while(i>0||j>0){
+    if(i>0&&j>0&&D[i][j]===D[i-1][j-1]+cost(T[i-1],U[j-1])){ const c=cost(T[i-1],U[j-1]); out.unshift(c===0?`<span class="ok">${esc(U[j-1])}</span>`:c<1?`<span class="near">${esc(U[j-1])}</span>`:`<span class="bad">${esc(U[j-1])}</span>`); i--; j--; }
+    else if(i>0&&D[i][j]===D[i-1][j]+1){ out.unshift(`<span class="miss">${esc(T[i-1])}?</span>`); i--; }
+    else { out.unshift(`<span class="bad">${esc(U[j-1])}</span>`); j--; }
+  }
+  const perfect = norm(target)===norm(typed);
+  return {html: out.join(" ") || "—", perfect, accentsOnly: !perfect && strip(norm(target))===strip(norm(typed))};
+}
+
+/* ================= SPEAKING ================= */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let micOK = null; // null unknown, true/false after probe
+const MIC_NOTE_HOSTED = "This page is running inside Claude, which doesn't allow microphone access. Record yourself with your phone's voice recorder (iPhone: Voice Memos), then tap “Upload recording” and pick the file. If you host the app yourself, the red mic button records live.";
+let MIC_NOTE = "Tap the red button to record, tap again to stop. In Chrome, your speech is also checked word-by-word.";
+let rec = null;
+function stopRecording(cancel){ if (rec) { rec.cancel = !!cancel; try{ rec.mr.state!=="inactive" && rec.mr.stop(); }catch(e){} try{ rec.sr && rec.sr.abort(); }catch(e){} } }
+
+function Speaking(){
+  const m = $("#main");
+  if (route.sub == null) {
+    m.innerHTML = `<h2 class="sectiontitle">Speaking</h2><p class="lede">Listen, say it, get a score. Repeat until the bar turns green.</p>
+      ${micOK===false?`<div class="notice">${MIC_NOTE_HOSTED}</div>`:""}
+      <div class="list">
+        <button class="row" data-sp="phrases"><div class="t"><b>Useful phrases</b><span>${C.sentences.length} everyday sentences</span></div><span class="chev">›</span></button>
+        <button class="row" data-sp="sounds"><div class="t"><b>Tricky sounds</b><span>þ, ð, ll, hv, au, pre-aspiration…</span></div><span class="chev">›</span></button>
+        <button class="row" data-sp="role"><div class="t"><b>Role-play: At the shop</b><span>You're the customer; the shopkeeper talks back</span></div><span class="chev">›</span></button>
+        <button class="row" data-sp="vocab"><div class="t"><b>Say the vocab</b><span>Random words from your vocabulary list</span></div><span class="chev">›</span></button>
+      </div>`;
+    m.querySelectorAll("[data-sp]").forEach(b => b.onclick = () => { route.sub = {mode:b.dataset.sp, i:0}; Speaking(); });
+    return;
+  }
+  const S = route.sub;
+  let items, title, extra = "";
+  if (S.mode === "phrases") { items = C.sentences; title = "Useful phrases"; }
+  else if (S.mode === "vocab") { if (!S.list) S.list = shuffle(C.vocab.flatMap(c=>c.items)).slice(0,20); items = S.list; title = "Say the vocab"; }
+  else if (S.mode === "sounds") { items = C.drills.flatMap(d => d.words.map(w => ({is:w, en:"", drill:d}))); title = "Tricky sounds"; }
+  else { const shop = C.reading.find(r=>r.id==="shop"); items = shop.sentences.filter(s=>s.spk==="B").map(s => ({...s, cue: shop.sentences[shop.sentences.indexOf(s)-1]})); title = "Role-play"; }
+  const it = items[S.i % items.length];
+  if (it.drill) extra = `<div class="why" style="margin-bottom:12px"><b>${esc(it.drill.sound)}</b> — ${esc(it.drill.tip)}</div>`;
+  if (it.cue) extra = `<div class="dline A" style="margin-bottom:6px"><div class="who">A</div><div class="txt"><span class="is">${esc(it.cue.is)}</span><span class="tr">${esc(it.cue.en)}</span></div>${playBtn(it.cue.is,"sm",otherVoice(state.voice))}</div><p class="note" style="margin:0 0 8px">Your reply (B):</p>`;
+  const best = store.get("best",{})[it.is];
+  m.innerHTML = crumbs(title) + `
+    ${micOK===false?`<div class="notice">${MIC_NOTE_HOSTED}</div>`:""}
+    <div class="card">
+      <div class="progress"><span>${(S.i % items.length)+1} of ${items.length}</span><span>${best!=null?`Your best: ${best}`:""}</span></div>
+      ${extra}
+      <div class="target" id="tgt">${[...it.is].map(c=>`<span class="ch">${esc(c)}</span>`).join("")}</div>
+      <div class="target-en">${esc(it.en||"")}</div>
+      <div class="recrow">
+        <button class="play" id="hear" aria-label="Listen">${ICON.play}</button>
+        <button class="rec" id="recbtn" aria-label="Record" ${micOK===false?'style="opacity:.35"':""}>${ICON.mic}</button>
+        <button class="play" id="slow" aria-label="Listen slowly">${ICON.slow}</button>
+      </div>
+      <label class="upload">Upload recording<input type="file" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm" id="file"></label>
+      <div id="status" class="loading"></div>
+      <div id="result"></div>
+    </div>
+    <div class="btns"><button class="btn ghost" id="prev">‹ Previous</button><button class="btn primary" id="next">Next ›</button></div>`;
+  $("#hear").onclick = e => say(it.is, {btn:e.currentTarget});
+  $("#slow").onclick = e => say(it.is, {btn:e.currentTarget, rate:0.7});
+  $("#prev").onclick = () => { S.i = (S.i - 1 + items.length) % items.length; Speaking(); };
+  $("#next").onclick = () => { S.i++; Speaking(); };
+  $("#file").onchange = async e => { const f = e.target.files[0]; if (!f) return; await assess(it, await f.arrayBuffer(), null); e.target.value=""; };
+  $("#recbtn").onclick = () => toggleRecord(it);
+  // warm up: load every voice pack in the background so scoring is quick
+  VOICES.forEach(v => loadPack(v.id).catch(()=>{}));
+  if (it.cue) say(it.cue.is, {voice: otherVoice(state.voice)}).catch(()=>{});
+}
+
+async function toggleRecord(it){
+  const btn = $("#recbtn");
+  if (rec) { stopRecording(false); return; }
+  if (micOK === false) { sheet(`<h3>Microphone not available here</h3><p>${MIC_NOTE_HOSTED}</p>`); return; }
+  let stream;
+  try { stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true, noiseSuppression:true}}); micOK = true; }
+  catch(e) { micOK = false; MIC_NOTE = MIC_NOTE_HOSTED; render(); sheet(`<h3>Microphone not available here</h3><p>${MIC_NOTE_HOSTED}</p>`); return; }
+  stopAudio();
+  const chunks = [], mr = new MediaRecorder(stream);
+  rec = {mr, chunks, transcript:null, cancel:false};
+  if (SR) {
+    try {
+      const sr = new SR(); sr.lang = "is-IS"; sr.interimResults = false; sr.maxAlternatives = 3; sr.continuous = true;
+      rec.sr = sr; rec.alts = [];
+      sr.onresult = ev => { for (let i=ev.resultIndex;i<ev.results.length;i++) for (let a=0;a<ev.results[i].length;a++) rec && rec.alts.push(ev.results[i][a].transcript); };
+      sr.onerror = () => {};
+      sr.start();
+    } catch(e) { rec.sr = null; }
+  }
+  mr.ondataavailable = e => e.data.size && chunks.push(e.data);
+  mr.onstop = async () => {
+    stream.getTracks().forEach(t=>t.stop());
+    const r = rec; rec = null; btn && btn.classList.remove("on");
+    if (r.sr) { try { r.sr.stop(); } catch(e){} await new Promise(z=>setTimeout(z, 700)); }
+    if (r.cancel) return;
+    const blob = new Blob(chunks, {type: mr.mimeType || "audio/webm"});
+    await assess(it, await blob.arrayBuffer(), r.alts || null, URL.createObjectURL(blob));
+  };
+  mr.start(); btn.classList.add("on"); $("#status").textContent = "Recording… tap again to stop";
+  setTimeout(() => { if (rec && rec.mr === mr) stopRecording(false); }, 12000);
+}
+
+function cohortFor(text){
+  const pool = [...new Set([...(SC||[]).flatMap(x=>x.dialogue.map(l=>l.is)), ...C.sentences.map(s=>s.is), ...C.vocab.flatMap(c=>c.items.map(x=>x.is)), ...C.drills.flatMap(d=>d.words), ...C.reading.flatMap(r=>r.sentences.map(s=>s.is))])];
+  const L = text.length, cand = pool.filter(x => x!==text && Math.abs(x.length-L) <= Math.max(3, L*.4));
+  return shuffle(cand).slice(0,4);
+}
+
+async function assess(it, buf, alts, url){
+  const st = $("#status"), out = $("#result");
+  st.textContent = "Scoring…"; out.innerHTML = "";
+  try {
+    let ab;
+    try { ab = await decode(buf.slice(0)); } catch(e) { st.textContent = ""; out.innerHTML = `<div class="why">Couldn't read that audio file. Try an .m4a, .mp3 or .wav recording.</div>`; return; }
+    const samples = ab.getChannelData(0), sr = ab.sampleRate;
+    if (!url) url = URL.createObjectURL(new Blob([buf]));
+    const voiceIds = VOICES.map(v=>v.id);
+    await Promise.all(voiceIds.map(v=>loadPack(v)));
+    const refs = await Promise.all(voiceIds.map(v=>refFeats(v, it.is)));
+    const coh = await Promise.all(cohortFor(it.is).map(async t => ({text:t, refs: await Promise.all(["salka", "bui", state.voice].filter((v,i,a)=>a.indexOf(v)===i).map(v=>refFeats(v,t)))})));
+    await new Promise(z=>setTimeout(z,20));
+    const res = Scorer.score(refs, samples, sr, coh);
+    st.textContent = "";
+    if (res.error) { out.innerHTML = `<div class="why">${esc(res.error)} Speak a little louder or closer to the mic.</div>`; return; }
+    // optional word check from speech recognition
+    let word = null;
+    if (alts && alts.length) {
+      const T = norm(it.is).split(" ");
+      let bestAcc = 0, bestAlt = alts[0];
+      for (const a of alts) { const U = norm(a).split(" ").filter(Boolean); const e = wordEdits(T, U); const acc = Math.max(0, 1 - e / T.length); if (acc > bestAcc) { bestAcc = acc; bestAlt = a; } }
+      word = {acc: Math.round(bestAcc*100), heard: bestAlt};
+    } else if (alts) word = {acc: 0, heard: ""};
+    const final = word ? Math.round(0.6*word.acc + 0.4*res.score) : res.score;
+    const b = store.get("best",{}); if (b[it.is]==null || final > b[it.is]) { b[it.is] = final; store.set("best", b); }
+    const col = s => s>=75 ? "var(--good)" : s>=50 ? "var(--warn)" : "var(--red)";
+    // colour target letters by segment
+    const chars = [...document.querySelectorAll("#tgt .ch")];
+    chars.forEach((c,k) => { const seg = res.segments[Math.min(7, Math.floor(k*8/chars.length))]; c.style.color = seg>=75 ? "" : col(seg); });
+    const weakest = res.segments.indexOf(Math.min(...res.segments));
+    const where = weakest < 3 ? "the beginning" : weakest > 4 ? "the end" : "the middle";
+    const tempo = res.tempo > 1.45 ? "You spoke quite a bit slower than the model — that's fine while learning; aim to speed up." : res.tempo < 0.7 ? "You were faster than the model — try slowing down." : "";
+    const verdict = final>=85 ? "Excellent" : final>=70 ? "Good" : final>=50 ? "Getting there" : "Try again";
+    out.innerHTML = `<div class="score">
+      <div class="ring" style="--p:${final};--c:${col(final)}"><b>${final}</b></div>
+      <div class="fb"><strong>${verdict}</strong>
+        ${res.closerTo ? `Sounded closer to “${esc(res.closerTo)}” than to the target. ` : ""}
+        ${Math.min(...res.segments) < 70 ? `Weakest part: ${where} (letters in colour above). ` : "Even all the way through. "}
+        ${tempo}
+        <div class="segs">${res.segments.map(s=>`<i style="background:${col(s)}"></i>`).join("")}</div>
+      </div></div>
+      <div class="note" style="margin-top:8px">Sound match ${res.score}${word?` · Word check ${word.acc}% — heard: “${esc(word.heard||"(nothing recognised)")}”`:""} · closest voice: ${VOICES.find(v=>v.id===res.closest).name}</div>
+      <div class="btns" style="margin-top:10px"><button class="btn" id="mine">${ICON.play} My recording</button><button class="btn" id="model">${ICON.play} Model</button></div>`;
+    const me = new Audio(url);
+    $("#mine").onclick = () => { stopAudio(); me.currentTime = 0; me.play().catch(()=>{}); };
+    $("#model").onclick = () => { me.pause(); say(it.is, {voice: res.closest}); };
+  } catch(e) {
+    st.textContent = ""; out.innerHTML = `<div class="why">Something went wrong while scoring (${esc(e.message||e)}).</div>`;
+  }
+}
+function wordEdits(T, U){ const n=T.length, m=U.length, d=[...Array(m+1).keys()]; for(let i=1;i<=n;i++){ let p=d[0]; d[0]=i; for(let j=1;j<=m;j++){ const t=d[j]; const c = T[i-1]===U[j-1] ? 0 : strip(T[i-1])===strip(U[j-1]) ? 0.5 : 1; d[j]=Math.min(d[j]+1,d[j-1]+1,p+c); p=t; } } return d[m]; }
+
+/* ---------- boot ---------- */
+window.addEventListener("load", async function(){
+  // probe whether the mic is even possible here (no prompt): Claude-hosted pages block it
+  try {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) micOK = false;
+    else if (navigator.permissions) { const p = await navigator.permissions.query({name:"microphone"}).catch(()=>null); if (p && p.state==="denied") micOK = false; }
+    if (window.self !== window.top && document.featurePolicy && !document.featurePolicy.allowsFeature("microphone")) micOK = false;
+  } catch(e) {}
+  if (micOK === false) MIC_NOTE = MIC_NOTE_HOSTED;
+  renderVoices(); renderNav();
+  $("#main").innerHTML = '<p class="loading">Loading…</p>';
+  try {
+    const [ref, sc, ids] = await Promise.all(["content/reference.json","content/scenes.json","content/ids.json"].map(u => fetch(u).then(r => { if(!r.ok) throw new Error(u); return r.json(); })));
+    C = ref; SC = sc.scenes; REACT = sc.reactions; IDS = ids;
+  } catch(e) { $("#main").innerHTML = `<div class="notice">Couldn't load the course files (${esc(e.message)}). If you opened index.html straight from disk, serve the folder over http instead.</div>`; return; }
+  render();
+  initChat();
+  loadPack(state.voice).catch(()=>toast("Couldn't load voice audio."));
+});
+</script>
+<script src="journey.js"></script>
+</body>
+</html>
