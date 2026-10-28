@@ -16,7 +16,7 @@ if todo:
         inp = "".join(json.dumps({"text": t, "output_file": os.path.abspath(f"wav/{v}_{ids[t]}.wav")}, ensure_ascii=False) + "\n" for t in todo)
         subprocess.run([PIPER, "-m", f"{VOICES}/is-{v}-medium.onnx", "--json-input", "--sentence_silence", "0.1"], input=inp.encode(), cwd=os.path.dirname(PIPER), capture_output=True)
     jobs = []
-    trim = "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=1:stop_threshold=-45dB:stop_duration=0.05"
+    trim = "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse"  # trim only leading/trailing silence
     for v in ["salka", "ugla", "bui", "steinn", "hekla"]:
         for t in todo:
             i = ids[t]; src = f"wav/{'salka' if v == 'hekla' else v}_{i}.wav"
