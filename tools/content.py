@@ -419,10 +419,27 @@ DRILLS = [
  {"sound": "r", "tip": "Tapped or trilled, never the English r.", "words": ["rigning", "Reykjavík", "rauður"]},
 ]
 
+
+# pictograms for reference vocab (same spec format as scenes: "main", "main+badge", "sign:→", …)
+CAT_PICS = {"Kveðjur":"👋","Tölur":"🔢","Fjölskylda":"👨‍👩‍👧","Matur og drykkur":"🍽️","Náttúra og veður":"🏔️","Tími":"🕰️","Í bænum":"🏙️","Sagnir":"🏃","Lýsingarorð":"🎨"}
+REF_PICS = {
+ "Halló":"👋","Hæ":"🙋","Góðan daginn":"🌅","Gott kvöld":"🌆","Góða nótt":"🌙+💤","Bless":"👋+🚶","Takk":"🙏","Takk fyrir":"🙏+❤️","Já":"✅","Nei":"❌",
+ "Fyrirgefðu":"😔","Gjörðu svo vel":"🫴","Hvað segirðu?":"🙂+❓","Allt gott":"👌","Velkomin":"🤗",
+ "einn":"1️⃣","tveir":"2️⃣","þrír":"3️⃣","fjórir":"4️⃣","fimm":"5️⃣","sex":"6️⃣","sjö":"7️⃣","átta":"8️⃣","níu":"9️⃣","tíu":"🔟","ellefu":"num:11","tólf":"num:12","tuttugu":"num:20","hundrað":"💯","þúsund":"num:1000",
+ "mamma":"👩+❤️","pabbi":"👨+❤️","móðir":"👩","faðir":"👨","bróðir":"👦","systir":"👧","sonur":"👶+👦","dóttir":"👶+👧","eiginkona":"👰","eiginmaður":"🤵","afi":"👴","amma":"👵","barn":"🧒","fjölskylda":"👨‍👩‍👧","hundur":"🐕",
+ "vatn":"💧","kaffi":"☕+🫘","mjólk":"🥛","brauð":"🍞","smjör":"🧈","fiskur":"🐟","kjöt":"🥩","lambakjöt":"🐑+🍖","ostur":"🧀","egg":"🥚","skyr":"🥣","epli":"🍎","súpa":"🍲","bjór":"🍺","te":"🍵",
+ "veður":"🌦️","rigning":"🌧️","snjór":"❄️","vindur":"💨","sól":"☀️","ský":"☁️","fjall":"⛰️","foss":"🏞️","jökull":"🧊+⛰️","eldfjall":"🌋","sjór":"🌊","norðurljós":"🌌","kalt":"🥶","hlýtt":"🥵",
+ "dagur":"🗓️+1","vika":"🗓️+7","mánuður":"🗓️+30","ár":"🗓️+365","í dag":"🗓️+📍","á morgun":"🗓️+→","í gær":"🗓️+←",
+ "mánudagur":"day:1","þriðjudagur":"day:2","miðvikudagur":"day:3","fimmtudagur":"day:4","föstudagur":"day:5","laugardagur":"day:6","sunnudagur":"day:7",
+ "hús":"🏠","gata":"🏘️","bíll":"🚗","strætó":"🚌","flugvöllur":"🛫+🏢","hótel":"🏨","búð":"🏪","banki":"🏦","sundlaug":"🏊","kirkja":"⛪","kaffihús":"☕+🏠","miði":"🎫","vegur":"🛣️","bær":"🏡",
+ "að vera":"🧍","að hafa":"🤲","að eiga":"🏠+🔑","að fara":"🚶+→","að koma":"🚶+←","að tala":"🗣️","að skilja":"💡","að borða":"🍴","að drekka":"🥤","að sjá":"👀","að vilja":"🤩","að búa":"🏠+🧍","að heita":"📛","að læra":"📚","að kaupa":"🛒",
+ "góður":"👍","stór":"🐘","lítill":"🐭","nýr":"✨","gamall":"🏚️","fallegur":"🌸","dýr":"💰+⬆️","ódýr":"💰+⬇️","glaður":"😄","þreyttur":"😴","rauður":"color:#d62828","blár":"color:#1d4ed8","grænn":"color:#15803d","hvítur":"color:#ffffff","svartur":"color:#111111",
+}
+
 def build():
     vocab = []
     for cat, items in VOCAB.items():
-        vocab.append({"cat": cat, "items": [{"is": a, "en": b, "note": c} for a, b, c in items]})
+        vocab.append({"cat": cat, "pic": CAT_PICS.get(cat.split(" — ")[0], "📘"), "items": [{"is": a, "en": b, "note": c, "pic": REF_PICS.get(a, "")} for a, b, c in items]})
     grammar = []
     for g in GRAMMAR:
         grammar.append({**g,

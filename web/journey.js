@@ -50,18 +50,36 @@
   .choice{display:block;width:100%;text-align:left;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:600;margin-bottom:8px}
   .chatbar{display:flex;gap:8px;align-items:center}
   .chatbar input{flex:1;font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);outline:none}
+  .hero{position:relative;display:flex;align-items:center;width:100%;text-align:left;color:#fff;border-radius:22px;padding:18px;margin-bottom:18px;overflow:hidden;box-shadow:0 8px 22px rgba(2,82,156,.25)}
+  .hero-t{flex:1;z-index:1}.hero h2{font-size:26px;margin:2px 0}.hero .num{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.85}.hero .sub{font-size:13px;opacity:.9;letter-spacing:.1em}
+  .hero-pic{font-size:76px;line-height:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));margin-right:30px}
+  .hero-go{position:absolute;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:14px;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+  .gridhead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+  .scgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media (min-width:600px){.scgrid{grid-template-columns:repeat(3,1fr)}}
+  .sctile{position:relative;aspect-ratio:1/1;border-radius:20px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:12px;text-align:left;overflow:hidden;box-shadow:var(--shadow)}
+  .sctile b{font-family:Fraunces,serif;font-size:16px;line-height:1.15;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .sc-pic{position:absolute;top:50%;left:50%;transform:translate(-50%,-62%);font-size:62px;line-height:1;filter:drop-shadow(0 5px 8px rgba(0,0,0,.25))}
+  .sc-num{position:absolute;top:10px;left:12px;font-size:12px;font-weight:800;opacity:.85}
+  .ring5{position:absolute;top:8px;right:8px;width:28px;height:28px}
+  .sc-check{position:absolute;top:8px;right:8px;width:28px;height:28px;display:grid;place-items:center;font-weight:900;font-size:14px}
+  .sctile.done .ring5 circle:last-child{stroke:#fff}
+  .wcard .e{display:flex;justify-content:center;min-height:72px;align-items:center}
   .big-due{font-family:Fraunces,serif;font-size:48px;font-weight:700;line-height:1}
   `;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 })();
 
 /* ---------- shared bits ---------- */
+const SCENE_COLORS = [["#0b6fc9","#4aa3e8"],["#3949ab","#7986cb"],["#00897b","#4db6ac"],["#f57c00","#ffb74d"],["#6d4c41","#a1887f"],["#2e7d32","#81c784"],
+  ["#8d6e63","#d7a86e"],["#c2185b","#f06292"],["#0277bd","#4fc3f7"],["#455a64","#90a4ae"],["#7b1fa2","#ba68c8"],["#d32f2f","#ef9a9a"]];
+const sceneBg = i => `linear-gradient(135deg,${SCENE_COLORS[i%12][0]},${SCENE_COLORS[i%12][1]})`;
 const STEPS = [
-  {id:"watch", is:"Horfa", en:"Watch"},
-  {id:"words", is:"Orð", en:"Words"},
-  {id:"tips", is:"Ábending", en:"Pointers"},
-  {id:"build", is:"Smíða", en:"Build"},
-  {id:"role", is:"Hlutverk", en:"Role-play"},
+  {id:"watch", is:"Horfa", en:"Watch", ic:"👀"},
+  {id:"words", is:"Orð", en:"Words", ic:"🃏"},
+  {id:"tips", is:"Ábending", en:"Pointers", ic:"💡"},
+  {id:"build", is:"Smíða", en:"Build", ic:"🧩"},
+  {id:"role", is:"Hlutverk", en:"Role-play", ic:"🎭"},
 ];
 const jprog = () => store.get("jprog", {});
 function markStep(sid, step){ const p = jprog(); p[sid] = p[sid] || {}; p[sid][step] = 1; store.set("jprog", p); }
@@ -104,19 +122,21 @@ function deckItem(key){
 function Journey(){
   const m = $("#main");
   if (route.sub == null) {
-    const p = jprog(), pref = store.get("eng","auto");
-    const doneCount = SC.filter(sc => p[sc.id] && STEPS.every(s => p[sc.id][s.id])).length;
-    const next = SC.findIndex(sc => !(p[sc.id] && STEPS.every(s => p[sc.id][s.id])));
-    m.innerHTML = `<h2 class="sectiontitle">Ferðin</h2>
-      <p class="lede">Your trip to Iceland, one situation at a time. ${doneCount} of ${SC.length} scenes done.</p>
-      <div class="card" style="padding:12px 14px"><div class="note" style="margin-bottom:6px">English help</div>
-        <div class="seg" id="engSeg">${[["auto","Fade out"],["show","Always"],["tap","Tap to see"]].map(([k,l])=>`<button class="${pref===k?"on":""}" data-eng="${k}">${l}</button>`).join("")}</div>
-        <div class="note" style="margin-top:6px">${pref==="auto"?"English is shown for the first 4 scenes, then hidden behind a ? you can tap.":pref==="show"?"English translations always visible.":"English hidden — tap ? when you're stuck."}</div></div>
-      <div class="path">${SC.map((sc,i) => {
-        const sp = p[sc.id] || {}, done = STEPS.every(s=>sp[s.id]);
-        return `<button class="pathcard ${done?"done":""}" data-sc="${i}"><div class="emo">${sc.pic}</div><div class="t"><span>${i+1}. ${i===next?"<b style='display:inline;font-family:Inter;font-size:12px;color:var(--red)'>NEXT · </b>":""}${esc(sc.en_title)}</span><b>${esc(sc.is_title)}</b><div class="dots">${STEPS.map(s=>`<i class="${sp[s.id]?"on":""}"></i>`).join("")}</div></div><span class="chev">›</span></button>`;
-      }).join("")}</div>`;
-    m.querySelectorAll("[data-eng]").forEach(b => b.onclick = () => { store.set("eng", b.dataset.eng); Journey(); });
+    const p = jprog();
+    const doneSteps = sc => STEPS.filter(s => (p[sc.id]||{})[s.id]).length;
+    const doneCount = SC.filter(sc => doneSteps(sc) === STEPS.length).length;
+    let next = SC.findIndex(sc => doneSteps(sc) < STEPS.length); if (next < 0) next = 0;
+    const nx = SC[next];
+    const ring = (n) => `<svg class="ring5" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="4"/><circle cx="18" cy="18" r="15" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="${n/5*94.2} 94.2" transform="rotate(-90 18 18)"/></svg>`;
+    m.innerHTML = `
+      <button class="hero" data-sc="${next}" style="background:${sceneBg(next)}">
+        <div class="hero-t"><div class="num">${doneCount ? "Halda áfram · continue" : "Byrjum · let's start"}</div><h2>${esc(nx.is_title)}</h2><div class="sub">${next+1} / ${SC.length} · ${STEPS.map(s=>(p[nx.id]||{})[s.id]?"●":"○").join(" ")}</div></div>
+        <div class="hero-pic">${nx.pic}</div><span class="hero-go">▶</span></button>
+      <div class="gridhead"><h2 class="sectiontitle" style="margin:0">Ferðin</h2><span class="note">${doneCount}/${SC.length} ✓</span></div>
+      <div class="scgrid">${SC.map((sc,i) => { const n = doneSteps(sc);
+        return `<button class="sctile ${n===5?"done":""}" data-sc="${i}" style="background:${sceneBg(i)}">
+          <span class="sc-num">${i+1}</span>${ring(n)}${n===5?'<span class="sc-check">✓</span>':""}
+          <span class="sc-pic">${sc.pic}</span><b>${esc(sc.is_title)}</b></button>`; }).join("")}</div>`;
     m.querySelectorAll("[data-sc]").forEach(b => b.onclick = () => {
       const i = +b.dataset.sc, sp = jprog()[SC[i].id] || {};
       route.sub = {i, step: (STEPS.find(s=>!sp[s.id]) || STEPS[0]).id}; Journey(); window.scrollTo(0,0);
@@ -125,8 +145,8 @@ function Journey(){
   }
   const {i, step} = route.sub, sc = SC[i], mode = engMode(i), sp = jprog()[sc.id] || {};
   m.innerHTML = crumbs(sc.en_title) + `
-    <div class="banner"><div class="num">Atriði ${i+1} / ${SC.length}</div><h2>${esc(sc.is_title)}</h2><div class="sub">${mode==="show"?esc(sc.setting):esc(sc.en_title)}</div><div class="emo">${sc.pic}</div></div>
-    <div class="steps">${STEPS.map((s,k)=>`<button class="${s.id===step?"on":""} ${sp[s.id]?"done":""}" data-step="${s.id}"><b>${sp[s.id]?"✓":k+1}</b>${s.is}</button>`).join("")}</div>
+    <div class="banner" style="background:${sceneBg(i)}"><div class="num">Atriði ${i+1} / ${SC.length}</div><h2>${esc(sc.is_title)}</h2><div class="sub">${mode==="show"?esc(sc.setting):esc(sc.en_title)}</div><div class="emo">${sc.pic}</div></div>
+    <div class="steps">${STEPS.map((s,k)=>`<button class="${s.id===step?"on":""} ${sp[s.id]?"done":""}" data-step="${s.id}"><b>${sp[s.id]?"✓":s.ic}</b>${s.is}</button>`).join("")}</div>
     <div id="stepbody"></div>`;
   m.querySelectorAll("[data-step]").forEach(b => b.onclick = () => { stopAudio(); stopRecording(true); route.sub.step = b.dataset.step; Journey(); });
   ({watch:stepWatch, words:stepWords, tips:stepTips, build:stepBuild, role:stepRole})[step](sc, i, mode, $("#stepbody"));
@@ -179,7 +199,7 @@ function stepWatch(sc, i, mode, el){
 /* --- 2 Words: learn grid, then Rosetta-style picture test --- */
 function stepWords(sc, i, mode, el){
   el.innerHTML = `<p class="lede" style="margin-bottom:10px">Tap a card to hear it. Then test yourself: hear the word, pick the picture.</p>
-    <div class="wgrid">${sc.words.map(w=>`<button class="wcard" data-say="${esc(w.is)}"><div class="e">${w.pic}</div><div class="w">${esc(w.is)}</div>${mode==="show"?`<div class="tr">${esc(w.en)}</div>`:""}</button>`).join("")}</div>
+    <div class="wgrid">${sc.words.map(w=>`<button class="wcard" data-say="${esc(w.is)}"><div class="e">${pictogram(w.pic, 64)}</div><div class="w">${esc(w.is)}</div>${mode==="show"?`<div class="tr">${esc(w.en)}</div>`:""}</button>`).join("")}</div>
     <button class="btn primary block" style="margin-top:12px" id="wtest">Test yourself</button>`;
   $("#wtest").onclick = () => wordTest(sc, i, el);
 }
@@ -194,7 +214,7 @@ function wordTest(sc, i, el){
     const w = order[k], opts = shuffle([w, ...shuffle(sc.words.filter(x=>x!==w)).slice(0,3)]);
     el.innerHTML = `<div class="card"><div class="progress"><span>${k+1} of ${order.length}</span><span>${right} right</span></div>
       <div class="listenbig"><button class="play" id="wp">${ICON.play}</button></div>
-      <div class="wgrid">${opts.map((o,n)=>`<button class="wcard" data-n="${n}"><div class="e" style="font-size:46px">${o.pic}</div></button>`).join("")}</div></div>`;
+      <div class="wgrid">${opts.map((o,n)=>`<button class="wcard" data-n="${n}"><div class="e">${pictogram(o.pic, 72)}</div></button>`).join("")}</div></div>`;
     const play = () => say(w.is, {btn: $("#wp")});
     $("#wp").onclick = play; play();
     el.querySelectorAll("[data-n]").forEach(b => b.onclick = () => {
@@ -333,7 +353,7 @@ function Review(){
   const key = R.q[R.k], it = deckItem(key); let flipped = false;
   const draw = () => {
     m.innerHTML = crumbs(`${R.k+1} of ${R.q.length}`) + `<div class="card flash" id="rc">
-      ${it.kind==="w" ? `<div style="font-size:72px;line-height:1">${it.pic}</div>` : `<div class="meaning" style="color:var(--ink)">${esc(it.en)}</div>`}
+      ${it.kind==="w" ? pictogram(it.pic, 110) : `<div class="meaning" style="color:var(--ink)">${esc(it.en)}</div>`}
       ${flipped ? `<div class="big" style="font-size:${it.kind==="w"?32:24}px">${esc(it.is)}</div>${it.kind==="w"?`<div class="tr">${esc(it.en)}</div>`:""}<div>${playBtn(it.is)}</div>` : `<div class="hint">${it.kind==="w"?"What's this in Icelandic? Say it, then tap.":"How do you say this? Say it, then tap."}</div>`}
       <div class="note">${it.scene.pic} ${esc(it.scene.is_title)}</div></div>
       ${flipped ? `<div class="grade"><button class="btn" style="background:var(--red-soft);color:var(--red)" data-g="0">Again</button><button class="btn" data-g="1">Got it</button><button class="btn primary" data-g="2">Easy</button></div>` : `<button class="btn primary block" id="rflip">Show answer</button>`}`;
@@ -373,7 +393,7 @@ function Chat(){
   }
   if (!chat) {
     m.innerHTML = `<h2 class="sectiontitle">Spjall</h2><p class="lede">Improvise. Claude plays the local in a scene and answers in simple Icelandic. Make mistakes — you'll get a short correction in English.</p>
-      <div class="list">${SC.map((sc,i)=>`<button class="pathcard" data-ci="${i}"><div class="emo">${sc.pic}</div><div class="t"><b>${esc(sc.is_title)}</b><span>${esc(sc.npc.role)} · ${esc(sc.en_title)}</span></div><span class="chev">›</span></button>`).join("")}</div>`;
+      <div class="list">${SC.map((sc,i)=>`<button class="pathcard" data-ci="${i}"><div class="emo" style="background:${sceneBg(i)}">${sc.pic}</div><div class="t"><b>${esc(sc.is_title)}</b><span>${esc(sc.npc.role)} · ${esc(sc.en_title)}</span></div><span class="chev">›</span></button>`).join("")}</div>`;
     m.querySelectorAll("[data-ci]").forEach(b => b.onclick = () => { chat = {i:+b.dataset.ci, msgs:[]}; Chat(); chatTurn(null); });
     return;
   }

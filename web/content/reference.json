@@ -2,706 +2,847 @@
  "vocab": [
   {
    "cat": "Kveðjur — Greetings",
+   "pic": "👋",
    "items": [
     {
      "is": "Halló",
      "en": "Hello",
-     "note": ""
+     "note": "",
+     "pic": "👋"
     },
     {
      "is": "Hæ",
      "en": "Hi",
-     "note": "informal"
+     "note": "informal",
+     "pic": "🙋"
     },
     {
      "is": "Góðan daginn",
      "en": "Good morning / good day",
-     "note": "formal-ish, until afternoon"
+     "note": "formal-ish, until afternoon",
+     "pic": "🌅"
     },
     {
      "is": "Gott kvöld",
      "en": "Good evening",
-     "note": ""
+     "note": "",
+     "pic": "🌆"
     },
     {
      "is": "Góða nótt",
      "en": "Good night",
-     "note": ""
+     "note": "",
+     "pic": "🌙+💤"
     },
     {
      "is": "Bless",
      "en": "Bye",
-     "note": ""
+     "note": "",
+     "pic": "👋+🚶"
     },
     {
      "is": "Takk",
      "en": "Thanks",
-     "note": ""
+     "note": "",
+     "pic": "🙏"
     },
     {
      "is": "Takk fyrir",
      "en": "Thank you",
-     "note": ""
+     "note": "",
+     "pic": "🙏+❤️"
     },
     {
      "is": "Já",
      "en": "Yes",
-     "note": ""
+     "note": "",
+     "pic": "✅"
     },
     {
      "is": "Nei",
      "en": "No",
-     "note": ""
+     "note": "",
+     "pic": "❌"
     },
     {
      "is": "Fyrirgefðu",
      "en": "Sorry / excuse me",
-     "note": "to one person"
+     "note": "to one person",
+     "pic": "😔"
     },
     {
      "is": "Gjörðu svo vel",
      "en": "Here you go / please",
-     "note": "when handing something over"
+     "note": "when handing something over",
+     "pic": "🫴"
     },
     {
      "is": "Hvað segirðu?",
      "en": "How are you? (lit. what do you say?)",
-     "note": ""
+     "note": "",
+     "pic": "🙂+❓"
     },
     {
      "is": "Allt gott",
      "en": "All good",
-     "note": "standard reply"
+     "note": "standard reply",
+     "pic": "👌"
     },
     {
      "is": "Velkomin",
      "en": "Welcome",
-     "note": "velkominn to a man"
+     "note": "velkominn to a man",
+     "pic": "🤗"
     }
    ]
   },
   {
    "cat": "Tölur — Numbers",
+   "pic": "🔢",
    "items": [
     {
      "is": "einn",
      "en": "one",
-     "note": "m. (ein f., eitt n.)"
+     "note": "m. (ein f., eitt n.)",
+     "pic": "1️⃣"
     },
     {
      "is": "tveir",
      "en": "two",
-     "note": "m. (tvær f., tvö n.)"
+     "note": "m. (tvær f., tvö n.)",
+     "pic": "2️⃣"
     },
     {
      "is": "þrír",
      "en": "three",
-     "note": "m. (þrjár f., þrjú n.)"
+     "note": "m. (þrjár f., þrjú n.)",
+     "pic": "3️⃣"
     },
     {
      "is": "fjórir",
      "en": "four",
-     "note": "m. (fjórar f., fjögur n.)"
+     "note": "m. (fjórar f., fjögur n.)",
+     "pic": "4️⃣"
     },
     {
      "is": "fimm",
      "en": "five",
-     "note": ""
+     "note": "",
+     "pic": "5️⃣"
     },
     {
      "is": "sex",
      "en": "six",
-     "note": ""
+     "note": "",
+     "pic": "6️⃣"
     },
     {
      "is": "sjö",
      "en": "seven",
-     "note": ""
+     "note": "",
+     "pic": "7️⃣"
     },
     {
      "is": "átta",
      "en": "eight",
-     "note": ""
+     "note": "",
+     "pic": "8️⃣"
     },
     {
      "is": "níu",
      "en": "nine",
-     "note": ""
+     "note": "",
+     "pic": "9️⃣"
     },
     {
      "is": "tíu",
      "en": "ten",
-     "note": ""
+     "note": "",
+     "pic": "🔟"
     },
     {
      "is": "ellefu",
      "en": "eleven",
-     "note": ""
+     "note": "",
+     "pic": "num:11"
     },
     {
      "is": "tólf",
      "en": "twelve",
-     "note": ""
+     "note": "",
+     "pic": "num:12"
     },
     {
      "is": "tuttugu",
      "en": "twenty",
-     "note": ""
+     "note": "",
+     "pic": "num:20"
     },
     {
      "is": "hundrað",
      "en": "hundred",
-     "note": "n."
+     "note": "n.",
+     "pic": "💯"
     },
     {
      "is": "þúsund",
      "en": "thousand",
-     "note": "n."
+     "note": "n.",
+     "pic": "num:1000"
     }
    ]
   },
   {
    "cat": "Fjölskylda — Family",
+   "pic": "👨‍👩‍👧",
    "items": [
     {
      "is": "mamma",
      "en": "mom",
-     "note": "f."
+     "note": "f.",
+     "pic": "👩+❤️"
     },
     {
      "is": "pabbi",
      "en": "dad",
-     "note": "m."
+     "note": "m.",
+     "pic": "👨+❤️"
     },
     {
      "is": "móðir",
      "en": "mother",
-     "note": "f."
+     "note": "f.",
+     "pic": "👩"
     },
     {
      "is": "faðir",
      "en": "father",
-     "note": "m."
+     "note": "m.",
+     "pic": "👨"
     },
     {
      "is": "bróðir",
      "en": "brother",
-     "note": "m."
+     "note": "m.",
+     "pic": "👦"
     },
     {
      "is": "systir",
      "en": "sister",
-     "note": "f."
+     "note": "f.",
+     "pic": "👧"
     },
     {
      "is": "sonur",
      "en": "son",
-     "note": "m."
+     "note": "m.",
+     "pic": "👶+👦"
     },
     {
      "is": "dóttir",
      "en": "daughter",
-     "note": "f."
+     "note": "f.",
+     "pic": "👶+👧"
     },
     {
      "is": "eiginkona",
      "en": "wife",
-     "note": "f."
+     "note": "f.",
+     "pic": "👰"
     },
     {
      "is": "eiginmaður",
      "en": "husband",
-     "note": "m."
+     "note": "m.",
+     "pic": "🤵"
     },
     {
      "is": "afi",
      "en": "grandpa",
-     "note": "m."
+     "note": "m.",
+     "pic": "👴"
     },
     {
      "is": "amma",
      "en": "grandma",
-     "note": "f."
+     "note": "f.",
+     "pic": "👵"
     },
     {
      "is": "barn",
      "en": "child",
-     "note": "n."
+     "note": "n.",
+     "pic": "🧒"
     },
     {
      "is": "fjölskylda",
      "en": "family",
-     "note": "f."
+     "note": "f.",
+     "pic": "👨‍👩‍👧"
     },
     {
      "is": "hundur",
      "en": "dog",
-     "note": "m."
+     "note": "m.",
+     "pic": "🐕"
     }
    ]
   },
   {
    "cat": "Matur og drykkur — Food & drink",
+   "pic": "🍽️",
    "items": [
     {
      "is": "vatn",
      "en": "water",
-     "note": "n."
+     "note": "n.",
+     "pic": "💧"
     },
     {
      "is": "kaffi",
      "en": "coffee",
-     "note": "n."
+     "note": "n.",
+     "pic": "☕+🫘"
     },
     {
      "is": "mjólk",
      "en": "milk",
-     "note": "f."
+     "note": "f.",
+     "pic": "🥛"
     },
     {
      "is": "brauð",
      "en": "bread",
-     "note": "n."
+     "note": "n.",
+     "pic": "🍞"
     },
     {
      "is": "smjör",
      "en": "butter",
-     "note": "n."
+     "note": "n.",
+     "pic": "🧈"
     },
     {
      "is": "fiskur",
      "en": "fish",
-     "note": "m."
+     "note": "m.",
+     "pic": "🐟"
     },
     {
      "is": "kjöt",
      "en": "meat",
-     "note": "n."
+     "note": "n.",
+     "pic": "🥩"
     },
     {
      "is": "lambakjöt",
      "en": "lamb (meat)",
-     "note": "n."
+     "note": "n.",
+     "pic": "🐑+🍖"
     },
     {
      "is": "ostur",
      "en": "cheese",
-     "note": "m."
+     "note": "m.",
+     "pic": "🧀"
     },
     {
      "is": "egg",
      "en": "egg",
-     "note": "n."
+     "note": "n.",
+     "pic": "🥚"
     },
     {
      "is": "skyr",
      "en": "skyr",
-     "note": "n."
+     "note": "n.",
+     "pic": "🥣"
     },
     {
      "is": "epli",
      "en": "apple",
-     "note": "n."
+     "note": "n.",
+     "pic": "🍎"
     },
     {
      "is": "súpa",
      "en": "soup",
-     "note": "f."
+     "note": "f.",
+     "pic": "🍲"
     },
     {
      "is": "bjór",
      "en": "beer",
-     "note": "m."
+     "note": "m.",
+     "pic": "🍺"
     },
     {
      "is": "te",
      "en": "tea",
-     "note": "n."
+     "note": "n.",
+     "pic": "🍵"
     }
    ]
   },
   {
    "cat": "Náttúra og veður — Nature & weather",
+   "pic": "🏔️",
    "items": [
     {
      "is": "veður",
      "en": "weather",
-     "note": "n."
+     "note": "n.",
+     "pic": "🌦️"
     },
     {
      "is": "rigning",
      "en": "rain",
-     "note": "f."
+     "note": "f.",
+     "pic": "🌧️"
     },
     {
      "is": "snjór",
      "en": "snow",
-     "note": "m."
+     "note": "m.",
+     "pic": "❄️"
     },
     {
      "is": "vindur",
      "en": "wind",
-     "note": "m."
+     "note": "m.",
+     "pic": "💨"
     },
     {
      "is": "sól",
      "en": "sun",
-     "note": "f."
+     "note": "f.",
+     "pic": "☀️"
     },
     {
      "is": "ský",
      "en": "cloud",
-     "note": "n."
+     "note": "n.",
+     "pic": "☁️"
     },
     {
      "is": "fjall",
      "en": "mountain",
-     "note": "n."
+     "note": "n.",
+     "pic": "⛰️"
     },
     {
      "is": "foss",
      "en": "waterfall",
-     "note": "m."
+     "note": "m.",
+     "pic": "🏞️"
     },
     {
      "is": "jökull",
      "en": "glacier",
-     "note": "m."
+     "note": "m.",
+     "pic": "🧊+⛰️"
     },
     {
      "is": "eldfjall",
      "en": "volcano",
-     "note": "n."
+     "note": "n.",
+     "pic": "🌋"
     },
     {
      "is": "sjór",
      "en": "sea",
-     "note": "m."
+     "note": "m.",
+     "pic": "🌊"
     },
     {
      "is": "norðurljós",
      "en": "northern lights",
-     "note": "n. pl."
+     "note": "n. pl.",
+     "pic": "🌌"
     },
     {
      "is": "kalt",
      "en": "cold",
-     "note": "neuter of kaldur — Það er kalt"
+     "note": "neuter of kaldur — Það er kalt",
+     "pic": "🥶"
     },
     {
      "is": "hlýtt",
      "en": "warm",
-     "note": "neuter of hlýr — Það er hlýtt"
+     "note": "neuter of hlýr — Það er hlýtt",
+     "pic": "🥵"
     }
    ]
   },
   {
    "cat": "Tími — Time & days",
+   "pic": "🕰️",
    "items": [
     {
      "is": "dagur",
      "en": "day",
-     "note": "m."
+     "note": "m.",
+     "pic": "🗓️+1"
     },
     {
      "is": "vika",
      "en": "week",
-     "note": "f."
+     "note": "f.",
+     "pic": "🗓️+7"
     },
     {
      "is": "mánuður",
      "en": "month",
-     "note": "m."
+     "note": "m.",
+     "pic": "🗓️+30"
     },
     {
      "is": "ár",
      "en": "year",
-     "note": "n."
+     "note": "n.",
+     "pic": "🗓️+365"
     },
     {
      "is": "í dag",
      "en": "today",
-     "note": ""
+     "note": "",
+     "pic": "🗓️+📍"
     },
     {
      "is": "á morgun",
      "en": "tomorrow",
-     "note": ""
+     "note": "",
+     "pic": "🗓️+→"
     },
     {
      "is": "í gær",
      "en": "yesterday",
-     "note": ""
+     "note": "",
+     "pic": "🗓️+←"
     },
     {
      "is": "mánudagur",
      "en": "Monday",
-     "note": "m. — days are lowercase"
+     "note": "m. — days are lowercase",
+     "pic": "day:1"
     },
     {
      "is": "þriðjudagur",
      "en": "Tuesday",
-     "note": "m."
+     "note": "m.",
+     "pic": "day:2"
     },
     {
      "is": "miðvikudagur",
      "en": "Wednesday",
-     "note": "m."
+     "note": "m.",
+     "pic": "day:3"
     },
     {
      "is": "fimmtudagur",
      "en": "Thursday",
-     "note": "m."
+     "note": "m.",
+     "pic": "day:4"
     },
     {
      "is": "föstudagur",
      "en": "Friday",
-     "note": "m."
+     "note": "m.",
+     "pic": "day:5"
     },
     {
      "is": "laugardagur",
      "en": "Saturday",
-     "note": "m."
+     "note": "m.",
+     "pic": "day:6"
     },
     {
      "is": "sunnudagur",
      "en": "Sunday",
-     "note": "m."
+     "note": "m.",
+     "pic": "day:7"
     }
    ]
   },
   {
    "cat": "Í bænum — Around town",
+   "pic": "🏙️",
    "items": [
     {
      "is": "hús",
      "en": "house",
-     "note": "n."
+     "note": "n.",
+     "pic": "🏠"
     },
     {
      "is": "gata",
      "en": "street",
-     "note": "f."
+     "note": "f.",
+     "pic": "🏘️"
     },
     {
      "is": "bíll",
      "en": "car",
-     "note": "m."
+     "note": "m.",
+     "pic": "🚗"
     },
     {
      "is": "strætó",
      "en": "bus",
-     "note": "m."
+     "note": "m.",
+     "pic": "🚌"
     },
     {
      "is": "flugvöllur",
      "en": "airport",
-     "note": "m."
+     "note": "m.",
+     "pic": "🛫+🏢"
     },
     {
      "is": "hótel",
      "en": "hotel",
-     "note": "n."
+     "note": "n.",
+     "pic": "🏨"
     },
     {
      "is": "búð",
      "en": "shop",
-     "note": "f."
+     "note": "f.",
+     "pic": "🏪"
     },
     {
      "is": "banki",
      "en": "bank",
-     "note": "m."
+     "note": "m.",
+     "pic": "🏦"
     },
     {
      "is": "sundlaug",
      "en": "swimming pool",
-     "note": "f."
+     "note": "f.",
+     "pic": "🏊"
     },
     {
      "is": "kirkja",
      "en": "church",
-     "note": "f."
+     "note": "f.",
+     "pic": "⛪"
     },
     {
      "is": "kaffihús",
      "en": "café",
-     "note": "n."
+     "note": "n.",
+     "pic": "☕+🏠"
     },
     {
      "is": "miði",
      "en": "ticket",
-     "note": "m."
+     "note": "m.",
+     "pic": "🎫"
     },
     {
      "is": "vegur",
      "en": "road",
-     "note": "m."
+     "note": "m.",
+     "pic": "🛣️"
     },
     {
      "is": "bær",
      "en": "town / farm",
-     "note": "m."
+     "note": "m.",
+     "pic": "🏡"
     }
    ]
   },
   {
    "cat": "Sagnir — Verbs",
+   "pic": "🏃",
    "items": [
     {
      "is": "að vera",
      "en": "to be",
-     "note": "ég er"
+     "note": "ég er",
+     "pic": "🧍"
     },
     {
      "is": "að hafa",
      "en": "to have",
-     "note": "ég hef"
+     "note": "ég hef",
+     "pic": "🤲"
     },
     {
      "is": "að eiga",
      "en": "to own / have",
-     "note": "ég á"
+     "note": "ég á",
+     "pic": "🏠+🔑"
     },
     {
      "is": "að fara",
      "en": "to go",
-     "note": "ég fer"
+     "note": "ég fer",
+     "pic": "🚶+→"
     },
     {
      "is": "að koma",
      "en": "to come",
-     "note": "ég kem"
+     "note": "ég kem",
+     "pic": "🚶+←"
     },
     {
      "is": "að tala",
      "en": "to speak",
-     "note": "ég tala"
+     "note": "ég tala",
+     "pic": "🗣️"
     },
     {
      "is": "að skilja",
      "en": "to understand",
-     "note": "ég skil"
+     "note": "ég skil",
+     "pic": "💡"
     },
     {
      "is": "að borða",
      "en": "to eat",
-     "note": "ég borða"
+     "note": "ég borða",
+     "pic": "🍴"
     },
     {
      "is": "að drekka",
      "en": "to drink",
-     "note": "ég drekk"
+     "note": "ég drekk",
+     "pic": "🥤"
     },
     {
      "is": "að sjá",
      "en": "to see",
-     "note": "ég sé"
+     "note": "ég sé",
+     "pic": "👀"
     },
     {
      "is": "að vilja",
      "en": "to want",
-     "note": "ég vil"
+     "note": "ég vil",
+     "pic": "🤩"
     },
     {
      "is": "að búa",
      "en": "to live (reside)",
-     "note": "ég bý"
+     "note": "ég bý",
+     "pic": "🏠+🧍"
     },
     {
      "is": "að heita",
      "en": "to be called",
-     "note": "ég heiti"
+     "note": "ég heiti",
+     "pic": "📛"
     },
     {
      "is": "að læra",
      "en": "to learn",
-     "note": "ég læri"
+     "note": "ég læri",
+     "pic": "📚"
     },
     {
      "is": "að kaupa",
      "en": "to buy",
-     "note": "ég kaupi"
+     "note": "ég kaupi",
+     "pic": "🛒"
     }
    ]
   },
   {
    "cat": "Lýsingarorð — Adjectives",
+   "pic": "🎨",
    "items": [
     {
      "is": "góður",
      "en": "good",
-     "note": "góð f., gott n."
+     "note": "góð f., gott n.",
+     "pic": "👍"
     },
     {
      "is": "stór",
      "en": "big",
-     "note": "stór f., stórt n."
+     "note": "stór f., stórt n.",
+     "pic": "🐘"
     },
     {
      "is": "lítill",
      "en": "small",
-     "note": "lítil f., lítið n."
+     "note": "lítil f., lítið n.",
+     "pic": "🐭"
     },
     {
      "is": "nýr",
      "en": "new",
-     "note": "ný f., nýtt n."
+     "note": "ný f., nýtt n.",
+     "pic": "✨"
     },
     {
      "is": "gamall",
      "en": "old",
-     "note": "gömul f., gamalt n."
+     "note": "gömul f., gamalt n.",
+     "pic": "🏚️"
     },
     {
      "is": "fallegur",
      "en": "beautiful",
-     "note": "falleg f., fallegt n."
+     "note": "falleg f., fallegt n.",
+     "pic": "🌸"
     },
     {
      "is": "dýr",
      "en": "expensive",
-     "note": "dýr f., dýrt n."
+     "note": "dýr f., dýrt n.",
+     "pic": "💰+⬆️"
     },
     {
      "is": "ódýr",
      "en": "cheap",
-     "note": "ódýr f., ódýrt n."
+     "note": "ódýr f., ódýrt n.",
+     "pic": "💰+⬇️"
     },
     {
      "is": "glaður",
      "en": "happy",
-     "note": "glöð f., glatt n."
+     "note": "glöð f., glatt n.",
+     "pic": "😄"
     },
     {
      "is": "þreyttur",
      "en": "tired",
-     "note": "þreytt f., þreytt n."
+     "note": "þreytt f., þreytt n.",
+     "pic": "😴"
     },
     {
      "is": "rauður",
      "en": "red",
-     "note": "rauð f., rautt n."
+     "note": "rauð f., rautt n.",
+     "pic": "color:#d62828"
     },
     {
      "is": "blár",
      "en": "blue",
-     "note": "blá f., blátt n."
+     "note": "blá f., blátt n.",
+     "pic": "color:#1d4ed8"
     },
     {
      "is": "grænn",
      "en": "green",
-     "note": "græn f., grænt n."
+     "note": "græn f., grænt n.",
+     "pic": "color:#15803d"
     },
     {
      "is": "hvítur",
      "en": "white",
-     "note": "hvít f., hvítt n."
+     "note": "hvít f., hvítt n.",
+     "pic": "color:#ffffff"
     },
     {
      "is": "svartur",
      "en": "black",
-     "note": "svört f., svart n."
+     "note": "svört f., svart n.",
+     "pic": "color:#111111"
     }
    ]
   }

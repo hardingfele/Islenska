@@ -46,17 +46,17 @@
     {
      "is": "flugvöllur",
      "en": "airport",
-     "pic": "🛫"
+     "pic": "🛫+🏢"
     },
     {
      "is": "farangur",
      "en": "baggage",
-     "pic": "🧳"
+     "pic": "🛄"
     },
     {
      "is": "útgangur",
      "en": "exit",
-     "pic": "🚪"
+     "pic": "exit"
     },
     {
      "is": "stigi",
@@ -66,17 +66,17 @@
     {
      "is": "niðri",
      "en": "downstairs",
-     "pic": "⬇️"
+     "pic": "🪜+⬇️"
     },
     {
      "is": "til vinstri",
      "en": "to the left",
-     "pic": "⬅️"
+     "pic": "sign:←"
     },
     {
      "is": "til hægri",
      "en": "to the right",
-     "pic": "➡️"
+     "pic": "sign:→"
     }
    ],
    "dialogue": [
@@ -170,7 +170,7 @@
     {
      "is": "ferðamaður",
      "en": "tourist",
-     "pic": "📸"
+     "pic": "🧑+📸"
     },
     {
      "is": "frí",
@@ -180,17 +180,17 @@
     {
      "is": "vika",
      "en": "week",
-     "pic": "📅"
+     "pic": "🗓️+7"
     },
     {
      "is": "dagur",
      "en": "day",
-     "pic": "☀️"
+     "pic": "🗓️+1"
     },
     {
      "is": "nótt",
      "en": "night",
-     "pic": "🌙"
+     "pic": "🌃"
     },
     {
      "is": "hótel",
@@ -200,7 +200,7 @@
     {
      "is": "að gista",
      "en": "to stay (overnight)",
-     "pic": "🛏️"
+     "pic": "🛌"
     }
    ],
    "dialogue": [
@@ -318,7 +318,7 @@
     {
      "is": "áfengi",
      "en": "alcohol",
-     "pic": "🍾"
+     "pic": "🥃"
     },
     {
      "is": "vín",
@@ -328,7 +328,7 @@
     {
      "is": "flaska",
      "en": "bottle",
-     "pic": "🍼"
+     "pic": "🍾"
     },
     {
      "is": "tóbak",
@@ -338,7 +338,7 @@
     {
      "is": "matur",
      "en": "food",
-     "pic": "🍱"
+     "pic": "🍽️"
     },
     {
      "is": "gjöf",
@@ -445,7 +445,7 @@
     {
      "is": "að borga",
      "en": "to pay",
-     "pic": "💰"
+     "pic": "💳+✔"
     },
     {
      "is": "mínúta",
@@ -460,12 +460,12 @@
     {
      "is": "aðra leiðina",
      "en": "one way",
-     "pic": "➡️"
+     "pic": "🎫+→"
     },
     {
      "is": "fram og til baka",
      "en": "return",
-     "pic": "🔁"
+     "pic": "🎫+⇄"
     }
    ],
    "dialogue": [
@@ -562,7 +562,7 @@
     {
      "is": "herbergi",
      "en": "room",
-     "pic": "🚪"
+     "pic": "🛏️"
     },
     {
      "is": "lykill",
@@ -572,12 +572,12 @@
     {
      "is": "morgunmatur",
      "en": "breakfast",
-     "pic": "🥐"
+     "pic": "🍳"
     },
     {
      "is": "hæð",
      "en": "floor / storey",
-     "pic": "🏢"
+     "pic": "🏢+3"
     },
     {
      "is": "lyfta",
@@ -592,12 +592,12 @@
     {
      "is": "lykilorð",
      "en": "password",
-     "pic": "🔒"
+     "pic": "🔑+•••"
     },
     {
      "is": "nótt",
      "en": "night",
-     "pic": "🌙"
+     "pic": "🌃"
     }
    ],
    "dialogue": [
@@ -682,12 +682,12 @@
     {
      "is": "beint áfram",
      "en": "straight ahead",
-     "pic": "⬆️"
+     "pic": "sign:↑"
     },
     {
      "is": "gata",
      "en": "street",
-     "pic": "🛣️"
+     "pic": "🏘️"
     },
     {
      "is": "kirkja",
@@ -697,12 +697,12 @@
     {
      "is": "langt",
      "en": "far",
-     "pic": "📏"
+     "pic": "far"
     },
     {
      "is": "nálægt",
      "en": "near",
-     "pic": "📍"
+     "pic": "near"
     },
     {
      "is": "stoppistöð",
@@ -712,12 +712,12 @@
     {
      "is": "horn",
      "en": "corner",
-     "pic": "↪️"
+     "pic": "sign:↱"
     },
     {
      "is": "hinum megin",
      "en": "on the other side",
-     "pic": "↔️"
+     "pic": "sign:⇄"
     }
    ],
    "dialogue": [
@@ -808,7 +808,7 @@
     {
      "is": "kaffi",
      "en": "coffee",
-     "pic": "☕"
+     "pic": "☕+🫘"
     },
     {
      "is": "te",
@@ -823,12 +823,12 @@
     {
      "is": "sykur",
      "en": "sugar",
-     "pic": "🧂"
+     "pic": "🍬"
     },
     {
      "is": "kanilsnúður",
      "en": "cinnamon roll",
-     "pic": "🌀"
+     "pic": "🥐"
     },
     {
      "is": "kaka",
@@ -838,7 +838,7 @@
     {
      "is": "bolli",
      "en": "cup",
-     "pic": "🫖"
+     "pic": "☕"
     },
     {
      "is": "að taka með",
@@ -946,12 +946,12 @@
     {
      "is": "kælir",
      "en": "fridge / cooler",
-     "pic": "🧊"
+     "pic": "🥛+❄️"
     },
     {
      "is": "kassi",
      "en": "till / checkout",
-     "pic": "🧾"
+     "pic": "🛒+💳"
     },
     {
      "is": "poki",
@@ -971,12 +971,12 @@
     {
      "is": "ávextir",
      "en": "fruit",
-     "pic": "🍎"
+     "pic": "🍎🍌"
     },
     {
      "is": "grænmeti",
      "en": "vegetables",
-     "pic": "🥦"
+     "pic": "🥦🥕"
     }
    ],
    "dialogue": [
@@ -1084,7 +1084,7 @@
     {
      "is": "handklæði",
      "en": "towel",
-     "pic": "🧺"
+     "pic": "🧖"
     },
     {
      "is": "sundföt",
@@ -1094,17 +1094,17 @@
     {
      "is": "búningsklefi",
      "en": "changing room",
-     "pic": "🚪"
+     "pic": "🚪+👕"
     },
     {
      "is": "skápur",
      "en": "locker",
-     "pic": "🔐"
+     "pic": "🗄️+🔑"
     },
     {
      "is": "fullorðinn",
      "en": "adult",
-     "pic": "🧑"
+     "pic": "🧑+18"
     }
    ],
    "dialogue": [
@@ -1196,7 +1196,7 @@
     {
      "is": "færð",
      "en": "road conditions",
-     "pic": "🚧"
+     "pic": "🛣️+🌨️"
     },
     {
      "is": "vindur",
@@ -1206,7 +1206,7 @@
     {
      "is": "hálka",
      "en": "ice on the road",
-     "pic": "🧊"
+     "pic": "🚗+🧊"
     },
     {
      "is": "varlega",
@@ -1221,7 +1221,7 @@
     {
      "is": "bílaleiga",
      "en": "car rental",
-     "pic": "🚗"
+     "pic": "🚗+🔑"
     }
    ],
    "dialogue": [
@@ -1301,7 +1301,7 @@
     {
      "is": "hvaðan",
      "en": "where from",
-     "pic": "🌍"
+     "pic": "🌍+❓"
     },
     {
      "is": "veður",
@@ -1428,7 +1428,7 @@
     {
      "is": "apótek",
      "en": "pharmacy",
-     "pic": "💊"
+     "pic": "pharmacy"
     },
     {
      "is": "hausverkur",
@@ -1443,7 +1443,7 @@
     {
      "is": "læknir",
      "en": "doctor",
-     "pic": "🩺"
+     "pic": "🧑‍⚕️"
     },
     {
      "is": "veikur",

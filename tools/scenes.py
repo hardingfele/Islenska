@@ -12,7 +12,7 @@ S.append(dict(
  npc=dict(role="Starfsmaður", en="Airport staff", g="f"),
  setting="You've just landed at Keflavík and need to find your bags.",
  signs=[("Komur","Arrivals"),("Brottfarir","Departures"),("Farangur","Baggage"),("Útgangur","Exit"),("Snyrting","Restrooms"),("Tollur","Customs")],
- words=[("flugvél","aeroplane","✈️"),("flugvöllur","airport","🛫"),("farangur","baggage","🧳"),("útgangur","exit","🚪"),("stigi","stairs","🪜"),("niðri","downstairs","⬇️"),("til vinstri","to the left","⬅️"),("til hægri","to the right","➡️")],
+ words=[("flugvél","aeroplane","✈️"),("flugvöllur","airport","🛫+🏢"),("farangur","baggage","🛄"),("útgangur","exit","exit"),("stigi","stairs","🪜"),("niðri","downstairs","🪜+⬇️"),("til vinstri","to the left","sign:←"),("til hægri","to the right","sign:→")],
  dialogue=[
   ("U","Afsakið, talar þú ensku?","Excuse me, do you speak English?"),
   ("A","Já, en þú mátt alveg tala íslensku við mig.","Yes, but you're welcome to speak Icelandic with me."),
@@ -32,7 +32,7 @@ S.append(dict(
  id="vegabref", is_title="Vegabréfaeftirlit", en_title="Passport control", pic="🛂",
  npc=dict(role="Landamæravörður", en="Border officer", g="m"),
  setting="The border officer asks why you're here and how long you'll stay.",
- words=[("vegabréf","passport","🛂"),("ferðamaður","tourist","📸"),("frí","holiday","🏖️"),("vika","week","📅"),("dagur","day","☀️"),("nótt","night","🌙"),("hótel","hotel","🏨"),("að gista","to stay (overnight)","🛏️")],
+ words=[("vegabréf","passport","🛂"),("ferðamaður","tourist","🧑+📸"),("frí","holiday","🏖️"),("vika","week","🗓️+7"),("dagur","day","🗓️+1"),("nótt","night","🌃"),("hótel","hotel","🏨"),("að gista","to stay (overnight)","🛌")],
  dialogue=[
   ("A","Góðan daginn. Vegabréfið, takk.","Good morning. Passport, please."),
   ("U","Gjörðu svo vel.","Here you go."),
@@ -55,7 +55,7 @@ S.append(dict(
  id="tollur", is_title="Í tollinum", en_title="Customs", pic="🧳",
  npc=dict(role="Tollvörður", en="Customs officer", g="f"),
  setting="A customs officer stops you on the way out.",
- words=[("ferðataska","suitcase","🧳"),("tollur","customs","🛃"),("áfengi","alcohol","🍾"),("vín","wine","🍷"),("flaska","bottle","🍼"),("tóbak","tobacco","🚬"),("matur","food","🍱"),("gjöf","gift","🎁")],
+ words=[("ferðataska","suitcase","🧳"),("tollur","customs","🛃"),("áfengi","alcohol","🥃"),("vín","wine","🍷"),("flaska","bottle","🍾"),("tóbak","tobacco","🚬"),("matur","food","🍽️"),("gjöf","gift","🎁")],
  dialogue=[
   ("A","Góðan daginn. Ertu með eitthvað tollskylt?","Good day. Do you have anything to declare?"),
   ("U","Nei, ekkert.","No, nothing."),
@@ -76,7 +76,7 @@ S.append(dict(
  id="ruta", is_title="Rútan í bæinn", en_title="The bus into town", pic="🚌",
  npc=dict(role="Sölumaður", en="Ticket seller", g="m"),
  setting="Buying a bus ticket from the airport to Reykjavík.",
- words=[("rúta","coach / bus","🚌"),("miði","ticket","🎫"),("kort","card","💳"),("að borga","to pay","💰"),("mínúta","minute","⏱️"),("klukkutími","hour","🕐"),("aðra leiðina","one way","➡️"),("fram og til baka","return","🔁")],
+ words=[("rúta","coach / bus","🚌"),("miði","ticket","🎫"),("kort","card","💳"),("að borga","to pay","💳+✔"),("mínúta","minute","⏱️"),("klukkutími","hour","🕐"),("aðra leiðina","one way","🎫+→"),("fram og til baka","return","🎫+⇄")],
  dialogue=[
   ("U","Góðan daginn. Einn miða til Reykjavíkur, takk.","Hello. One ticket to Reykjavík, please."),
   ("A","Aðra leiðina eða fram og til baka?","One way or return?"),
@@ -98,7 +98,7 @@ S.append(dict(
  id="hotel", is_title="Á hótelinu", en_title="Hotel check-in", pic="🏨",
  npc=dict(role="Móttaka", en="Receptionist", g="f"),
  setting="Checking in at your hotel in the evening.",
- words=[("herbergi","room","🚪"),("lykill","key","🔑"),("morgunmatur","breakfast","🥐"),("hæð","floor / storey","🏢"),("lyfta","lift / elevator","🛗"),("þráðlaust net","wifi","📶"),("lykilorð","password","🔒"),("nótt","night","🌙")],
+ words=[("herbergi","room","🛏️"),("lykill","key","🔑"),("morgunmatur","breakfast","🍳"),("hæð","floor / storey","🏢+3"),("lyfta","lift / elevator","🛗"),("þráðlaust net","wifi","📶"),("lykilorð","password","🔑+•••"),("nótt","night","🌃")],
  dialogue=[
   ("A","Gott kvöld og velkomin.","Good evening and welcome."),
   ("U","Gott kvöld. Ég á pantað herbergi á nafninu Smith.","Good evening. I have a room booked under the name Smith."),
@@ -119,7 +119,7 @@ S.append(dict(
  id="leid", is_title="Að spyrja til vegar", en_title="Asking for directions", pic="🧭",
  npc=dict(role="Vegfarandi", en="Passer-by", g="m"),
  setting="You're downtown looking for Hallgrímskirkja and the bus stop.",
- words=[("beint áfram","straight ahead","⬆️"),("gata","street","🛣️"),("kirkja","church","⛪"),("langt","far","📏"),("nálægt","near","📍"),("stoppistöð","bus stop","🚏"),("horn","corner","↪️"),("hinum megin","on the other side","↔️")],
+ words=[("beint áfram","straight ahead","sign:↑"),("gata","street","🏘️"),("kirkja","church","⛪"),("langt","far","far"),("nálægt","near","near"),("stoppistöð","bus stop","🚏"),("horn","corner","sign:↱"),("hinum megin","on the other side","sign:⇄")],
  dialogue=[
   ("U","Afsakið, hvar er Hallgrímskirkja?","Excuse me, where is Hallgrímskirkja?"),
   ("A","Farðu beint áfram upp Skólavörðustíg. Hún er efst á hæðinni.","Go straight up Skólavörðustígur. It's at the top of the hill."),
@@ -140,7 +140,7 @@ S.append(dict(
  id="kaffi", is_title="Á kaffihúsinu", en_title="At the café", pic="☕",
  npc=dict(role="Afgreiðslukona", en="Barista", g="f"),
  setting="Ordering a coffee and a cinnamon roll.",
- words=[("kaffi","coffee","☕"),("te","tea","🍵"),("mjólk","milk","🥛"),("sykur","sugar","🧂"),("kanilsnúður","cinnamon roll","🌀"),("kaka","cake","🍰"),("bolli","cup","🫖"),("að taka með","to take away","🥡")],
+ words=[("kaffi","coffee","☕+🫘"),("te","tea","🍵"),("mjólk","milk","🥛"),("sykur","sugar","🍬"),("kanilsnúður","cinnamon roll","🥐"),("kaka","cake","🍰"),("bolli","cup","☕"),("að taka með","to take away","🥡")],
  dialogue=[
   ("A","Hæ! Hvað má bjóða þér?","Hi! What can I get you?"),
   ("U","Ég ætla að fá kaffi og kanilsnúð.","I'll have a coffee and a cinnamon roll.", [("Ég ætla að fá kaffi og köku.","I'll have a coffee and a piece of cake.")]),
@@ -161,7 +161,7 @@ S.append(dict(
  id="bud", is_title="Í matvörubúðinni", en_title="At the grocery store", pic="🛒",
  npc=dict(role="Starfsmaður", en="Shop assistant", g="m"),
  setting="Finding skyr and bread, then paying at the till.",
- words=[("búð","shop","🏪"),("kælir","fridge / cooler","🧊"),("kassi","till / checkout","🧾"),("poki","bag","🛍️"),("verð","price","🏷️"),("brauð","bread","🍞"),("ávextir","fruit","🍎"),("grænmeti","vegetables","🥦")],
+ words=[("búð","shop","🏪"),("kælir","fridge / cooler","🥛+❄️"),("kassi","till / checkout","🛒+💳"),("poki","bag","🛍️"),("verð","price","🏷️"),("brauð","bread","🍞"),("ávextir","fruit","🍎🍌"),("grænmeti","vegetables","🥦🥕")],
  dialogue=[
   ("U","Afsakið, hvar finn ég skyr?","Excuse me, where do I find skyr?"),
   ("A","Í kælinum, aftast í búðinni.","In the cooler, at the back of the shop."),
@@ -182,7 +182,7 @@ S.append(dict(
  id="sund", is_title="Í sundi", en_title="At the swimming pool", pic="♨️",
  npc=dict(role="Laugarvörður", en="Pool attendant", g="f"),
  setting="Icelandic pools have strict rules: shower without your swimsuit before you get in.",
- words=[("sundlaug","swimming pool","🏊"),("heitur pottur","hot tub","♨️"),("sturta","shower","🚿"),("handklæði","towel","🧺"),("sundföt","swimsuit","🩱"),("búningsklefi","changing room","🚪"),("skápur","locker","🔐"),("fullorðinn","adult","🧑")],
+ words=[("sundlaug","swimming pool","🏊"),("heitur pottur","hot tub","♨️"),("sturta","shower","🚿"),("handklæði","towel","🧖"),("sundföt","swimsuit","🩱"),("búningsklefi","changing room","🚪+👕"),("skápur","locker","🗄️+🔑"),("fullorðinn","adult","🧑+18")],
  dialogue=[
   ("A","Halló! Einn fullorðinn?","Hello! One adult?"),
   ("U","Já, einn fullorðinn, takk.","Yes, one adult, please."),
@@ -202,7 +202,7 @@ S.append(dict(
  id="bensin", is_title="Á bensínstöðinni", en_title="At the gas station", pic="⛽",
  npc=dict(role="Afgreiðslumaður", en="Attendant", g="m"),
  setting="On the road south. Checking conditions — and grabbing a hot dog.",
- words=[("bensín","petrol / gas","⛽"),("vegur","road","🛣️"),("færð","road conditions","🚧"),("vindur","wind","💨"),("hálka","ice on the road","🧊"),("varlega","carefully","⚠️"),("pylsa","hot dog","🌭"),("bílaleiga","car rental","🚗")],
+ words=[("bensín","petrol / gas","⛽"),("vegur","road","🛣️"),("færð","road conditions","🛣️+🌨️"),("vindur","wind","💨"),("hálka","ice on the road","🚗+🧊"),("varlega","carefully","⚠️"),("pylsa","hot dog","🌭"),("bílaleiga","car rental","🚗+🔑")],
  dialogue=[
   ("U","Afsakið, er vegurinn til Víkur opinn?","Excuse me, is the road to Vík open?"),
   ("A","Já, en það er mikill vindur undir Eyjafjöllum. Farðu varlega.","Yes, but it's very windy below Eyjafjöll. Drive carefully."),
@@ -222,7 +222,7 @@ S.append(dict(
  id="spjall", is_title="Smáspjall", en_title="Small talk", pic="💬",
  npc=dict(role="Heimamaður", en="Local", g="f"),
  setting="A friendly local starts chatting with you.",
- words=[("hvaðan","where from","🌍"),("veður","weather","🌦️"),("rok","strong wind","🌬️"),("rigning","rain","🌧️"),("skrítið","strange","🤨"),("að læra","to learn","📚"),("smá","a little","🤏"),("að líka","to like","👍")],
+ words=[("hvaðan","where from","🌍+❓"),("veður","weather","🌦️"),("rok","strong wind","🌬️"),("rigning","rain","🌧️"),("skrítið","strange","🤨"),("að læra","to learn","📚"),("smá","a little","🤏"),("að líka","to like","👍")],
  dialogue=[
   ("A","Hvaðan ertu?","Where are you from?"),
   ("U","Ég er frá Bandaríkjunum.","I'm from the United States.", [("Ég er frá Kanada.","I'm from Canada.")]),
@@ -243,7 +243,7 @@ S.append(dict(
  id="apotek", is_title="Í apótekinu", en_title="At the pharmacy", pic="💊",
  npc=dict(role="Lyfjafræðingur", en="Pharmacist", g="f"),
  setting="You've got a headache, and you want to know the emergency number.",
- words=[("apótek","pharmacy","💊"),("hausverkur","headache","🤕"),("tafla","pill / tablet","💊"),("læknir","doctor","🩺"),("veikur","sick","🤒"),("hjálp","help","🆘"),("sjúkrahús","hospital","🏥"),("að hringja","to call","📞")],
+ words=[("apótek","pharmacy","pharmacy"),("hausverkur","headache","🤕"),("tafla","pill / tablet","💊"),("læknir","doctor","🧑‍⚕️"),("veikur","sick","🤒"),("hjálp","help","🆘"),("sjúkrahús","hospital","🏥"),("að hringja","to call","📞")],
  dialogue=[
   ("U","Góðan daginn. Ég er með hausverk. Áttu eitthvað við því?","Hello. I have a headache. Do you have anything for it?"),
   ("A","Já, þetta er gott við hausverk. Lestu leiðbeiningarnar á pakkanum.","Yes, this is good for headaches. Read the instructions on the package."),
