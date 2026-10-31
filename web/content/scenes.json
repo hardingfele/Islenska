@@ -1,6 +1,242 @@
 {
  "scenes": [
   {
+   "intro": true,
+   "id": "hallo",
+   "is_title": "Halló!",
+   "en_title": "Hello! Saying who you are",
+   "pic": "👋",
+   "npc": {
+    "role": "Anna",
+    "en": "Anna",
+    "g": "f"
+   },
+   "setting": "You meet Anna. Say hello and tell her your name.",
+   "signs": [],
+   "words": [
+    {
+     "is": "halló",
+     "en": "hello",
+     "pic": "👋"
+    },
+    {
+     "is": "bless",
+     "en": "bye",
+     "pic": "👋+🚶"
+    },
+    {
+     "is": "ég",
+     "en": "I",
+     "pic": "🙋"
+    },
+    {
+     "is": "þú",
+     "en": "you",
+     "pic": "👉"
+    },
+    {
+     "is": "að heita",
+     "en": "to be called",
+     "pic": "📛"
+    },
+    {
+     "is": "nafn",
+     "en": "name",
+     "pic": "📛+🔤"
+    },
+    {
+     "is": "gaman",
+     "en": "nice / fun",
+     "pic": "😊"
+    },
+    {
+     "is": "góðan daginn",
+     "en": "good morning",
+     "pic": "🌅"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Halló!",
+     "en": "Hello!"
+    },
+    {
+     "spk": "U",
+     "is": "Hæ!",
+     "en": "Hi!"
+    },
+    {
+     "spk": "A",
+     "is": "Ég heiti Anna. Hvað heitir þú?",
+     "en": "My name is Anna. What's your name?"
+    },
+    {
+     "spk": "U",
+     "is": "Ég heiti Sam.",
+     "en": "My name is Sam."
+    },
+    {
+     "spk": "A",
+     "is": "Gaman að kynnast þér!",
+     "en": "Nice to meet you!"
+    },
+    {
+     "spk": "U",
+     "is": "Sömuleiðis. Bless!",
+     "en": "Likewise. Bye!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "In Icelandic the stress is always on the first syllable. Hal-ló, góð-an dag-inn.",
+     "ex": [
+      "Halló",
+      "Góðan daginn"
+     ]
+    },
+    {
+     "en": "“Ég heiti…” (I'm called…) is how you give your name. Ask back with “Hvað heitir þú?”.",
+     "ex": [
+      "Ég heiti Anna.",
+      "Hvað heitir þú?"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Ég heiti Sam.",
+     "en": "My name is Sam."
+    },
+    {
+     "is": "Hvað heitir þú?",
+     "en": "What's your name?"
+    },
+    {
+     "is": "Gaman að kynnast þér!",
+     "en": "Nice to meet you!"
+    }
+   ]
+  },
+  {
+   "intro": true,
+   "id": "takk",
+   "is_title": "Já, nei, takk",
+   "en_title": "Yes, no, thanks",
+   "pic": "🙏",
+   "npc": {
+    "role": "Gestgjafi",
+    "en": "Host",
+    "g": "f"
+   },
+   "setting": "Someone offers you coffee. Yes, no, please and thank you.",
+   "signs": [],
+   "words": [
+    {
+     "is": "já",
+     "en": "yes",
+     "pic": "✅"
+    },
+    {
+     "is": "nei",
+     "en": "no",
+     "pic": "❌"
+    },
+    {
+     "is": "takk",
+     "en": "thanks",
+     "pic": "🙏"
+    },
+    {
+     "is": "takk fyrir",
+     "en": "thank you",
+     "pic": "🙏+❤️"
+    },
+    {
+     "is": "kaffi",
+     "en": "coffee",
+     "pic": "☕+🫘"
+    },
+    {
+     "is": "mjólk",
+     "en": "milk",
+     "pic": "🥛"
+    },
+    {
+     "is": "vatn",
+     "en": "water",
+     "pic": "💧"
+    },
+    {
+     "is": "gjörðu svo vel",
+     "en": "here you go",
+     "pic": "🫴"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Viltu kaffi?",
+     "en": "Do you want coffee?"
+    },
+    {
+     "spk": "U",
+     "is": "Já, takk.",
+     "en": "Yes, please."
+    },
+    {
+     "spk": "A",
+     "is": "Viltu mjólk?",
+     "en": "Do you want milk?"
+    },
+    {
+     "spk": "U",
+     "is": "Nei, takk.",
+     "en": "No, thanks."
+    },
+    {
+     "spk": "A",
+     "is": "Gjörðu svo vel.",
+     "en": "Here you go."
+    },
+    {
+     "spk": "U",
+     "is": "Takk fyrir!",
+     "en": "Thank you!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Takk” means both “please” and “thanks”. “Já, takk” = yes please. “Nei, takk” = no thanks.",
+     "ex": [
+      "Já, takk.",
+      "Nei, takk."
+     ]
+    },
+    {
+     "en": "Notice the little h-sound before the kk in takk: it's said almost like “tahk”.",
+     "ex": [
+      "takk"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Já, takk.",
+     "en": "Yes, please."
+    },
+    {
+     "is": "Nei, takk.",
+     "en": "No, thanks."
+    },
+    {
+     "is": "Takk fyrir!",
+     "en": "Thank you!"
+    }
+   ]
+  },
+  {
+   "intro": false,
    "id": "komur",
    "is_title": "Komið til landsins",
    "en_title": "Arriving at the airport",
@@ -87,8 +323,8 @@
     },
     {
      "spk": "A",
-     "is": "Já, en þú mátt alveg tala íslensku við mig.",
-     "en": "Yes, but you're welcome to speak Icelandic with me."
+     "is": "Já, smá. En reyndu íslensku!",
+     "en": "Yes, a little. But try Icelandic!"
     },
     {
      "spk": "U",
@@ -103,8 +339,8 @@
     },
     {
      "spk": "A",
-     "is": "Farangurinn er niðri. Farðu niður stigann og svo til vinstri.",
-     "en": "The baggage is downstairs. Go down the stairs and then left."
+     "is": "Niðri. Farðu niður stigann og til vinstri.",
+     "en": "Downstairs. Go down the stairs and to the left."
     },
     {
      "spk": "U",
@@ -150,6 +386,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "vegabref",
    "is_title": "Vegabréfaeftirlit",
    "en_title": "Passport control",
@@ -293,6 +530,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "tollur",
    "is_title": "Í tollinum",
    "en_title": "Customs",
@@ -415,6 +653,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "ruta",
    "is_title": "Rútan í bæinn",
    "en_title": "The bus into town",
@@ -547,6 +786,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "hotel",
    "is_title": "Á hótelinu",
    "en_title": "Hotel check-in",
@@ -667,6 +907,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "leid",
    "is_title": "Að spyrja til vegar",
    "en_title": "Asking for directions",
@@ -793,6 +1034,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "kaffi",
    "is_title": "Á kaffihúsinu",
    "en_title": "At the café",
@@ -926,6 +1168,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "bud",
    "is_title": "Í matvörubúðinni",
    "en_title": "At the grocery store",
@@ -1054,6 +1297,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "sund",
    "is_title": "Í sundi",
    "en_title": "At the swimming pool",
@@ -1171,6 +1415,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "bensin",
    "is_title": "Á bensínstöðinni",
    "en_title": "At the gas station",
@@ -1286,6 +1531,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "spjall",
    "is_title": "Smáspjall",
    "en_title": "Small talk",
@@ -1413,6 +1659,7 @@
    ]
   },
   {
+   "intro": false,
    "id": "apotek",
    "is_title": "Í apótekinu",
    "en_title": "At the pharmacy",

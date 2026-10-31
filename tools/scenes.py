@@ -15,9 +15,9 @@ S.append(dict(
  words=[("flugvél","aeroplane","✈️"),("flugvöllur","airport","🛫+🏢"),("farangur","baggage","🛄"),("útgangur","exit","exit"),("stigi","stairs","🪜"),("niðri","downstairs","🪜+⬇️"),("til vinstri","to the left","sign:←"),("til hægri","to the right","sign:→")],
  dialogue=[
   ("U","Afsakið, talar þú ensku?","Excuse me, do you speak English?"),
-  ("A","Já, en þú mátt alveg tala íslensku við mig.","Yes, but you're welcome to speak Icelandic with me."),
+  ("A","Já, smá. En reyndu íslensku!","Yes, a little. But try Icelandic!"),
   ("U","Hvar er farangurinn?","Where is the baggage?", [("Hvar fæ ég töskuna mína?","Where do I get my suitcase?")]),
-  ("A","Farangurinn er niðri. Farðu niður stigann og svo til vinstri.","The baggage is downstairs. Go down the stairs and then left."),
+  ("A","Niðri. Farðu niður stigann og til vinstri.","Downstairs. Go down the stairs and to the left."),
   ("U","Niður og til vinstri. Takk fyrir!","Down and to the left. Thank you!"),
   ("A","Ekkert að þakka. Velkomin til Íslands!","You're welcome. Welcome to Iceland!"),
  ],
@@ -259,12 +259,53 @@ S.append(dict(
  build=[("Ég er með hausverk.","I have a headache."),("Hvað kostar þetta?","How much is this?"),("Ég þarf hjálp.","I need help.")],
 ))
 
+
+# ---- Gentle start: two very short scenes before the trip begins ----
+S.insert(0, dict(
+ id="takk", is_title="Já, nei, takk", en_title="Yes, no, thanks", pic="🙏", intro=True,
+ npc=dict(role="Gestgjafi", en="Host", g="f"),
+ setting="Someone offers you coffee. Yes, no, please and thank you.",
+ words=[("já","yes","✅"),("nei","no","❌"),("takk","thanks","🙏"),("takk fyrir","thank you","🙏+❤️"),("kaffi","coffee","☕+🫘"),("mjólk","milk","🥛"),("vatn","water","💧"),("gjörðu svo vel","here you go","🫴")],
+ dialogue=[
+  ("A","Viltu kaffi?","Do you want coffee?"),
+  ("U","Já, takk.","Yes, please."),
+  ("A","Viltu mjólk?","Do you want milk?"),
+  ("U","Nei, takk.","No, thanks."),
+  ("A","Gjörðu svo vel.","Here you go."),
+  ("U","Takk fyrir!","Thank you!"),
+ ],
+ tips=[
+  ("“Takk” means both “please” and “thanks”. “Já, takk” = yes please. “Nei, takk” = no thanks.", ["Já, takk.", "Nei, takk."]),
+  ("Notice the little h-sound before the kk in takk: it's said almost like “tahk”.", ["takk"]),
+ ],
+ build=[("Já, takk.","Yes, please."),("Nei, takk.","No, thanks."),("Takk fyrir!","Thank you!")],
+))
+S.insert(0, dict(
+ id="hallo", is_title="Halló!", en_title="Hello! Saying who you are", pic="👋", intro=True,
+ npc=dict(role="Anna", en="Anna", g="f"),
+ setting="You meet Anna. Say hello and tell her your name.",
+ words=[("halló","hello","👋"),("bless","bye","👋+🚶"),("ég","I","🙋"),("þú","you","👉"),("að heita","to be called","📛"),("nafn","name","📛+🔤"),("gaman","nice / fun","😊"),("góðan daginn","good morning","🌅")],
+ dialogue=[
+  ("A","Halló!","Hello!"),
+  ("U","Hæ!","Hi!"),
+  ("A","Ég heiti Anna. Hvað heitir þú?","My name is Anna. What's your name?"),
+  ("U","Ég heiti Sam.","My name is Sam."),
+  ("A","Gaman að kynnast þér!","Nice to meet you!"),
+  ("U","Sömuleiðis. Bless!","Likewise. Bye!"),
+ ],
+ tips=[
+  ("In Icelandic the stress is always on the first syllable. Hal-ló, góð-an dag-inn.", ["Halló", "Góðan daginn"]),
+  ("“Ég heiti…” (I'm called…) is how you give your name. Ask back with “Hvað heitir þú?”.", ["Ég heiti Anna.", "Hvað heitir þú?"]),
+ ],
+ build=[("Ég heiti Sam.","My name is Sam."),("Hvað heitir þú?","What's your name?"),("Gaman að kynnast þér!","Nice to meet you!")],
+))
+
 REACTIONS = [("Ha? Fyrirgefðu, ég skil ekki.","Huh? Sorry, I don't understand."),("Ha? Hvað sagðirðu?","Huh? What did you say?"),("Ehh… afsakið?","Uhh… excuse me?")]
 
 def build():
     out = []
     for s in S:
-        d = dict(id=s["id"], is_title=s["is_title"], en_title=s["en_title"], pic=s["pic"], npc=s["npc"], setting=s["setting"])
+        d = dict(intro=s.get("intro", False), id=s["id"], is_title=s["is_title"], en_title=s["en_title"], pic=s["pic"], npc=s["npc"], setting=s["setting"])
         d["signs"] = [{"is":a,"en":b} for a,b in s.get("signs",[])]
         d["words"] = [{"is":a,"en":b,"pic":c} for a,b,c in s["words"]]
         dl = []

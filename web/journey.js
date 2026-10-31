@@ -74,9 +74,9 @@
 const SCENE_COLORS = [["#0b6fc9","#4aa3e8"],["#3949ab","#7986cb"],["#00897b","#4db6ac"],["#f57c00","#ffb74d"],["#6d4c41","#a1887f"],["#2e7d32","#81c784"],
   ["#8d6e63","#d7a86e"],["#c2185b","#f06292"],["#0277bd","#4fc3f7"],["#455a64","#90a4ae"],["#7b1fa2","#ba68c8"],["#d32f2f","#ef9a9a"]];
 const sceneBg = i => `linear-gradient(135deg,${SCENE_COLORS[i%12][0]},${SCENE_COLORS[i%12][1]})`;
-const STEPS = [
-  {id:"watch", is:"Horfa", en:"Watch", ic:"👀"},
+const STEPS = [ // words first, so the dialogue is easier to follow
   {id:"words", is:"Orð", en:"Words", ic:"🃏"},
+  {id:"watch", is:"Horfa", en:"Watch", ic:"👀"},
   {id:"tips", is:"Ábending", en:"Pointers", ic:"💡"},
   {id:"build", is:"Smíða", en:"Build", ic:"🧩"},
   {id:"role", is:"Hlutverk", en:"Role-play", ic:"🎭"},
@@ -88,7 +88,7 @@ function npcVoice(sc){
   return state.voice === "steinn" ? "bui" : "steinn";
 }
 // English help: "show" always visible, "tap" behind a ? button. Auto fades out after the first 4 scenes.
-function engMode(idx){ const p = store.get("eng","auto"); return p === "auto" ? (idx < 4 ? "show" : "tap") : p; }
+function engMode(idx){ const p = store.get("eng","auto"); return p === "auto" ? (idx < 6 ? "show" : "tap") : p; }
 function en(text, mode, block=true){
   if (!text) return "";
   if (mode === "show") return `<span class="tr" ${block?"":'style="display:inline"'}>${esc(text)}</span>`;
@@ -132,11 +132,13 @@ function Journey(){
       <button class="hero" data-sc="${next}" style="background:${sceneBg(next)}">
         <div class="hero-t"><div class="num">${doneCount ? "Halda áfram · continue" : "Byrjum · let's start"}</div><h2>${esc(nx.is_title)}</h2><div class="sub">${next+1} / ${SC.length} · ${STEPS.map(s=>(p[nx.id]||{})[s.id]?"●":"○").join(" ")}</div></div>
         <div class="hero-pic">${nx.pic}</div><span class="hero-go">▶</span></button>
-      <div class="gridhead"><h2 class="sectiontitle" style="margin:0">Ferðin</h2><span class="note">${doneCount}/${SC.length} ✓</span></div>
-      <div class="scgrid">${SC.map((sc,i) => { const n = doneSteps(sc);
+      ${[["Fyrstu skrefin","First steps",sc=>sc.intro],["Ferðin","The trip",sc=>!sc.intro]].map(([is,en,f]) => `
+      <div class="gridhead"><h2 class="sectiontitle" style="margin:0">${is} <span class="note" style="font-family:Inter;font-weight:500;font-size:14px">· ${en}</span></h2>${is==="Ferðin"?`<span class="note">${doneCount}/${SC.length} ✓</span>`:`<button class="note" id="howBtn" style="color:var(--blue2);font-weight:600">How this works</button>`}</div>
+      <div class="scgrid" style="margin-bottom:18px">${SC.map((sc,i) => { if (!f(sc)) return ""; const n = doneSteps(sc);
         return `<button class="sctile ${n===5?"done":""}" data-sc="${i}" style="background:${sceneBg(i)}">
           <span class="sc-num">${i+1}</span>${ring(n)}${n===5?'<span class="sc-check">✓</span>':""}
-          <span class="sc-pic">${sc.pic}</span><b>${esc(sc.is_title)}</b></button>`; }).join("")}</div>`;
+          <span class="sc-pic">${sc.pic}</span><b>${esc(sc.is_title)}</b></button>`; }).join("")}</div>`).join("")}`;
+    $("#howBtn").onclick = showWelcome;
     m.querySelectorAll("[data-sc]").forEach(b => b.onclick = () => {
       const i = +b.dataset.sc, sp = jprog()[SC[i].id] || {};
       route.sub = {i, step: (STEPS.find(s=>!sp[s.id]) || STEPS[0]).id}; Journey(); window.scrollTo(0,0);
@@ -162,7 +164,7 @@ function bindNextStep(sc, i, cur){
     markStep(sc.id, cur); stopAudio();
     const k = STEPS.findIndex(s=>s.id===cur);
     if (k < STEPS.length-1) route.sub.step = STEPS[k+1].id;
-    else if (i < SC.length-1) route.sub = {i:i+1, step:"watch"};
+    else if (i < SC.length-1) route.sub = {i:i+1, step:STEPS[0].id};
     else route.sub = null;
     Journey(); window.scrollTo(0,0);
   };
@@ -175,11 +177,11 @@ function stepWatch(sc, i, mode, el){
   el.innerHTML = `
     ${sc.signs.length ? `<div class="card"><h3 style="font-size:16px;margin-bottom:8px">Skilti <span class="note">· signs</span></h3><div class="signs">${sc.signs.map(s=>`<button class="sign" data-say="${esc(s.is)}">${esc(s.is)}${mode==="show"?`<small>${esc(s.en)}</small>`:""}</button>`).join("")}</div></div>` : ""}
     <div class="card">
-      <div class="note" style="margin-bottom:6px">${esc(sc.npc.role)} ${en(sc.npc.en, mode, false)} · voice ${voiceName(nv)} — and you (${voiceName(state.voice)})</div>
+      <div class="note" style="margin-bottom:6px">${esc(sc.npc.role)} ${sc.npc.en!==sc.npc.role?en(sc.npc.en, mode, false):""} · voice ${voiceName(nv)} — and you (${voiceName(state.voice)})</div>
       ${sc.dialogue.map((l,k)=>`<div class="dline ${l.spk==="A"?"A":"B"}" data-k="${k}"><div class="who">${l.spk==="A"?esc(sc.npc.role[0]):"Þú"}</div><div class="txt"><span class="is">${esc(l.is)}</span>${en(l.en, mode)}</div>${playBtn(l.is,"sm",l.spk==="A"?nv:state.voice)}</div>`).join("")}
     </div>
     <button class="btn primary block" id="playscene">${ICON.play} Play the whole scene</button>
-    <p class="note" style="text-align:center;margin:8px 0 0">Listen first. Try to follow before you peek at the English.</p>
+    <p class="note" style="text-align:center;margin:8px 0 0">You won't catch every word, and that's the point. Listen for the words you just learned. 🐢 at the top slows the voices down.</p>
     ${nextStepBtn(sc, i, "watch")}`;
   const hl = k => el.querySelectorAll(".dline").forEach(d => d.classList.toggle("hl", +d.dataset.k===k));
   $("#playscene").onclick = async e => {
@@ -322,7 +324,7 @@ function stepRole(sc, i, mode, el){
       <div id="status" class="loading"></div><div id="result"></div>
       <button class="btn primary block" style="margin-top:10px" id="cont">Continue ›</button></div>`;
     $("#hear").onclick = e => say(o.is, {btn:e.currentTarget});
-    $("#slow").onclick = e => say(o.is, {btn:e.currentTarget, rate:0.7});
+    $("#slow").onclick = e => say(o.is, {btn:e.currentTarget, slow:true});
     $("#recbtn").onclick = () => toggleRecord(it);
     $("#file").onchange = async e => { const f = e.target.files[0]; if (f) await assess(it, await f.arrayBuffer(), null); e.target.value = ""; };
     $("#cont").onclick = () => { stopRecording(true); pos++; advance(); };
@@ -436,3 +438,21 @@ Return JSON only: {"reply": "<Icelandic>", "reply_en": "<English translation>", 
   c.busy = false;
   if (chat === c && route.s === "chat") Chat();
 }
+
+/* ---------- welcome / how this works ---------- */
+function showWelcome(){
+  sheet(`<h3 style="font-size:24px">Velkomin! 👋</h3>
+    <p style="margin-top:4px">This app teaches the way you'd pick up Icelandic on a trip: <b>you hear it first and understand it gradually.</b></p>
+    <div class="howlist">
+      <div><span>👂</span><p><b>You won't understand everything at first. That's normal.</b> Early on you're just getting familiar with the sounds and patterns. Recognition comes before understanding.</p></div>
+      <div><span>🃏</span><p><b>Each scene goes:</b> learn the words → watch the scene → one short tip → build sentences → play your part.</p></div>
+      <div><span>❓</span><p><b>Stuck?</b> Tap the <b>?</b> next to any line to see the English. In the first scenes the English is already shown.</p></div>
+      <div><span>🐢</span><p><b>Too fast?</b> Tap 🐇 at the top to switch to 🐢 slow or 🐌 slower speech.</p></div>
+      <div><span>🔁</span><p><b>Little and often.</b> Ten minutes a day plus the Review tab beats an hour once a week.</p></div>
+    </div>`);
+  store.set("welcomed", 1);
+}
+window.addEventListener("load", () => setTimeout(() => { if (!store.get("welcomed", 0) && route.s === "journey") showWelcome(); }, 600));
+(function(){ const st = document.createElement("style"); st.textContent = `
+  .howlist{display:grid;gap:10px;margin-top:12px}.howlist div{display:flex;gap:12px;align-items:flex-start}
+  .howlist span{font-size:24px;line-height:1.2;flex:0 0 30px;text-align:center}.howlist p{margin:0;font-size:15px}`; document.head.appendChild(st); })();
