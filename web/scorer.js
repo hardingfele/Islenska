@@ -186,9 +186,10 @@
       const few = [users[1], users[2], users[3]];
       for (const c of cohort) {
         const m = bestMatch(c.refs, few);
-        if (m.d < best.d && (!closerTo || m.d < closerTo.d)) closerTo = { text: c.text, d: m.d };
+        // only flag a clear mismatch; short phrases are often near-ties
+        if (m.d < best.d - 0.05 && (!closerTo || m.d < closerTo.d)) closerTo = { text: c.text, d: m.d };
       }
-      if (closerTo) sc = Math.min(sc, 40);
+      if (closerTo) sc = Math.min(sc, 55);
     }
     return { score: sc, dist: best.d, closest: best.ref.name, segments: segs, tempo: users[2].seconds / best.ref.seconds, closerTo: closerTo && closerTo.text };
   }

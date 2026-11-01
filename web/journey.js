@@ -65,6 +65,7 @@
   .sc-check{position:absolute;top:8px;right:8px;width:28px;height:28px;display:grid;place-items:center;font-weight:900;font-size:14px}
   .sctile.done .ring5 circle:last-child{stroke:#fff}
   .wcard .e{display:flex;justify-content:center;min-height:72px;align-items:center}
+  .btns .btn.turtlebig{flex:0 0 72px;font-size:24px;padding:8px}
   .big-due{font-family:Fraunces,serif;font-size:48px;font-weight:700;line-height:1}
   `;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
@@ -180,20 +181,36 @@ function stepWatch(sc, i, mode, el){
       <div class="note" style="margin-bottom:6px">${esc(sc.npc.role)} ${sc.npc.en!==sc.npc.role?en(sc.npc.en, mode, false):""} · voice ${voiceName(nv)} — and you (${voiceName(state.voice)})</div>
       ${sc.dialogue.map((l,k)=>`<div class="dline ${l.spk==="A"?"A":"B"}" data-k="${k}"><div class="who">${l.spk==="A"?esc(sc.npc.role[0]):"Þú"}</div><div class="txt"><span class="is">${esc(l.is)}</span>${en(l.en, mode)}</div>${playBtn(l.is,"sm",l.spk==="A"?nv:state.voice)}</div>`).join("")}
     </div>
-    <button class="btn primary block" id="playscene">${ICON.play} Play the whole scene</button>
-    <p class="note" style="text-align:center;margin:8px 0 0">You won't catch every word, and that's the point. Listen for the words you just learned. 🐢 at the top slows the voices down.</p>
+    <div class="btns"><button class="btn primary" id="playscene" style="flex:1">${ICON.play} Play the whole scene</button><button class="btn turtlebig" id="slowscene" aria-label="Play the whole scene slowly">🐢</button></div>
+    <p class="note" style="text-align:center;margin:8px 0 0">You won't catch every word, and that's the point. Listen for the words you just learned. Tap 🐢 to hear it slower; tap 🐌 to start over even slower.</p>
     ${nextStepBtn(sc, i, "watch")}`;
   const hl = k => el.querySelectorAll(".dline").forEach(d => d.classList.toggle("hl", +d.dataset.k===k));
-  $("#playscene").onclick = async e => {
-    const btn = e.currentTarget;
-    if (btn.dataset.on) { stopAudio(); return; }
-    btn.dataset.on = 1; btn.innerHTML = ICON.stop + " Stop";
+  // play the dialogue line by line; level: null = current speed, 1 = slow, 2 = slowest
+  let sceneRun = 0;
+  const pBtn = $("#playscene"), tBtn = $("#slowscene");
+  const resetPlay = () => { delete pBtn.dataset.on; pBtn.innerHTML = ICON.play + " Play the whole scene"; };
+  const playScene = async (level) => {
+    const run = ++sceneRun;
+    pBtn.dataset.on = 1; pBtn.innerHTML = ICON.stop + " Stop";
     for (let k=0;k<sc.dialogue.length;k++) {
       hl(k); const l = sc.dialogue[k];
-      const ok = await say(l.is, {voice: l.spk==="A"?nv:state.voice}); if (!ok) break;
-      await new Promise(z=>setTimeout(z, 450));
+      const ok = await say(l.is, {voice: l.spk==="A"?nv:state.voice, level: level==null ? undefined : level});
+      if (!ok || run !== sceneRun) return false;
+      await new Promise(z=>setTimeout(z, level ? 650 : 450));
+      if (run !== sceneRun) return false;
     }
-    hl(-1); if (document.body.contains(btn)) { delete btn.dataset.on; btn.innerHTML = ICON.play + " Play the whole scene"; }
+    hl(-1); if (document.body.contains(pBtn)) resetPlay();
+    return true;
+  };
+  pBtn.onclick = () => {
+    if (pBtn.dataset.on) { sceneRun++; stopAudio(); hl(-1); resetPlay(); clearTimeout(tBtn._t); setSnail(tBtn, false); return; }
+    setSnail(tBtn, false); playScene(null);
+  };
+  tBtn.onclick = async () => { // 🐢 slow; while it shows 🐌, tapping restarts from the first line even slower
+    const snail = tBtn.dataset.mode === "snail";
+    clearTimeout(tBtn._t); setSnail(tBtn, true);
+    const done = await playScene(snail ? 2 : Math.max(1, Math.min(2, state.speed + 1)));
+    if (done) tBtn._t = setTimeout(() => { if (document.body.contains(tBtn)) setSnail(tBtn, false); }, 3000);
   };
   bindNextStep(sc, i, "watch");
 }
@@ -319,12 +336,11 @@ function stepRole(sc, i, mode, el){
     const it = {is:o.is, en:o.en};
     act().innerHTML = `<div style="border-top:1px solid var(--line);padding-top:10px">
       <div class="target" id="tgt" style="font-size:22px">${[...o.is].map(c=>`<span class="ch">${esc(c)}</span>`).join("")}</div>
-      <div class="recrow"><button class="play" id="hear">${ICON.play}</button><button class="rec" id="recbtn" ${micOK===false?'style="opacity:.35"':""}>${ICON.mic}</button><button class="play" id="slow">${ICON.slow}</button></div>
+      <div class="recrow"><button class="play" id="hear">${ICON.play}</button><button class="rec" id="recbtn" ${micOK===false?'style="opacity:.35"':""}>${ICON.mic}</button>${turtleBtn(o.is)}</div>
       <label class="upload">Upload recording<input type="file" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm" id="file"></label>
-      <div id="status" class="loading"></div><div id="result"></div>
+      <div id="status" class="loading"></div>${window.asrStatus && asrStatus() ? `<p class="note" style="text-align:center;margin:2px 0 0">${asrStatus()}</p>` : ""}<div id="result"></div>
       <button class="btn primary block" style="margin-top:10px" id="cont">Continue ›</button></div>`;
     $("#hear").onclick = e => say(o.is, {btn:e.currentTarget});
-    $("#slow").onclick = e => say(o.is, {btn:e.currentTarget, slow:true});
     $("#recbtn").onclick = () => toggleRecord(it);
     $("#file").onchange = async e => { const f = e.target.files[0]; if (f) await assess(it, await f.arrayBuffer(), null); e.target.value = ""; };
     $("#cont").onclick = () => { stopRecording(true); pos++; advance(); };

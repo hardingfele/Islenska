@@ -70,6 +70,10 @@ main{padding:16px}
 .play{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;background:var(--ice);color:var(--blue)}
 .play.sm{width:32px;height:32px;flex-basis:32px}
 .play.playing{background:var(--blue);color:#fff}
+.pbpair{display:inline-flex;gap:6px;flex:0 0 auto}
+.play.turtle{font-size:18px;line-height:1}.play.sm.turtle{font-size:15px}
+.play.turtle.playing{background:#e3f5ec;color:inherit;box-shadow:inset 0 0 0 2px var(--good)}
+.listenbig .play.turtle{font-size:30px}
 .play svg{width:16px;height:16px}
 .is{font-weight:600}
 .en{color:var(--ink2)}
@@ -231,7 +235,7 @@ async function say(text, opts={}){
   playingBtn = opts.btn || null; if (playingBtn) playingBtn.classList.add("playing");
   try {
     // opts.slow (the 🐢 buttons) means one step slower than the current setting
-    const level = Math.min(2, state.speed + (opts.slow ? 1 : 0));
+    const level = opts.level != null ? opts.level : Math.min(2, state.speed + (opts.slow ? 1 : 0));
     const pv = level > 0 ? v + "_slow" : v;
     const p = packs[pv] || await loadPack(pv);
     if (my !== playToken) return;
@@ -247,7 +251,25 @@ async function say(text, opts={}){
   }
   return my === playToken;
 }
-function playBtn(text, cls="", voice=""){ return `<button class="play ${cls}" data-say="${esc(text)}" ${voice?`data-voice="${voice}"`:""} aria-label="Play">${ICON.play}</button>`; }
+function playBtn(text, cls="", voice="", noSlow=false){
+  const v = voice ? `data-voice="${voice}"` : "";
+  const play = `<button class="play ${cls}" data-say="${esc(text)}" ${v} aria-label="Play">${ICON.play}</button>`;
+  return noSlow ? play : `<span class="pbpair">${play}${turtleBtn(text, cls, voice)}</span>`;
+}
+// 🐢 plays slowly; while playing (and a few seconds after) it turns into 🐌, which replays from the start even slower.
+function turtleBtn(text, cls="", voice=""){ return `<button class="play turtle ${cls}" data-slow="${esc(text)}" ${voice?`data-voice="${voice}"`:""} aria-label="Play slowly">🐢</button>`; }
+function setSnail(btn, on){ btn.dataset.mode = on ? "snail" : ""; btn.textContent = on ? "🐌" : "🐢"; btn.setAttribute("aria-label", on ? "Replay even slower" : "Play slowly"); }
+async function turtlePlay(btn, text, voice){
+  const snail = btn.dataset.mode === "snail";
+  const level = snail ? 2 : Math.max(1, Math.min(2, state.speed + 1));
+  clearTimeout(btn._t); setSnail(btn, true);
+  await say(text, {voice: voice || undefined, btn, level});
+  clearTimeout(btn._t); btn._t = setTimeout(() => { if (document.body.contains(btn)) setSnail(btn, false); }, 3000);
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-slow]");
+  if (b) { e.stopPropagation(); e.preventDefault(); turtlePlay(b, b.dataset.slow, b.dataset.voice); }
+}, true);
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-say]");
   if (b) { e.stopPropagation(); say(b.dataset.say, {btn:b, voice:b.dataset.voice||undefined}); }
@@ -404,13 +426,12 @@ function Vocab(){
         ${pictogram(w.pic, 96)}
         <div class="big">${esc(w.is)}</div>
         ${flipped ? `<div class="meaning">${esc(w.en)}</div>${w.note?`<div class="note">${esc(w.note)}</div>`:""}` : `<div class="hint">Tap to reveal</div>`}
-        <div class="btns" style="margin-top:6px">${playBtn(w.is)}<button class="play" id="slowp" aria-label="Play slowly">${ICON.slow}</button></div>
+        <div class="btns" style="margin-top:6px">${playBtn(w.is)}</div>
       </div>
       ${flipped ? `<div class="grade"><button class="btn" style="background:var(--red-soft);color:var(--red)" data-g="0">Again<small>didn't know</small></button><button class="btn" data-g="1">Good<small>got it</small></button><button class="btn primary" data-g="2">Easy<small>knew it cold</small></button></div>`
         : `<button class="btn primary block" id="flip">Show meaning</button>`}
       <p class="note" style="text-align:center;margin-top:10px">Box ${box(w.is)} of 4 · words in low boxes come back sooner</p>`;
       $("#fc").onclick = e => { if (!e.target.closest("button")) { flipped = true; draw(); } };
-      $("#slowp").onclick = e => { e.stopPropagation(); say(w.is, {btn:e.currentTarget, slow:true}); };
       const f = $("#flip"); if (f) f.onclick = () => { flipped = true; draw(); };
       body.querySelectorAll("[data-g]").forEach(b => b.onclick = () => {
         const g = +b.dataset.g, cur = box(w.is);
@@ -549,10 +570,10 @@ function Listening(){
   }
   m.innerHTML = crumbs(title) + `<div class="card">
     <div class="progress"><span>Round ${L.n+1}</span><span>${L.right} right · voice: ${vname}</span></div>
-    <div class="listenbig"><button class="play" id="lp" aria-label="Play">${ICON.play}</button><button class="play" id="ls" aria-label="Play slowly">${ICON.slow}</button></div>
+    <div class="listenbig"><button class="play" id="lp" aria-label="Play">${ICON.play}</button><button class="play turtle" id="ls" data-slow="${esc(item.is)}" data-voice="${v}" aria-label="Play slowly">🐢</button></div>
     <div id="lbody"></div></div>`;
-  const play = (slow) => say(item.is, {voice:v, btn: slow? $("#ls") : $("#lp"), slow:!!slow});
-  $("#lp").onclick = () => play(); $("#ls").onclick = () => play(true);
+  const play = () => say(item.is, {voice:v, btn: $("#lp")});
+  $("#lp").onclick = () => play();
   play();
   const next = (ok) => `<button class="btn primary block" style="margin-top:12px" id="lnext">Next</button>`;
   const bindNext = () => $("#lnext").onclick = () => { L.n++; Listening(); };
@@ -643,15 +664,15 @@ function Speaking(){
       <div class="recrow">
         <button class="play" id="hear" aria-label="Listen">${ICON.play}</button>
         <button class="rec" id="recbtn" aria-label="Record" ${micOK===false?'style="opacity:.35"':""}>${ICON.mic}</button>
-        <button class="play" id="slow" aria-label="Listen slowly">${ICON.slow}</button>
+        ${turtleBtn(it.is)}
       </div>
       <label class="upload">Upload recording<input type="file" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm" id="file"></label>
       <div id="status" class="loading"></div>
+      ${window.asrStatus && asrStatus() ? `<p class="note" style="text-align:center;margin:2px 0 0">${asrStatus()}</p>` : ""}
       <div id="result"></div>
     </div>
     <div class="btns"><button class="btn ghost" id="prev">‹ Previous</button><button class="btn primary" id="next">Next ›</button></div>`;
   $("#hear").onclick = e => say(it.is, {btn:e.currentTarget});
-  $("#slow").onclick = e => say(it.is, {btn:e.currentTarget, slow:true});
   $("#prev").onclick = () => { S.i = (S.i - 1 + items.length) % items.length; Speaking(); };
   $("#next").onclick = () => { S.i++; Speaking(); };
   $("#file").onchange = async e => { const f = e.target.files[0]; if (!f) return; await assess(it, await f.arrayBuffer(), null); e.target.value=""; };
@@ -663,6 +684,7 @@ function Speaking(){
 
 async function toggleRecord(it){
   const btn = $("#recbtn");
+  if (window.nativeSR && nativeSR()) return nativeListen(it); // Android app: Google speech recognition
   if (rec) { stopRecording(false); return; }
   if (micOK === false) { sheet(`<h3>Microphone not available here</h3><p>${MIC_NOTE_HOSTED}</p>`); return; }
   let stream;
@@ -773,6 +795,7 @@ window.addEventListener("load", async function(){
 });
 </script>
 <script src="picto.js"></script>
+<script src="asr.js"></script>
 <script src="journey.js"></script>
 </body>
 </html>

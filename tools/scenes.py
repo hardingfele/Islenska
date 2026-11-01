@@ -284,7 +284,7 @@ S.insert(0, dict(
  id="hallo", is_title="Halló!", en_title="Hello! Saying who you are", pic="👋", intro=True,
  npc=dict(role="Anna", en="Anna", g="f"),
  setting="You meet Anna. Say hello and tell her your name.",
- words=[("halló","hello","👋"),("bless","bye","👋+🚶"),("ég","I","🙋"),("þú","you","👉"),("að heita","to be called","📛"),("nafn","name","📛+🔤"),("gaman","nice / fun","😊"),("góðan daginn","good morning","🌅")],
+ words=[("halló","hello","👋"),("bless","bye","👋+🚶"),("ég","I","🙋"),("þú","you","👉"),("að heita","to be called","namesticker+🗣️"),("nafn","name","namesticker"),("gaman","nice / fun","😊"),("góðan daginn","good morning","🌅")],
  dialogue=[
   ("A","Halló!","Hello!"),
   ("U","Hæ!","Hi!"),

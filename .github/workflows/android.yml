@@ -35,7 +35,9 @@ jobs:
           # microphone for pronunciation practice
           M=android/app/src/main/AndroidManifest.xml
           grep -q RECORD_AUDIO $M || sed -i 's#<uses-permission android:name="android.permission.INTERNET" />#<uses-permission android:name="android.permission.INTERNET" />\n    <uses-permission android:name="android.permission.RECORD_AUDIO" />\n    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />#' $M
-          grep -n "permission" $M
+          # Android 11+: let the app find the system speech recognizer (Google)
+          grep -q "android.speech.RecognitionService" $M || sed -i 's#</manifest>#    <queries>\n        <intent>\n            <action android:name="android.speech.RecognitionService" />\n        </intent>\n    </queries>\n</manifest>#' $M
+          grep -n "permission\|RecognitionService" $M
           npx cap sync android
 
       - name: Set version from build number

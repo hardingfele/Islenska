@@ -8,7 +8,7 @@
   .pg .m{display:block;line-height:1}
   .pg .b{position:absolute;right:-6%;bottom:-6%;min-width:44%;height:44%;padding:0 6%;border-radius:999px;background:#fff;box-shadow:0 1px 4px rgba(15,29,51,.25);
     display:grid;place-items:center;font-size:calc(var(--s)*.27);font-weight:800;color:#0f1d33;font-family:Inter,system-ui,sans-serif}
-  .pg .b.e{font-size:calc(var(--s)*.26)}
+  .pg .b.be{font-size:calc(var(--s)*.26);width:44%;padding:0;line-height:1;overflow:hidden}
   .pg .sign{width:86%;height:86%;border-radius:16%;background:#1d5fbf;color:#fff;display:grid;place-items:center;font-size:calc(var(--s)*.58);font-weight:900;box-shadow:inset 0 0 0 calc(var(--s)*.035) #fff,0 0 0 calc(var(--s)*.02) #1d5fbf}
   .pg .exit{width:92%;height:62%;border-radius:12%;background:#15803d;color:#fff;display:flex;align-items:center;justify-content:center;gap:2%;font-size:calc(var(--s)*.34);font-weight:900}
   .pg .cross{position:relative;width:70%;height:70%}
@@ -26,8 +26,17 @@
   const isEmoji = s => /\p{Extended_Pictographic}/u.test(s);
   window.pictogram = function(spec, size=56){
     const st = `style="--s:${size}px"`;
+    const plus = spec ? spec.indexOf("+") : -1;
+    if (plus > 0 && /^[a-z]/.test(spec)) { // special pictogram with a badge
+      const inner = window.pictogram(spec.slice(0, plus), size), badge = spec.slice(plus + 1);
+      return inner.replace(/<\/span>$/, `<span class="b ${isEmoji(badge)?"be":""}">${E(badge)}</span></span>`);
+    }
     if (!spec) return `<span class="pg" ${st}><span class="m">🔤</span></span>`;
     if (spec.startsWith("sign:")) return `<span class="pg" ${st}><span class="sign">${E(spec.slice(5))}</span></span>`;
+    if (spec === "namesticker") return `<span class="pg" ${st}><svg viewBox="0 0 100 100"><rect x="4" y="18" width="92" height="66" rx="9" fill="#dc1e35"/><rect x="10" y="44" width="80" height="34" rx="3" fill="#fff"/>
+      <text x="50" y="35" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="900" font-size="15" fill="#fff" letter-spacing="1">HALLÓ</text>
+      <text x="50" y="42" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600" font-size="6.5" fill="#fff">ég heiti</text>
+      <path d="M18 64c6-9 9 6 14-2s8 4 13-1 7 3 12-2 9 2 14 0 6 2 11 1" fill="none" stroke="#1d3a8a" stroke-width="3.2" stroke-linecap="round"/></svg></span>`;
     if (spec === "exit") return `<span class="pg" ${st}><span class="exit">🏃<span>→</span></span></span>`;
     if (spec === "pharmacy") return `<span class="pg" ${st}><span class="cross"></span></span>`;
     if (spec.startsWith("num:")) return `<span class="pg" ${st}><span class="num" ${spec.length>7?`style="font-size:${size*.26}px"`:""}>${E(spec.slice(4))}</span></span>`;
@@ -42,7 +51,7 @@
     const i = spec.indexOf("+");
     if (i > 0) {
       const main = spec.slice(0, i), badge = spec.slice(i + 1);
-      return `<span class="pg" ${st}><span class="m">${E(main)}</span><span class="b ${isEmoji(badge)?"e":""}">${E(badge)}</span></span>`;
+      return `<span class="pg" ${st}><span class="m">${E(main)}</span><span class="b ${isEmoji(badge)?"be":""}">${E(badge)}</span></span>`;
     }
     const multi = [...new Intl.Segmenter(undefined, {granularity:"grapheme"}).segment(spec)].length > 1;
     return `<span class="pg" ${st}><span class="m" ${multi?`style="font-size:${size*.46}px;letter-spacing:-.05em"`:""}>${E(spec)}</span></span>`;

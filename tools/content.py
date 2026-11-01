@@ -432,7 +432,7 @@ REF_PICS = {
  "dagur":"🗓️+1","vika":"🗓️+7","mánuður":"🗓️+30","ár":"🗓️+365","í dag":"🗓️+📍","á morgun":"🗓️+→","í gær":"🗓️+←",
  "mánudagur":"day:1","þriðjudagur":"day:2","miðvikudagur":"day:3","fimmtudagur":"day:4","föstudagur":"day:5","laugardagur":"day:6","sunnudagur":"day:7",
  "hús":"🏠","gata":"🏘️","bíll":"🚗","strætó":"🚌","flugvöllur":"🛫+🏢","hótel":"🏨","búð":"🏪","banki":"🏦","sundlaug":"🏊","kirkja":"⛪","kaffihús":"☕+🏠","miði":"🎫","vegur":"🛣️","bær":"🏡",
- "að vera":"🧍","að hafa":"🤲","að eiga":"🏠+🔑","að fara":"🚶+→","að koma":"🚶+←","að tala":"🗣️","að skilja":"💡","að borða":"🍴","að drekka":"🥤","að sjá":"👀","að vilja":"🤩","að búa":"🏠+🧍","að heita":"📛","að læra":"📚","að kaupa":"🛒",
+ "að vera":"🧍","að hafa":"🤲","að eiga":"🏠+🔑","að fara":"🚶+→","að koma":"🚶+←","að tala":"🗣️","að skilja":"💡","að borða":"🍴","að drekka":"🥤","að sjá":"👀","að vilja":"🤩","að búa":"🏠+🧍","að heita":"namesticker+🗣️","að læra":"📚","að kaupa":"🛒",
  "góður":"👍","stór":"🐘","lítill":"🐭","nýr":"✨","gamall":"🏚️","fallegur":"🌸","dýr":"💰+⬆️","ódýr":"💰+⬇️","glaður":"😄","þreyttur":"😴","rauður":"color:#d62828","blár":"color:#1d4ed8","grænn":"color:#15803d","hvítur":"color:#ffffff","svartur":"color:#111111",
 }
 
