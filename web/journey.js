@@ -65,7 +65,7 @@
   .sc-check{position:absolute;top:8px;right:8px;width:28px;height:28px;display:grid;place-items:center;font-weight:900;font-size:14px}
   .sctile.done .ring5 circle:last-child{stroke:#fff}
   .wcard .e{display:flex;justify-content:center;min-height:72px;align-items:center}
-  .btns .btn.turtlebig{flex:0 0 72px;font-size:24px;padding:8px}
+  .btns .btn.turtlebig{flex:0 0 76px;font-size:15px;font-weight:700;padding:8px}
   .big-due{font-family:Fraunces,serif;font-size:48px;font-weight:700;line-height:1}
   /* ---- lesson mode: full screen, nothing hidden behind bars ---- */
   body.lesson header.top, body.lesson nav.bottom{display:none}
@@ -96,7 +96,7 @@
   .wordcard{display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 18px 18px;border-radius:28px}
   .wbig{font-family:Fraunces,Georgia,serif;font-size:40px;font-weight:700;line-height:1.1;margin-top:12px}
   .wmean{font-size:18px;color:var(--ink2);margin-top:4px;min-height:24px}
-  .wplay{margin-top:14px}.wplay .play{width:64px;height:64px;flex-basis:64px}.wplay .play svg{width:24px;height:24px}.wplay .play.turtle{font-size:28px}
+  .wplay{margin-top:14px}.wplay .play{width:64px;height:64px;flex-basis:64px}.wplay .play svg{width:24px;height:24px}.wplay .play.turtle{font-size:15px}
   .wplay .pbpair{gap:12px}
   .wex{display:flex;gap:10px;align-items:center;text-align:left;width:100%;border-top:1px solid var(--line);margin-top:16px;padding-top:14px}
   .wex .tr{font-size:14px}
@@ -130,11 +130,11 @@ const SCENE_COLORS = [["#0b6fc9","#4aa3e8"],["#3949ab","#7986cb"],["#00897b","#4
   ["#8d6e63","#d7a86e"],["#c2185b","#f06292"],["#0277bd","#4fc3f7"],["#455a64","#90a4ae"],["#7b1fa2","#ba68c8"],["#d32f2f","#ef9a9a"]];
 const sceneBg = i => `linear-gradient(135deg,${SCENE_COLORS[i%12][0]},${SCENE_COLORS[i%12][1]})`;
 const STEPS = [ // words first, so the dialogue is easier to follow
-  {id:"words", is:"Orð", en:"Words", ic:"🃏"},
-  {id:"watch", is:"Horfa", en:"Watch", ic:"👀"},
-  {id:"tips", is:"Ábending", en:"Pointers", ic:"💡"},
-  {id:"build", is:"Smíða", en:"Build", ic:"🧩"},
-  {id:"role", is:"Hlutverk", en:"Role-play", ic:"🎭"},
+  {id:"words", is:"Orð", en:"Words"},
+  {id:"watch", is:"Horfa", en:"Watch"},
+  {id:"tips", is:"Ábending", en:"Pointers"},
+  {id:"build", is:"Smíða", en:"Build"},
+  {id:"role", is:"Hlutverk", en:"Role-play"},
 ];
 const jprog = () => store.get("jprog", {});
 function markStep(sid, step){ const p = jprog(); p[sid] = p[sid] || {}; p[sid][step] = 1; store.set("jprog", p); }
@@ -215,7 +215,7 @@ function Journey(){
     <div class="lbar" id="lbar"></div>
   </div>`;
   m.querySelectorAll("[data-step]").forEach(b => b.onclick = () => { stopAudio(); stopRecording(true); route.sub = {i, step: b.dataset.step}; Journey(); });
-  $("#lspd").onclick = () => { setSpeed((state.speed + 1) % 3); toast(`${SPEEDS[state.speed].ic} ${SPEEDS[state.speed].en} speech`); };
+  $("#lspd").onclick = () => { setSpeed((state.speed + 1) % 3); toast(`Speech speed ${SPEEDS[state.speed].ic}`); };
   ({watch:stepWatch, words:stepWords, tips:stepTips, build:stepBuild, role:stepRole})[step](sc, i, mode, $("#stepbody"));
 }
 const bar = html => { const b = $("#lbar"); if (b) b.innerHTML = html || ""; };
@@ -246,7 +246,7 @@ function stepWatch(sc, i, mode, el){
     <div class="lwho">${npcAvatar(sc)}<span><b>${esc(sc.npc.role)}</b> ${sc.npc.en!==sc.npc.role?en(sc.npc.en, mode, false):""}<br><small>voice ${voiceName(nv)} · you: ${voiceName(state.voice)}</small></span></div>
     <div class="sbs">${sc.dialogue.map((l,k)=>`<div class="sb ${l.spk==="A"?"npc":"me"}" data-k="${k}"><div class="sbt"><span class="is">${esc(l.is)}</span>${en(l.en, mode)}</div>${playBtn(l.is,"sm",l.spk==="A"?nv:state.voice)}</div>`).join("")}</div>
     <p class="lhint">You won't catch every word, and that's the point. Listen for the words you just learned.</p>`;
-  bar(`<div class="btns"><button class="btn" id="playscene" style="flex:1">${ICON.play} Play the scene</button><button class="btn turtlebig" id="slowscene" aria-label="Play the whole scene slowly">🐢</button></div>${nextStepBtn(sc, i, "watch")}`);
+  bar(`<div class="btns"><button class="btn" id="playscene" style="flex:1">${ICON.play} Play the scene</button><button class="btn turtlebig" id="slowscene" aria-label="Play the whole scene at ${slowLabel()}">${slowLabel()}</button></div>${nextStepBtn(sc, i, "watch")}`);
   const hl = k => el.querySelectorAll(".sb").forEach(d => { const on = +d.dataset.k===k; d.classList.toggle("hl", on); if (on) d.scrollIntoView({block:"nearest", behavior:"smooth"}); });
   // play the dialogue line by line; level: null = current speed, 1 = slow, 2 = slowest
   let sceneRun = 0;
@@ -269,7 +269,7 @@ function stepWatch(sc, i, mode, el){
     if (pBtn.dataset.on) { sceneRun++; stopAudio(); hl(-1); resetPlay(); clearTimeout(tBtn._t); setSnail(tBtn, false); return; }
     setSnail(tBtn, false); playScene(null);
   };
-  tBtn.onclick = async () => { // 🐢 slow; while it shows 🐌, tapping restarts from the first line even slower
+  tBtn.onclick = async () => { // slow; while it shows 0.5x, tapping restarts from the first line at 0.5x
     const snail = tBtn.dataset.mode === "snail";
     clearTimeout(tBtn._t); setSnail(tBtn, true);
     const done = await playScene(snail ? 2 : Math.max(1, Math.min(2, state.speed + 1)));
@@ -334,7 +334,7 @@ function wordTest(sc, i, el){
 /* --- 3 Pointers --- */
 function stepTips(sc, i, mode, el){
   el.classList.add("center");
-  el.innerHTML = sc.tips.map(t => `<div class="lcard tipcard"><p>💡 ${esc(t.en)}</p>${t.ex.map(x=>`<div class="ex">${playBtn(x,"sm")}<span class="is">${esc(x)}</span></div>`).join("")}</div>`).join("");
+  el.innerHTML = sc.tips.map(t => `<div class="lcard tipcard"><p>${esc(t.en)}</p>${t.ex.map(x=>`<div class="ex">${playBtn(x,"sm")}<span class="is">${esc(x)}</span></div>`).join("")}</div>`).join("");
   bar(nextStepBtn(sc, i, "tips"));
   bindNextStep(sc, i, "tips");
 }
@@ -402,7 +402,7 @@ function stepRole(sc, i, mode, el){
     }
     if (pos >= sc.dialogue.length) {
       markStep(sc.id, "role");
-      bar(`<div class="why" style="text-align:center;margin-bottom:10px">🎉 Atriði lokið · scene complete!</div>${nextStepBtn(sc, i, "role")}`); bindNextStep(sc, i, "role"); return;
+      bar(`<div class="why" style="text-align:center;margin-bottom:10px">✓ Atriði lokið · scene complete</div>${nextStepBtn(sc, i, "role")}`); bindNextStep(sc, i, "role"); return;
     }
     choose();
   };
@@ -509,7 +509,7 @@ function Chat(){
   m.innerHTML = `<div class="crumbs"><button id="chback">‹ Chat</button><span>/ ${esc(sc.is_title)}</span></div>
     <div class="card"><div class="chatlog" id="clog">${chat.msgs.map(msg => msg.role==="npc"
       ? `<div class="bubble npc"><div class="who">${esc(sc.npc.role)}</div>${esc(msg.is)}${msg.en?`<div>${en(msg.en,"tap",false)}</div>`:""}</div>`
-      : `<div class="bubble me">${esc(msg.is)}</div>${msg.fix?`<div class="fix">✏️ ${esc(msg.fix)}</div>`:""}`).join("")}
+      : `<div class="bubble me">${esc(msg.is)}</div>${msg.fix?`<div class="fix"><b>Fix:</b> ${esc(msg.fix)}</div>`:""}`).join("")}
       ${chat.busy?`<div class="bubble npc"><span class="loading">…</span></div>`:""}</div>
       <div class="keys">${"á é í ó ú ý þ ð æ ö".split(" ").map(k=>`<button data-key="${k}">${k}</button>`).join("")}</div>
       <form class="chatbar" id="cform"><input id="cin" autocomplete="off" autocapitalize="sentences" spellcheck="false" placeholder="Skrifaðu á íslensku…" ${chat.busy?"disabled":""}><button class="btn primary" ${chat.busy?"disabled":""}>Senda</button></form>
@@ -547,18 +547,18 @@ Return JSON only: {"reply": "<Icelandic>", "reply_en": "<English translation>", 
 
 /* ---------- welcome / how this works ---------- */
 function showWelcome(){
-  sheet(`<h3 style="font-size:24px">Velkomin! 👋</h3>
+  sheet(`<h3 style="font-size:24px">Velkomin!</h3>
     <p style="margin-top:4px">This app teaches the way you'd pick up Icelandic on a trip: <b>you hear it first and understand it gradually.</b></p>
     <div class="howlist">
-      <div><span>👂</span><p><b>You won't understand everything at first. That's normal.</b> Early on you're just getting familiar with the sounds and patterns. Recognition comes before understanding.</p></div>
-      <div><span>🃏</span><p><b>Each scene goes:</b> learn the words → watch the scene → one short tip → build sentences → play your part.</p></div>
-      <div><span>❓</span><p><b>Stuck?</b> Tap the <b>?</b> next to any line to see the English. In the first scenes the English is already shown.</p></div>
-      <div><span>🐢</span><p><b>Too fast?</b> Tap 🐇 at the top to switch to 🐢 slow or 🐌 slower speech.</p></div>
-      <div><span>🔁</span><p><b>Little and often.</b> Ten minutes a day plus the Review tab beats an hour once a week.</p></div>
+      <div><span class="hk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15a6 6 0 1 1 12 0c0 3-2 3.5-3 5.5S12 22 11 21"/><path d="M9 14a3 3 0 1 1 6 0"/></svg></span><p><b>You won't understand everything at first. That's normal.</b> Early on you're just getting familiar with the sounds and patterns. Recognition comes before understanding.</p></div>
+      <div><span class="hk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h9"/></svg></span><p><b>Each scene goes:</b> learn the words → watch the scene → one short tip → build sentences → play your part.</p></div>
+      <div><span class="hk txt">?</span><p><b>Stuck?</b> Tap the <b>?</b> next to any line to see the English. In the first scenes the English is already shown.</p></div>
+      <div><span class="hk txt">0.7x</span><p><b>Too fast?</b> Tap the speed button at the top to switch between 1x, 0.7x and 0.5x, or tap 0.7x next to any line to hear just that line slower.</p></div>
+      <div><span class="hk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span><p><b>Little and often.</b> Ten minutes a day plus the Review tab beats an hour once a week.</p></div>
     </div>`);
   store.set("welcomed", 1);
 }
 window.addEventListener("load", () => setTimeout(() => { if (!store.get("welcomed", 0) && route.s === "journey") showWelcome(); }, 600));
 (function(){ const st = document.createElement("style"); st.textContent = `
   .howlist{display:grid;gap:10px;margin-top:12px}.howlist div{display:flex;gap:12px;align-items:flex-start}
-  .howlist span{font-size:24px;line-height:1.2;flex:0 0 30px;text-align:center}.howlist p{margin:0;font-size:15px}`; document.head.appendChild(st); })();
+  .howlist .hk{flex:0 0 34px;height:34px;border-radius:50%;background:var(--ice);color:var(--blue);display:grid;place-items:center}.howlist .hk svg{width:18px;height:18px}.howlist .hk.txt{font-weight:800;font-size:12px}.howlist p{margin:0;font-size:15px}`; document.head.appendChild(st); })();

@@ -21,7 +21,14 @@ ALL = BASE + ["hekla"]                       # hekla = salka pitched up
 # Changing this string rebuilds every Hekla clip on the next run (it is stored in the packs under "__fx").
 HEKLA_FX = "rubberband=pitch=1.06:formant=preserved"
 FFMPEG = os.environ.get("FFMPEG", "ffmpeg")
-PACKS = [("", None, 0.1), ("_slow", 1.5, 0.25)]  # suffix, length_scale, silence between sentences (s)
+PACKS = [("", None, 0.1), ("_slow", "auto", 0.25)]  # suffix, length_scale, silence between sentences (s)
+# Slow clips aim for about 0.7x speaking speed. Measured on the old 1.5 stretch, clips came out at 0.75x (long
+# sentences) to 0.83x (single words), because fixed lead-in/out silence and Piper's pauses don't stretch.
+# So short phrases get a stronger stretch. Changing SLOW_V rebuilds every slow clip (stored in packs as "__slow").
+SLOW_V = "v2: 2.05/1.8/1.72/1.64 by word count"
+def slow_len(t):
+    w = len(t.split())
+    return 2.05 if w == 1 else 1.8 if w == 2 else 1.72 if w <= 4 else 1.64
 TRIM = ("silenceremove=start_periods=1:start_threshold=-60dB,areverse,"
         "silenceremove=start_periods=1:start_threshold=-62dB,apad=pad_dur=0.2,areverse,apad=pad_dur=0.08")
 
@@ -67,11 +74,11 @@ def main():
     for v in ALL:
         for s, _, _ in PACKS:
             p = packs[(v, s)]
-            redo = v == "hekla" and p.get("__fx") != HEKLA_FX
+            redo = (v == "hekla" and p.get("__fx") != HEKLA_FX) or (s == "_slow" and p.get("__slow") != SLOW_V)
             need[(v, s)] = [t for t, i in ids.items() if redo or i not in p]
     for s, _, _ in PACKS:
         texts = {t for v in ALL for t in need[(v, s)]}
-        print(f"{s or 'normal'}: {len(texts)} of {len(ids)} texts need audio" + (f" (Hekla rebuild: {len(need[('hekla', s)])})" if need[("hekla", s)] else ""))
+        print(f"{s or 'normal'}: {len(texts)} of {len(ids)} texts need audio" + (f" (rebuilds: Hekla {len(need[('hekla', s)])}, Salka {len(need[('salka', s)])})" if need[("hekla", s)] else ""))
         for t in [t for t in ids if t in texts and t not in need[("hekla", s)]][:60]: print("   ", t)
     if a.check or not any(need.values()):
         return
@@ -86,7 +93,7 @@ def main():
         for s, length, silence in PACKS:
             want = list(dict.fromkeys(need[(v, s)] + (need[("hekla", s)] if v == "salka" else [])))
             for t in want:
-                synth(voice, t, os.path.join(tmp, f"{v}{s}_{ids[t]}.wav"), length, silence)
+                synth(voice, t, os.path.join(tmp, f"{v}{s}_{ids[t]}.wav"), slow_len(t) if length == "auto" else length, silence)
         print("synthesized", v)
 
     jobs = []
@@ -105,6 +112,7 @@ def main():
         for s, _, _ in PACKS:
             p = packs[(v, s)]
             if v == "hekla": p["__fx"] = HEKLA_FX
+            if s == "_slow": p["__slow"] = SLOW_V
             for t in need[(v, s)]:
                 p[ids[t]] = base64.b64encode(open(os.path.join(tmp, f"{v}{s}_{ids[t]}.mp3"), "rb").read()).decode()
             json.dump(p, open(pack_path(v, s), "w"))
