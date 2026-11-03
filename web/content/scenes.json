@@ -236,6 +236,550 @@
    ]
   },
   {
+   "intro": true,
+   "id": "skil",
+   "is_title": "Ég skil ekki",
+   "en_title": "I don't understand",
+   "pic": "🤔",
+   "npc": {
+    "role": "Jón",
+    "en": "Jón",
+    "g": "m"
+   },
+   "setting": "Jón talks too fast. Tell him you don't understand and ask him to slow down.",
+   "signs": [],
+   "words": [
+    {
+     "is": "ég skil",
+     "en": "I understand",
+     "pic": "💡"
+    },
+    {
+     "is": "ekki",
+     "en": "not",
+     "pic": "🚫"
+    },
+    {
+     "is": "aftur",
+     "en": "again",
+     "pic": "🔁"
+    },
+    {
+     "is": "hægt",
+     "en": "slowly",
+     "pic": "🐢"
+    },
+    {
+     "is": "smá",
+     "en": "a little",
+     "pic": "🤏"
+    },
+    {
+     "is": "frá",
+     "en": "from",
+     "pic": "📍+→"
+    },
+    {
+     "is": "að tala",
+     "en": "to speak",
+     "pic": "🗣️"
+    },
+    {
+     "is": "ekkert mál",
+     "en": "no problem",
+     "pic": "👌"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Hæ! Hvaðan ertu?",
+     "en": "Hi! Where are you from?"
+    },
+    {
+     "spk": "U",
+     "is": "Fyrirgefðu, ég skil ekki.",
+     "en": "Sorry, I don't understand."
+    },
+    {
+     "spk": "A",
+     "is": "Ekkert mál. Hvaðan ertu?",
+     "en": "No problem. Where are you from?"
+    },
+    {
+     "spk": "U",
+     "is": "Geturðu talað hægar?",
+     "en": "Can you speak more slowly?",
+     "alts": [
+      {
+       "is": "Aftur, takk.",
+       "en": "Again, please."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Já, auðvitað. Hvaðan ertu?",
+     "en": "Yes, of course. Where are you from?"
+    },
+    {
+     "spk": "U",
+     "is": "Ég er frá Ameríku.",
+     "en": "I'm from America.",
+     "alts": [
+      {
+       "is": "Ég er frá Bandaríkjunum.",
+       "en": "I'm from the United States."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Frábært! Talarðu íslensku?",
+     "en": "Great! Do you speak Icelandic?"
+    },
+    {
+     "spk": "U",
+     "is": "Bara smá.",
+     "en": "Just a little.",
+     "alts": [
+      {
+       "is": "Nei, en ég er að læra.",
+       "en": "No, but I'm learning."
+      }
+     ]
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Ekki” (not) comes right after the verb: ég skil (I understand) → ég skil ekki (I don't understand).",
+     "ex": [
+      "Ég skil.",
+      "Ég skil ekki."
+     ]
+    },
+    {
+     "en": "Your two lifelines: “Aftur, takk” (again, please) and “Geturðu talað hægar?” (can you speak more slowly?).",
+     "ex": [
+      "Aftur, takk.",
+      "Geturðu talað hægar?"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Ég skil ekki.",
+     "en": "I don't understand."
+    },
+    {
+     "is": "Geturðu talað hægar?",
+     "en": "Can you speak more slowly?"
+    },
+    {
+     "is": "Ég er frá Ameríku.",
+     "en": "I'm from America."
+    }
+   ]
+  },
+  {
+   "intro": true,
+   "id": "spurn",
+   "is_title": "Hvar? Hvað? Hvenær?",
+   "en_title": "Asking questions",
+   "pic": "❓",
+   "npc": {
+    "role": "Sigga",
+    "en": "Sigga",
+    "g": "f"
+   },
+   "setting": "Your friend Sigga helps you plan the day. Ask where, when and how much.",
+   "signs": [],
+   "words": [
+    {
+     "is": "hvar",
+     "en": "where",
+     "pic": "📍+?"
+    },
+    {
+     "is": "hvað",
+     "en": "what",
+     "pic": "❓"
+    },
+    {
+     "is": "hvenær",
+     "en": "when",
+     "pic": "🕐+?"
+    },
+    {
+     "is": "hvernig",
+     "en": "how",
+     "pic": "🤷"
+    },
+    {
+     "is": "hver",
+     "en": "who",
+     "pic": "🧑+?"
+    },
+    {
+     "is": "í dag",
+     "en": "today",
+     "pic": "🗓️"
+    },
+    {
+     "is": "að opna",
+     "en": "to open",
+     "pic": "🔓"
+    },
+    {
+     "is": "beint áfram",
+     "en": "straight ahead",
+     "pic": "sign:↑"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Hvað viltu gera í dag?",
+     "en": "What do you want to do today?"
+    },
+    {
+     "spk": "U",
+     "is": "Hvar er kaffihús?",
+     "en": "Where is there a café?"
+    },
+    {
+     "spk": "A",
+     "is": "Kaffihúsið er þarna.",
+     "en": "The café is over there."
+    },
+    {
+     "spk": "U",
+     "is": "Hvenær opnar það?",
+     "en": "When does it open?"
+    },
+    {
+     "spk": "A",
+     "is": "Snemma á morgnana.",
+     "en": "Early in the morning."
+    },
+    {
+     "spk": "U",
+     "is": "Og hvað kostar kaffi?",
+     "en": "And how much is coffee?"
+    },
+    {
+     "spk": "A",
+     "is": "Ekki mikið.",
+     "en": "Not much."
+    },
+    {
+     "spk": "U",
+     "is": "Hvernig kemst ég þangað?",
+     "en": "How do I get there?"
+    },
+    {
+     "spk": "A",
+     "is": "Þú gengur bara beint áfram.",
+     "en": "You just walk straight ahead."
+    }
+   ],
+   "tips": [
+    {
+     "en": "Question words start with hv-, and hv- is said like “kv”: hvar, hvað, hvenær, hvernig, hver.",
+     "ex": [
+      "Hvar?",
+      "Hvað?",
+      "Hvenær?"
+     ]
+    },
+    {
+     "en": "The verb comes straight after the question word: Hvar er…? Hvenær opnar…? Hvað kostar…?",
+     "ex": [
+      "Hvar er kaffihús?",
+      "Hvað kostar kaffi?"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Hvar er kaffihús?",
+     "en": "Where is there a café?"
+    },
+    {
+     "is": "Hvenær opnar það?",
+     "en": "When does it open?"
+    },
+    {
+     "is": "Hvað kostar kaffi?",
+     "en": "How much is coffee?"
+    }
+   ]
+  },
+  {
+   "intro": true,
+   "id": "tolur",
+   "is_title": "Einn, tveir, þrír",
+   "en_title": "Numbers and nights",
+   "pic": "🔢",
+   "npc": {
+    "role": "Gestgjafi",
+    "en": "Guesthouse host",
+    "g": "m"
+   },
+   "setting": "You check in at a guesthouse: how many people, how many nights, when's breakfast.",
+   "signs": [],
+   "words": [
+    {
+     "is": "einn",
+     "en": "one",
+     "pic": "num:1"
+    },
+    {
+     "is": "tveir",
+     "en": "two",
+     "pic": "num:2"
+    },
+    {
+     "is": "þrír",
+     "en": "three",
+     "pic": "num:3"
+    },
+    {
+     "is": "fjórir",
+     "en": "four",
+     "pic": "num:4"
+    },
+    {
+     "is": "fimm",
+     "en": "five",
+     "pic": "num:5"
+    },
+    {
+     "is": "tíu",
+     "en": "ten",
+     "pic": "num:10"
+    },
+    {
+     "is": "nótt",
+     "en": "night",
+     "pic": "🌃"
+    },
+    {
+     "is": "vika",
+     "en": "week",
+     "pic": "🗓️+7"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Góða kvöldið. Hvað eruð þið mörg?",
+     "en": "Good evening. How many of you are there?"
+    },
+    {
+     "spk": "U",
+     "is": "Við erum tvö.",
+     "en": "There are two of us."
+    },
+    {
+     "spk": "A",
+     "is": "Og hvað ætlið þið að vera lengi?",
+     "en": "And how long are you staying?"
+    },
+    {
+     "spk": "U",
+     "is": "Í þrjár nætur.",
+     "en": "For three nights.",
+     "alts": [
+      {
+       "is": "Í eina viku.",
+       "en": "For one week."
+      }
+     ]
+    },
+    {
+     "spk": "A",
+     "is": "Allt í lagi. Nóttin kostar tíu þúsund krónur.",
+     "en": "All right. A night costs ten thousand krónur."
+    },
+    {
+     "spk": "U",
+     "is": "Hvenær er morgunmatur?",
+     "en": "When is breakfast?"
+    },
+    {
+     "spk": "A",
+     "is": "Frá sjö til tíu.",
+     "en": "From seven to ten."
+    },
+    {
+     "spk": "U",
+     "is": "Takk fyrir. Góða nótt!",
+     "en": "Thank you. Good night!"
+    }
+   ],
+   "tips": [
+    {
+     "en": "Count like this: einn, tveir, þrír, fjórir. From five on, numbers never change: fimm, sex, sjö, átta, níu, tíu.",
+     "ex": [
+      "einn, tveir, þrír, fjórir",
+      "fimm, sex, sjö, átta, níu, tíu"
+     ]
+    },
+    {
+     "en": "One to four change to match the word: ein vika → í eina viku, þrjár nætur. A mixed group is neuter: við erum tvö.",
+     "ex": [
+      "Í eina viku.",
+      "Í þrjár nætur.",
+      "Við erum tvö."
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Við erum tvö.",
+     "en": "There are two of us."
+    },
+    {
+     "is": "Í þrjár nætur.",
+     "en": "For three nights."
+    },
+    {
+     "is": "Hvenær er morgunmatur?",
+     "en": "When is breakfast?"
+    }
+   ]
+  },
+  {
+   "intro": true,
+   "id": "med",
+   "is_title": "Ertu með…?",
+   "en_title": "Do you have…?",
+   "pic": "🎒",
+   "npc": {
+    "role": "Vinur",
+    "en": "Friend",
+    "g": "m"
+   },
+   "setting": "Last check with a friend before the flight. Passport? Phone? Key?",
+   "signs": [],
+   "words": [
+    {
+     "is": "ég er með",
+     "en": "I have",
+     "pic": "🙋+🎒"
+    },
+    {
+     "is": "ertu með",
+     "en": "do you have",
+     "pic": "🎒+?"
+    },
+    {
+     "is": "vegabréf",
+     "en": "passport",
+     "pic": "🛂"
+    },
+    {
+     "is": "sími",
+     "en": "phone",
+     "pic": "📱"
+    },
+    {
+     "is": "lykill",
+     "en": "key",
+     "pic": "🔑"
+    },
+    {
+     "is": "taska",
+     "en": "bag",
+     "pic": "👜"
+    },
+    {
+     "is": "peningar",
+     "en": "money",
+     "pic": "💵"
+    },
+    {
+     "is": "hérna",
+     "en": "here",
+     "pic": "👇"
+    }
+   ],
+   "dialogue": [
+    {
+     "spk": "A",
+     "is": "Ertu með vegabréfið?",
+     "en": "Do you have the passport?"
+    },
+    {
+     "spk": "U",
+     "is": "Já, ég er með það.",
+     "en": "Yes, I have it."
+    },
+    {
+     "spk": "A",
+     "is": "Ertu með símann?",
+     "en": "Do you have the phone?"
+    },
+    {
+     "spk": "U",
+     "is": "Já, hann er hérna.",
+     "en": "Yes, it's here."
+    },
+    {
+     "spk": "A",
+     "is": "En lykilinn?",
+     "en": "And the key?"
+    },
+    {
+     "spk": "U",
+     "is": "Æ, nei! Hvar er lykillinn?",
+     "en": "Oh no! Where's the key?"
+    },
+    {
+     "spk": "A",
+     "is": "Hann er í töskunni þinni.",
+     "en": "It's in your bag."
+    },
+    {
+     "spk": "U",
+     "is": "Hjúkk! Takk.",
+     "en": "Phew! Thanks."
+    }
+   ],
+   "tips": [
+    {
+     "en": "“Ég er með…” (lit. I am with…) is the everyday “I have…”. Ask with “Ertu með…?”. You'll hear it at customs.",
+     "ex": [
+      "Ég er með símann.",
+      "Ertu með vegabréfið?"
+     ]
+    },
+    {
+     "en": "-inn, -in, -ið on the end means “the”: lykill → lykillinn, taska → taskan, vegabréf → vegabréfið.",
+     "ex": [
+      "lykillinn",
+      "taskan",
+      "vegabréfið"
+     ]
+    }
+   ],
+   "build": [
+    {
+     "is": "Ég er með vegabréfið.",
+     "en": "I have the passport."
+    },
+    {
+     "is": "Ertu með símann?",
+     "en": "Do you have the phone?"
+    },
+    {
+     "is": "Hvar er lykillinn?",
+     "en": "Where is the key?"
+    }
+   ]
+  },
+  {
    "intro": false,
    "id": "komur",
    "is_title": "Komið til landsins",

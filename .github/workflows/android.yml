@@ -26,6 +26,32 @@ jobs:
       - name: Check Android SDK
         run: echo "ANDROID_HOME=$ANDROID_HOME" && ls "$ANDROID_HOME/platforms"
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # New or changed course text gets audio here (Hugging Face isn't reachable from where the content is edited).
+      # Only missing clips are synthesized; the result is committed back with [skip ci] so the repo stays complete.
+      - name: Fill in missing audio
+        run: |
+          python tools/add_audio.py --check | tee /tmp/audio.txt
+          if grep -qE "^(normal|_slow): [1-9]" /tmp/audio.txt; then
+            pip install piper-tts
+            command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+            mkdir -p voices
+            for v in salka ugla bui steinn; do
+              for f in onnx onnx.json; do
+                curl -fsSL -o "voices/is_IS-$v-medium.$f" "https://huggingface.co/rhasspy/piper-voices/resolve/main/is/is_IS/$v/medium/is_IS-$v-medium.$f"
+              done
+            done
+            python tools/add_audio.py --voices voices
+            python tools/add_audio.py --check
+            git config user.name "github-actions[bot]"
+            git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+            git add web/audio web/content
+            git commit -m "Add audio for new course text [skip ci]" && git push
+          fi
+
       - name: Install Capacitor
         run: npm install
 

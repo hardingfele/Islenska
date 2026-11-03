@@ -300,6 +300,92 @@ S.insert(0, dict(
  build=[("Ég heiti Sam.","My name is Sam."),("Hvað heitir þú?","What's your name?"),("Gaman að kynnast þér!","Nice to meet you!")],
 ))
 
+# ---- Before the airport: the four building blocks the arrival scenes lean on ----
+PREP = [dict(
+ id="skil", is_title="Ég skil ekki", en_title="I don't understand", pic="🤔", intro=True,
+ npc=dict(role="Jón", en="Jón", g="m"),
+ setting="Jón talks too fast. Tell him you don't understand and ask him to slow down.",
+ words=[("ég skil","I understand","💡"),("ekki","not","🚫"),("aftur","again","🔁"),("hægt","slowly","🐢"),("smá","a little","🤏"),("frá","from","📍+→"),("að tala","to speak","🗣️"),("ekkert mál","no problem","👌")],
+ dialogue=[
+  ("A","Hæ! Hvaðan ertu?","Hi! Where are you from?"),
+  ("U","Fyrirgefðu, ég skil ekki.","Sorry, I don't understand."),
+  ("A","Ekkert mál. Hvaðan ertu?","No problem. Where are you from?"),
+  ("U","Geturðu talað hægar?","Can you speak more slowly?", [("Aftur, takk.","Again, please.")]),
+  ("A","Já, auðvitað. Hvaðan ertu?","Yes, of course. Where are you from?"),
+  ("U","Ég er frá Ameríku.","I'm from America.", [("Ég er frá Bandaríkjunum.","I'm from the United States.")]),
+  ("A","Frábært! Talarðu íslensku?","Great! Do you speak Icelandic?"),
+  ("U","Bara smá.","Just a little.", [("Nei, en ég er að læra.","No, but I'm learning.")]),
+ ],
+ tips=[
+  ("“Ekki” (not) comes right after the verb: ég skil (I understand) → ég skil ekki (I don't understand).", ["Ég skil.", "Ég skil ekki."]),
+  ("Your two lifelines: “Aftur, takk” (again, please) and “Geturðu talað hægar?” (can you speak more slowly?).", ["Aftur, takk.", "Geturðu talað hægar?"]),
+ ],
+ build=[("Ég skil ekki.","I don't understand."),("Geturðu talað hægar?","Can you speak more slowly?"),("Ég er frá Ameríku.","I'm from America.")],
+), dict(
+ id="spurn", is_title="Hvar? Hvað? Hvenær?", en_title="Asking questions", pic="❓", intro=True,
+ npc=dict(role="Sigga", en="Sigga", g="f"),
+ setting="Your friend Sigga helps you plan the day. Ask where, when and how much.",
+ words=[("hvar","where","📍+?"),("hvað","what","❓"),("hvenær","when","🕐+?"),("hvernig","how","🤷"),("hver","who","🧑+?"),("í dag","today","🗓️"),("að opna","to open","🔓"),("beint áfram","straight ahead","sign:↑")],
+ dialogue=[
+  ("A","Hvað viltu gera í dag?","What do you want to do today?"),
+  ("U","Hvar er kaffihús?","Where is there a café?"),
+  ("A","Kaffihúsið er þarna.","The café is over there."),
+  ("U","Hvenær opnar það?","When does it open?"),
+  ("A","Snemma á morgnana.","Early in the morning."),
+  ("U","Og hvað kostar kaffi?","And how much is coffee?"),
+  ("A","Ekki mikið.","Not much."),
+  ("U","Hvernig kemst ég þangað?","How do I get there?"),
+  ("A","Þú gengur bara beint áfram.","You just walk straight ahead."),
+ ],
+ tips=[
+  ("Question words start with hv-, and hv- is said like “kv”: hvar, hvað, hvenær, hvernig, hver.", ["Hvar?", "Hvað?", "Hvenær?"]),
+  ("The verb comes straight after the question word: Hvar er…? Hvenær opnar…? Hvað kostar…?", ["Hvar er kaffihús?", "Hvað kostar kaffi?"]),
+ ],
+ build=[("Hvar er kaffihús?","Where is there a café?"),("Hvenær opnar það?","When does it open?"),("Hvað kostar kaffi?","How much is coffee?")],
+), dict(
+ id="tolur", is_title="Einn, tveir, þrír", en_title="Numbers and nights", pic="🔢", intro=True,
+ npc=dict(role="Gestgjafi", en="Guesthouse host", g="m"),
+ setting="You check in at a guesthouse: how many people, how many nights, when's breakfast.",
+ words=[("einn","one","num:1"),("tveir","two","num:2"),("þrír","three","num:3"),("fjórir","four","num:4"),("fimm","five","num:5"),("tíu","ten","num:10"),("nótt","night","🌃"),("vika","week","🗓️+7")],
+ dialogue=[
+  ("A","Góða kvöldið. Hvað eruð þið mörg?","Good evening. How many of you are there?"),
+  ("U","Við erum tvö.","There are two of us."),
+  ("A","Og hvað ætlið þið að vera lengi?","And how long are you staying?"),
+  ("U","Í þrjár nætur.","For three nights.", [("Í eina viku.","For one week.")]),
+  ("A","Allt í lagi. Nóttin kostar tíu þúsund krónur.","All right. A night costs ten thousand krónur."),
+  ("U","Hvenær er morgunmatur?","When is breakfast?"),
+  ("A","Frá sjö til tíu.","From seven to ten."),
+  ("U","Takk fyrir. Góða nótt!","Thank you. Good night!"),
+ ],
+ tips=[
+  ("Count like this: einn, tveir, þrír, fjórir. From five on, numbers never change: fimm, sex, sjö, átta, níu, tíu.", ["einn, tveir, þrír, fjórir", "fimm, sex, sjö, átta, níu, tíu"]),
+  ("One to four change to match the word: ein vika → í eina viku, þrjár nætur. A mixed group is neuter: við erum tvö.", ["Í eina viku.", "Í þrjár nætur.", "Við erum tvö."]),
+ ],
+ build=[("Við erum tvö.","There are two of us."),("Í þrjár nætur.","For three nights."),("Hvenær er morgunmatur?","When is breakfast?")],
+), dict(
+ id="med", is_title="Ertu með…?", en_title="Do you have…?", pic="🎒", intro=True,
+ npc=dict(role="Vinur", en="Friend", g="m"),
+ setting="Last check with a friend before the flight. Passport? Phone? Key?",
+ words=[("ég er með","I have","🙋+🎒"),("ertu með","do you have","🎒+?"),("vegabréf","passport","🛂"),("sími","phone","📱"),("lykill","key","🔑"),("taska","bag","👜"),("peningar","money","💵"),("hérna","here","👇")],
+ dialogue=[
+  ("A","Ertu með vegabréfið?","Do you have the passport?"),
+  ("U","Já, ég er með það.","Yes, I have it."),
+  ("A","Ertu með símann?","Do you have the phone?"),
+  ("U","Já, hann er hérna.","Yes, it's here."),
+  ("A","En lykilinn?","And the key?"),
+  ("U","Æ, nei! Hvar er lykillinn?","Oh no! Where's the key?"),
+  ("A","Hann er í töskunni þinni.","It's in your bag."),
+  ("U","Hjúkk! Takk.","Phew! Thanks."),
+ ],
+ tips=[
+  ("“Ég er með…” (lit. I am with…) is the everyday “I have…”. Ask with “Ertu með…?”. You'll hear it at customs.", ["Ég er með símann.", "Ertu með vegabréfið?"]),
+  ("-inn, -in, -ið on the end means “the”: lykill → lykillinn, taska → taskan, vegabréf → vegabréfið.", ["lykillinn", "taskan", "vegabréfið"]),
+ ],
+ build=[("Ég er með vegabréfið.","I have the passport."),("Ertu með símann?","Do you have the phone?"),("Hvar er lykillinn?","Where is the key?")],
+)]
+_k = next(n for n, s in enumerate(S) if s["id"] == "takk") + 1
+S[_k:_k] = PREP
+
 REACTIONS = [("Ha? Fyrirgefðu, ég skil ekki.","Huh? Sorry, I don't understand."),("Ha? Hvað sagðirðu?","Huh? What did you say?"),("Ehh… afsakið?","Uhh… excuse me?")]
 
 def build():

@@ -7,9 +7,9 @@
   const css = `
   .seg{display:flex;gap:4px;background:var(--line);padding:3px;border-radius:10px}
   .seg button{flex:1;padding:6px 8px;border-radius:8px;font-size:13px;font-weight:600;color:var(--ink2)}
-  .seg button.on{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+  .seg button.on{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
   .path{display:grid;gap:10px;position:relative}
-  .pathcard{display:flex;gap:14px;align-items:center;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px;text-align:left;width:100%}
+  .pathcard{display:flex;gap:14px;align-items:center;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px;text-align:left;width:100%}
   .pathcard .emo{width:52px;height:52px;flex:0 0 52px;border-radius:14px;display:grid;place-items:center;font-size:28px;background:var(--ice)}
   .pathcard.done .emo{background:var(--good-soft)}
   .pathcard .t{flex:1;min-width:0}.pathcard .t b{display:block;font-family:Fraunces,serif;font-size:17px}
@@ -20,7 +20,7 @@
   .banner h2{font-size:26px;max-width:75%}.banner .sub{opacity:.85;font-size:14px;margin-top:2px;max-width:70%}
   .banner .num{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
   .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:12px}
-  .steps button{padding:7px 2px;border-radius:12px;background:#fff;box-shadow:var(--shadow);font-size:11.5px;font-weight:600;color:var(--ink2);line-height:1.2;display:flex;flex-direction:column;align-items:center;gap:1px}
+  .steps button{padding:7px 2px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);font-size:11.5px;font-weight:600;color:var(--ink2);line-height:1.2;display:flex;flex-direction:column;align-items:center;gap:1px}
   .steps button b{font-size:15px}
   .steps button.on{background:var(--blue);color:#fff}.steps button.done:not(.on){color:var(--good)}
   .signs{display:flex;flex-wrap:wrap;gap:8px}
@@ -28,26 +28,26 @@
   .sign small{display:block;font-weight:500;font-size:11.5px}
   .reveal{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--line);color:var(--ink2);font-size:12px;font-weight:700;margin-left:6px;vertical-align:1px}
   .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-  .wcard{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:14px 10px;text-align:center}
+  .wcard{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px 10px;text-align:center}
   .wcard .e{font-size:38px;line-height:1.1}.wcard .w{font-weight:700;margin-top:6px}.wcard .tr{font-size:13px}
   .wcard.right{outline:3px solid var(--good)}.wcard.wrong{outline:3px solid var(--red);opacity:.6}
   .tipcard p{margin:0 0 8px}
   .answerline{min-height:54px;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:6px;padding:8px 0;margin:8px 0 12px}
   .tiles{display:flex;flex-wrap:wrap;gap:6px}
-  .tile{padding:9px 12px;border-radius:10px;background:#fff;border:1.5px solid var(--line);font-weight:600;font-size:16px;box-shadow:0 2px 0 var(--line)}
+  .tile{padding:9px 12px;border-radius:10px;background:var(--card);border:1.5px solid var(--line);font-weight:600;font-size:16px;box-shadow:0 2px 0 var(--line)}
   .tile.used{visibility:hidden}
   .answerline.ok .tile{border-color:var(--good);background:var(--good-soft)}
   .answerline.bad{animation:shake .35s}
   @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
   .chatlog{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
   .bubble{max-width:84%;padding:10px 12px;border-radius:16px;font-size:16px;line-height:1.4}
-  .bubble.npc{background:#fff;box-shadow:var(--shadow);align-self:flex-start;border-bottom-left-radius:4px}
+  .bubble.npc{background:var(--card);box-shadow:var(--shadow);align-self:flex-start;border-bottom-left-radius:4px}
   .bubble.me{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
   .bubble.me.wrong{background:var(--red-soft);color:var(--red)}
   .bubble .who{font-size:11px;font-weight:700;opacity:.65;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
   .bubble .tr{color:var(--ink2);font-size:14px}.bubble.me .tr{color:#cfe2f7}.bubble.me .reveal{background:rgba(255,255,255,.25);color:#fff}
   .fix{align-self:flex-end;max-width:84%;font-size:13.5px;background:var(--warn-soft);color:var(--ink2);padding:8px 10px;border-radius:10px}
-  .choice{display:block;width:100%;text-align:left;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:600;margin-bottom:8px}
+  .choice{display:block;width:100%;text-align:left;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-weight:600;margin-bottom:8px}
   .chatbar{display:flex;gap:8px;align-items:center}
   .chatbar input{flex:1;font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);outline:none}
   .hero{position:relative;display:flex;align-items:center;width:100%;text-align:left;color:#fff;border-radius:22px;padding:18px;margin-bottom:18px;overflow:hidden;box-shadow:0 8px 22px rgba(2,82,156,.25)}
@@ -67,6 +67,60 @@
   .wcard .e{display:flex;justify-content:center;min-height:72px;align-items:center}
   .btns .btn.turtlebig{flex:0 0 72px;font-size:24px;padding:8px}
   .big-due{font-family:Fraunces,serif;font-size:48px;font-weight:700;line-height:1}
+  /* ---- lesson mode: full screen, nothing hidden behind bars ---- */
+  body.lesson header.top, body.lesson nav.bottom{display:none}
+  body.lesson .app{padding-bottom:0;min-height:0}
+  body.lesson main{padding:0}
+  .lesson{height:100vh;height:100dvh;display:flex;flex-direction:column}
+  .ltop{display:flex;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top)) 14px 0}
+  .lx{width:44px;height:44px;flex:0 0 44px;border-radius:50%;background:var(--chip);color:var(--onbg);display:grid;place-items:center;font-size:19px}
+  .lprog{flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+  .lseg{display:flex;flex-direction:column;gap:5px;padding:6px 0;color:var(--onbg2);font-size:10.5px;font-weight:600;line-height:1}
+  .lseg i{display:block;height:6px;border-radius:3px;background:var(--track)}
+  .lseg.done i{background:var(--progress)} .lseg.on i{background:var(--onbg)} .lseg.on{color:var(--onbg)}
+  .lseg span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lhead{padding:12px 20px 8px}
+  .lkick{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--kicker)}
+  .lsub{color:var(--onbg2);font-size:14.5px;margin-top:3px;line-height:1.35}.lsub b{color:var(--onbg);font-weight:600}
+  .lbody{flex:1;min-height:0;overflow-y:auto;padding:6px 16px 16px;display:flex;flex-direction:column;gap:10px}
+  .lbody.center>:first-child{margin-top:auto}.lbody.center>:last-child{margin-bottom:auto}
+  .lbody .card,.lbody .lcard{margin:0}
+  .lcard{background:var(--card);border-radius:24px;padding:18px}
+  .lbar{background:var(--sheet);border-radius:26px 26px 0 0;padding:14px 16px calc(14px + env(safe-area-inset-bottom));max-height:62vh;overflow-y:auto;display:flex;flex-direction:column;gap:10px;box-shadow:0 -6px 24px rgba(0,0,0,.12)}
+  .lbar:empty{display:none}
+  .lbar .btns{margin:0}.lbar .btn{min-height:52px;font-size:16.5px}.lbar .choice{margin:0 0 8px;min-height:52px;font-size:16.5px}
+  .lbar .choice:last-child{margin-bottom:0}
+  .lkick2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px}
+  .lhint{color:var(--onbg2);font-size:13.5px;text-align:center;margin:4px 8px 0}
+  /* word card */
+  .wordcard{display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 18px 18px;border-radius:28px}
+  .wbig{font-family:Fraunces,Georgia,serif;font-size:40px;font-weight:700;line-height:1.1;margin-top:12px}
+  .wmean{font-size:18px;color:var(--ink2);margin-top:4px;min-height:24px}
+  .wplay{margin-top:14px}.wplay .play{width:64px;height:64px;flex-basis:64px}.wplay .play svg{width:24px;height:24px}.wplay .play.turtle{font-size:28px}
+  .wplay .pbpair{gap:12px}
+  .wex{display:flex;gap:10px;align-items:center;text-align:left;width:100%;border-top:1px solid var(--line);margin-top:16px;padding-top:14px}
+  .wex .tr{font-size:14px}
+  .wdots{display:flex;justify-content:center;gap:6px;margin-top:4px}
+  .wdots i{width:8px;height:8px;border-radius:4px;background:var(--track)}.wdots i.seen{background:var(--progress)}.wdots i.on{width:22px;background:var(--onbg)}
+  .wprev{flex:0 0 60px!important;font-size:26px!important;padding:0}
+  .ltest .progress{color:var(--onbg2)}
+  .ltest .listenbig .play{background:var(--blue);color:#fff}
+  .ltest .wgrid{gap:12px}.ltest .wcard{padding:16px 10px;border-radius:20px}
+  /* conversation */
+  .lwho{display:flex;align-items:center;gap:10px;color:var(--onbg2);font-size:13px;line-height:1.3}
+  .lwho b{color:var(--onbg);font-size:15px}
+  .lav{display:inline-grid;place-items:center;border-radius:50%;background:var(--avatar);color:var(--avatarink);font-family:Fraunces,serif;font-weight:700;flex:0 0 auto}
+  .sbs{display:flex;flex-direction:column;gap:8px}
+  .sb{display:flex;align-items:center;gap:8px;max-width:88%;padding:10px 10px 10px 14px;border-radius:20px;background:var(--card);transition:box-shadow .2s}
+  .sb.npc{align-self:flex-start;border-top-left-radius:6px}
+  .sb.me{align-self:flex-end;background:var(--ice);border-top-right-radius:6px}
+  .sb.hl{box-shadow:0 0 0 3px var(--progress)}
+  .sb .sbt{flex:1;min-width:0}.sb .is{font-size:16.5px}.sb .tr{font-size:14px}
+  .sb.wrong{background:var(--red-soft);color:var(--red)}.sb.wrong .is{text-decoration:line-through}
+  .lsigns{display:flex;flex-wrap:wrap;gap:8px}
+  .sb.me .play{background:var(--card)}
+  body.lesson .toast{bottom:auto;top:calc(64px + env(safe-area-inset-top))}
+  .lbar .target{margin-top:0}.lbar .recrow{margin:4px 0}.lbar .score{margin-top:6px}
   `;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 })();
@@ -89,7 +143,7 @@ function npcVoice(sc){
   return state.voice === "steinn" ? "bui" : "steinn";
 }
 // English help: "show" always visible, "tap" behind a ? button. Auto fades out after the first 4 scenes.
-function engMode(idx){ const p = store.get("eng","auto"); return p === "auto" ? (idx < 6 ? "show" : "tap") : p; }
+function engMode(idx){ const p = store.get("eng","auto"); return p === "auto" ? (idx < SC.filter(x=>x.intro).length + 4 ? "show" : "tap") : p; }
 function en(text, mode, block=true){
   if (!text) return "";
   if (mode === "show") return `<span class="tr" ${block?"":'style="display:inline"'}>${esc(text)}</span>`;
@@ -122,6 +176,7 @@ function deckItem(key){
 /* ================= JOURNEY ================= */
 function Journey(){
   const m = $("#main");
+  document.body.classList.toggle("lesson", route.sub != null);
   if (route.sub == null) {
     const p = jprog();
     const doneSteps = sc => STEPS.filter(s => (p[sc.id]||{})[s.id]).length;
@@ -146,49 +201,57 @@ function Journey(){
     });
     return;
   }
+  // ---- lesson: full screen, one step at a time, action pinned at the bottom ----
   const {i, step} = route.sub, sc = SC[i], mode = engMode(i), sp = jprog()[sc.id] || {};
-  m.innerHTML = crumbs(sc.en_title) + `
-    <div class="banner" style="background:${sceneBg(i)}"><div class="num">Atriði ${i+1} / ${SC.length}</div><h2>${esc(sc.is_title)}</h2><div class="sub">${mode==="show"?esc(sc.setting):esc(sc.en_title)}</div><div class="emo">${sc.pic}</div></div>
-    <div class="steps">${STEPS.map((s,k)=>`<button class="${s.id===step?"on":""} ${sp[s.id]?"done":""}" data-step="${s.id}"><b>${sp[s.id]?"✓":s.ic}</b>${s.is}</button>`).join("")}</div>
-    <div id="stepbody"></div>`;
-  m.querySelectorAll("[data-step]").forEach(b => b.onclick = () => { stopAudio(); stopRecording(true); route.sub.step = b.dataset.step; Journey(); });
+  const cur = STEPS.find(s => s.id === step);
+  m.innerHTML = `<div class="lesson">
+    <div class="ltop">
+      <button class="lx" data-back aria-label="Close lesson"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="lprog">${STEPS.map(s=>`<button class="lseg ${s.id===step?"on":""} ${sp[s.id]?"done":""}" data-step="${s.id}" aria-label="${s.en}${sp[s.id]?" (done)":""}"><i></i><span>${s.en}</span></button>`).join("")}</div>
+      <button class="lx" id="lspd" aria-label="Speech speed: ${SPEEDS[state.speed].en}">${SPEEDS[state.speed].ic}</button>
+    </div>
+    <div class="lhead"><div class="lkick">${esc(cur.is)} · ${esc(cur.en)}</div><div class="lsub"><b>${sc.pic} ${esc(sc.is_title)}</b> · ${esc(mode==="show" ? sc.setting : sc.en_title)}</div></div>
+    <div class="lbody" id="stepbody"></div>
+    <div class="lbar" id="lbar"></div>
+  </div>`;
+  m.querySelectorAll("[data-step]").forEach(b => b.onclick = () => { stopAudio(); stopRecording(true); route.sub = {i, step: b.dataset.step}; Journey(); });
+  $("#lspd").onclick = () => { setSpeed((state.speed + 1) % 3); toast(`${SPEEDS[state.speed].ic} ${SPEEDS[state.speed].en} speech`); };
   ({watch:stepWatch, words:stepWords, tips:stepTips, build:stepBuild, role:stepRole})[step](sc, i, mode, $("#stepbody"));
 }
+const bar = html => { const b = $("#lbar"); if (b) b.innerHTML = html || ""; };
 function nextStepBtn(sc, i, cur){
   const k = STEPS.findIndex(s=>s.id===cur);
-  if (k < STEPS.length-1) return `<button class="btn primary block" style="margin-top:12px" id="nextstep">Next: ${STEPS[k+1].is} · ${STEPS[k+1].en} ›</button>`;
-  return i < SC.length-1 ? `<button class="btn primary block" style="margin-top:12px" id="nextstep">Next scene: ${esc(SC[i+1].is_title)} ›</button>` : `<button class="btn primary block" style="margin-top:12px" id="nextstep">Back to the journey</button>`;
+  if (k < STEPS.length-1) return `<button class="btn primary block lnext" id="nextstep">Next: ${STEPS[k+1].en} ›</button>`;
+  return i < SC.length-1 ? `<button class="btn primary block lnext" id="nextstep">Next scene: ${esc(SC[i+1].is_title)} ›</button>` : `<button class="btn primary block lnext" id="nextstep">Back to the journey</button>`;
 }
 function bindNextStep(sc, i, cur){
   const b = $("#nextstep"); if (!b) return;
   b.onclick = () => {
     markStep(sc.id, cur); stopAudio();
     const k = STEPS.findIndex(s=>s.id===cur);
-    if (k < STEPS.length-1) route.sub.step = STEPS[k+1].id;
+    if (k < STEPS.length-1) route.sub = {i, step: STEPS[k+1].id};
     else if (i < SC.length-1) route.sub = {i:i+1, step:STEPS[0].id};
     else route.sub = null;
     Journey(); window.scrollTo(0,0);
   };
 }
 const voiceName = id => VOICES.find(v=>v.id===id).name;
+const npcAvatar = (sc, size=36) => `<span class="lav" style="width:${size}px;height:${size}px;font-size:${Math.round(size*.45)}px">${esc(sc.npc.role[0])}</span>`;
 
-/* --- 1 Watch --- */
+/* --- 1 Watch: the scene as a conversation --- */
 function stepWatch(sc, i, mode, el){
   const nv = npcVoice(sc);
   el.innerHTML = `
-    ${sc.signs.length ? `<div class="card"><h3 style="font-size:16px;margin-bottom:8px">Skilti <span class="note">· signs</span></h3><div class="signs">${sc.signs.map(s=>`<button class="sign" data-say="${esc(s.is)}">${esc(s.is)}${mode==="show"?`<small>${esc(s.en)}</small>`:""}</button>`).join("")}</div></div>` : ""}
-    <div class="card">
-      <div class="note" style="margin-bottom:6px">${esc(sc.npc.role)} ${sc.npc.en!==sc.npc.role?en(sc.npc.en, mode, false):""} · voice ${voiceName(nv)} — and you (${voiceName(state.voice)})</div>
-      ${sc.dialogue.map((l,k)=>`<div class="dline ${l.spk==="A"?"A":"B"}" data-k="${k}"><div class="who">${l.spk==="A"?esc(sc.npc.role[0]):"Þú"}</div><div class="txt"><span class="is">${esc(l.is)}</span>${en(l.en, mode)}</div>${playBtn(l.is,"sm",l.spk==="A"?nv:state.voice)}</div>`).join("")}
-    </div>
-    <div class="btns"><button class="btn primary" id="playscene" style="flex:1">${ICON.play} Play the whole scene</button><button class="btn turtlebig" id="slowscene" aria-label="Play the whole scene slowly">🐢</button></div>
-    <p class="note" style="text-align:center;margin:8px 0 0">You won't catch every word, and that's the point. Listen for the words you just learned. Tap 🐢 to hear it slower; tap 🐌 to start over even slower.</p>
-    ${nextStepBtn(sc, i, "watch")}`;
-  const hl = k => el.querySelectorAll(".dline").forEach(d => d.classList.toggle("hl", +d.dataset.k===k));
+    ${sc.signs.length ? `<div class="lsigns">${sc.signs.map(s=>`<button class="sign" data-say="${esc(s.is)}">${esc(s.is)}${mode==="show"?`<small>${esc(s.en)}</small>`:""}</button>`).join("")}</div>` : ""}
+    <div class="lwho">${npcAvatar(sc)}<span><b>${esc(sc.npc.role)}</b> ${sc.npc.en!==sc.npc.role?en(sc.npc.en, mode, false):""}<br><small>voice ${voiceName(nv)} · you: ${voiceName(state.voice)}</small></span></div>
+    <div class="sbs">${sc.dialogue.map((l,k)=>`<div class="sb ${l.spk==="A"?"npc":"me"}" data-k="${k}"><div class="sbt"><span class="is">${esc(l.is)}</span>${en(l.en, mode)}</div>${playBtn(l.is,"sm",l.spk==="A"?nv:state.voice)}</div>`).join("")}</div>
+    <p class="lhint">You won't catch every word, and that's the point. Listen for the words you just learned.</p>`;
+  bar(`<div class="btns"><button class="btn" id="playscene" style="flex:1">${ICON.play} Play the scene</button><button class="btn turtlebig" id="slowscene" aria-label="Play the whole scene slowly">🐢</button></div>${nextStepBtn(sc, i, "watch")}`);
+  const hl = k => el.querySelectorAll(".sb").forEach(d => { const on = +d.dataset.k===k; d.classList.toggle("hl", on); if (on) d.scrollIntoView({block:"nearest", behavior:"smooth"}); });
   // play the dialogue line by line; level: null = current speed, 1 = slow, 2 = slowest
   let sceneRun = 0;
   const pBtn = $("#playscene"), tBtn = $("#slowscene");
-  const resetPlay = () => { delete pBtn.dataset.on; pBtn.innerHTML = ICON.play + " Play the whole scene"; };
+  const resetPlay = () => { delete pBtn.dataset.on; pBtn.innerHTML = ICON.play + " Play the scene"; };
   const playScene = async (level) => {
     const run = ++sceneRun;
     pBtn.dataset.on = 1; pBtn.innerHTML = ICON.stop + " Stop";
@@ -215,25 +278,45 @@ function stepWatch(sc, i, mode, el){
   bindNextStep(sc, i, "watch");
 }
 
-/* --- 2 Words: learn grid, then Rosetta-style picture test --- */
+/* --- 2 Words: one card at a time, then a picture test --- */
+function exampleFor(sc, w){
+  const n = norm(w.is), stem = n.length > 4 ? n.slice(0, n.length - 1) : n;
+  const has = t => (" " + norm(t) + " ").includes(" " + n + " ") || (stem.length > 3 && norm(t).split(" ").some(x => x.startsWith(stem)));
+  return sc.dialogue.find(l => norm(l.is) !== n && has(l.is)) || sc.build.find(b => norm(b.is) !== n && has(b.is)) || null;
+}
 function stepWords(sc, i, mode, el){
-  el.innerHTML = `<p class="lede" style="margin-bottom:10px">Tap a card to hear it. Then test yourself: hear the word, pick the picture.</p>
-    <div class="wgrid">${sc.words.map(w=>`<button class="wcard" data-say="${esc(w.is)}"><div class="e">${pictogram(w.pic, 64)}</div><div class="w">${esc(w.is)}</div>${mode==="show"?`<div class="tr">${esc(w.en)}</div>`:""}</button>`).join("")}</div>
-    <button class="btn primary block" style="margin-top:12px" id="wtest">Test yourself</button>`;
-  $("#wtest").onclick = () => wordTest(sc, i, el);
+  const k = Math.max(0, Math.min(sc.words.length - 1, route.sub.wi || 0)), w = sc.words[k], ex = exampleFor(sc, w);
+  el.classList.add("center");
+  el.innerHTML = `<div class="lcard wordcard">
+      ${pictogram(w.pic, 112)}
+      <div class="wbig">${esc(w.is)}</div>
+      <div class="wmean">${mode==="show" ? esc(w.en) : en(w.en, "tap", false)}</div>
+      <div class="wplay">${playBtn(w.is, "big")}</div>
+      ${ex ? `<div class="wex">${playBtn(ex.is, "sm", "", true)}<div><span class="is">${esc(ex.is)}</span>${en(ex.en, mode)}</div></div>` : ""}
+    </div>
+    <div class="wdots" aria-label="Word ${k+1} of ${sc.words.length}">${sc.words.map((_,n)=>`<i class="${n<k?"seen":n===k?"on":""}"></i>`).join("")}</div>`;
+  const last = k === sc.words.length - 1;
+  bar(`<div class="btns"><button class="btn ghost wprev" id="wprev" ${k?"":"disabled"} aria-label="Previous word">‹</button><button class="btn primary" id="wnext" style="flex:1">${last ? "Test yourself" : "Next word ›"}</button></div>`);
+  const moveTo = n => { stopAudio(); route.sub.wi = n; stepWords(sc, i, mode, el); };
+  $("#wprev").onclick = () => moveTo(k - 1);
+  $("#wnext").onclick = () => { if (last) { route.sub.wi = 0; el.classList.remove("center"); wordTest(sc, i, el); } else moveTo(k + 1); };
+  say(w.is).catch(()=>{});
 }
 function wordTest(sc, i, el){
   const order = shuffle(sc.words); let k = 0, right = 0;
   const draw = () => {
     if (k >= order.length) {
       const n = addToDeck(sc.words.map(w=>"w:"+w.is));
-      el.innerHTML = `<div class="card" style="text-align:center"><div class="big-due">${right}/${order.length}</div><p class="lede" style="margin-top:6px">${right===order.length?"Perfect.":"Good. The ones you missed will come back in Review."}</p>${n?`<p class="note">${n} words added to your review deck.</p>`:""}<button class="btn block" id="wagain">Again</button>${nextStepBtn(sc, i, "words")}</div>`;
-      $("#wagain").onclick = () => wordTest(sc, i, el); bindNextStep(sc, i, "words"); markStep(sc.id, "words"); return;
+      el.classList.add("center");
+      el.innerHTML = `<div class="lcard" style="text-align:center"><div class="big-due">${right}/${order.length}</div><p style="margin:8px 0 0;color:var(--ink2)">${right===order.length?"Perfect.":"Good. The ones you missed will come back in Review."}</p>${n?`<p class="note" style="margin:6px 0 0">${n} words added to your review deck.</p>`:""}</div>`;
+      bar(`<div class="btns"><button class="btn ghost" id="wagain" style="flex:0 0 auto">Again</button>${nextStepBtn(sc, i, "words").replace('class="btn primary block lnext"','class="btn primary lnext" style="flex:1"')}</div>`);
+      $("#wagain").onclick = () => { el.classList.remove("center"); wordTest(sc, i, el); }; bindNextStep(sc, i, "words"); markStep(sc.id, "words"); return;
     }
     const w = order[k], opts = shuffle([w, ...shuffle(sc.words.filter(x=>x!==w)).slice(0,3)]);
-    el.innerHTML = `<div class="card"><div class="progress"><span>${k+1} of ${order.length}</span><span>${right} right</span></div>
-      <div class="listenbig"><button class="play" id="wp">${ICON.play}</button></div>
+    el.innerHTML = `<div class="ltest"><div class="progress"><span>Which picture? ${k+1} of ${order.length}</span><span>${right} right</span></div>
+      <div class="listenbig"><button class="play" id="wp" aria-label="Hear the word again">${ICON.play}</button></div>
       <div class="wgrid">${opts.map((o,n)=>`<button class="wcard" data-n="${n}"><div class="e">${pictogram(o.pic, 72)}</div></button>`).join("")}</div></div>`;
+    bar("");
     const play = () => say(w.is, {btn: $("#wp")});
     $("#wp").onclick = play; play();
     el.querySelectorAll("[data-n]").forEach(b => b.onclick = () => {
@@ -250,26 +333,29 @@ function wordTest(sc, i, el){
 
 /* --- 3 Pointers --- */
 function stepTips(sc, i, mode, el){
-  el.innerHTML = sc.tips.map(t => `<div class="card tipcard"><p>💡 ${esc(t.en)}</p>${t.ex.map(x=>`<div class="ex">${playBtn(x,"sm")}<span class="is">${esc(x)}</span></div>`).join("")}</div>`).join("") + nextStepBtn(sc, i, "tips");
+  el.classList.add("center");
+  el.innerHTML = sc.tips.map(t => `<div class="lcard tipcard"><p>💡 ${esc(t.en)}</p>${t.ex.map(x=>`<div class="ex">${playBtn(x,"sm")}<span class="is">${esc(x)}</span></div>`).join("")}</div>`).join("");
+  bar(nextStepBtn(sc, i, "tips"));
   bindNextStep(sc, i, "tips");
 }
 
 /* --- 4 Build: put the words in order --- */
 function stepBuild(sc, i, mode, el){
   let k = 0;
+  el.classList.add("center");
   const draw = () => {
     if (k >= sc.build.length) {
       const n = addToDeck(sc.build.map(b=>"s:"+b.is));
-      el.innerHTML = `<div class="card" style="text-align:center"><h3>Vel gert! <span class="note">· well done</span></h3>${n?`<p class="note">${n} phrases added to your review deck.</p>`:""}${nextStepBtn(sc, i, "build")}</div>`;
-      bindNextStep(sc, i, "build"); markStep(sc.id, "build"); return;
+      el.innerHTML = `<div class="lcard" style="text-align:center"><h3>Vel gert! <span class="note">· well done</span></h3>${n?`<p class="note" style="margin:6px 0 0">${n} phrases added to your review deck.</p>`:""}</div>`;
+      bar(nextStepBtn(sc, i, "build")); bindNextStep(sc, i, "build"); markStep(sc.id, "build"); return;
     }
     const b = sc.build[k], words = b.is.split(" "), tiles = shuffle(words.map((w,n)=>({w,n})));
     if (tiles.map(t=>t.n).join() === words.map((_,n)=>n).join() && words.length > 1) tiles.reverse();
     const picked = [];
-    el.innerHTML = `<div class="card"><div class="progress"><span>${k+1} of ${sc.build.length}</span><span></span></div>
+    el.innerHTML = `<div class="lcard"><div class="progress"><span>${k+1} of ${sc.build.length}</span><span></span></div>
       <div style="display:flex;align-items:center;gap:10px">${playBtn(b.is,"sm")}<div><span class="note">Say this in Icelandic:</span> ${mode==="show"?`<b>${esc(b.en)}</b>`:en(b.en,"tap",false)}</div></div>
-      <div class="answerline" id="ansl"></div><div class="tiles" id="tiles"></div>
-      <div class="btns" style="margin-top:12px"><button class="btn ghost" id="reset">Reset</button><button class="btn" id="hint">Hint</button></div><div id="bres"></div></div>`;
+      <div class="answerline" id="ansl"></div><div class="tiles" id="tiles"></div></div>`;
+    bar(`<div class="btns"><button class="btn ghost" id="reset">Reset</button><button class="btn" id="hint">Hint</button></div><div id="bres"></div>`);
     const ansl = $("#ansl"), tl = $("#tiles");
     const paint = () => {
       tl.innerHTML = tiles.map((t,x)=>`<button class="tile ${picked.includes(x)?"used":""}" data-x="${x}">${esc(t.w)}</button>`).join("");
@@ -280,8 +366,8 @@ function stepBuild(sc, i, mode, el){
     const check = () => {
       if (picked.length < tiles.length) return;
       const ok = picked.map(x=>tiles[x].w).join(" ") === b.is;
-      if (ok) { ansl.classList.add("ok"); say(b.is); $("#bres").innerHTML = `<button class="btn primary block" style="margin-top:10px" id="bnext">Next ›</button>`; $("#bnext").onclick = () => { k++; draw(); }; }
-      else { ansl.classList.remove("bad"); void ansl.offsetWidth; ansl.classList.add("bad"); $("#bres").innerHTML = `<div class="why" style="margin-top:10px">Not quite — tap words in the answer to send them back.</div>`; }
+      if (ok) { ansl.classList.add("ok"); say(b.is); bar(`<button class="btn primary block lnext" id="bnext">${k < sc.build.length-1 ? "Next sentence ›" : "Done ›"}</button>`); $("#bnext").onclick = () => { k++; draw(); }; }
+      else { ansl.classList.remove("bad"); void ansl.offsetWidth; ansl.classList.add("bad"); $("#bres").innerHTML = `<div class="why" style="margin-top:10px">Not quite. Tap words in the answer to send them back.</div>`; }
     };
     $("#reset").onclick = () => { picked.length = 0; ansl.className = "answerline"; $("#bres").innerHTML = ""; paint(); };
     $("#hint").onclick = () => { // place the next correct word
@@ -296,14 +382,18 @@ function stepBuild(sc, i, mode, el){
   draw();
 }
 
-/* --- 5 Role-play: you are the traveller --- */
+/* --- 5 Role-play: you are the traveller; the conversation fills the screen, your options sit in the sheet --- */
 function stepRole(sc, i, mode, el){
   const nv = npcVoice(sc);
   const otherU = SC.filter(x=>x!==sc).flatMap(x=>x.dialogue.filter(l=>l.spk==="U"));
   let pos = 0;
-  el.innerHTML = `<div class="card"><p class="note" style="margin:0 0 10px">You're the traveller. Pick what you'd say, then say it out loud.</p><div class="chatlog" id="log"></div><div id="act"><button class="btn primary block" id="rstart">${ICON.play} Start</button></div></div><div id="rnext"></div>`;
+  el.innerHTML = `<div class="lwho">${npcAvatar(sc)}<span><b>${esc(sc.npc.role)}</b> ${sc.npc.en!==sc.npc.role?en(sc.npc.en, mode, false):""}<br><small>You're the traveller. Pick what you'd say, then say it out loud.</small></span></div><div class="sbs" id="log"></div>`;
+  bar(`<div id="act"><button class="btn primary block lnext" id="rstart">${ICON.play} Start</button></div>`);
   const log = $("#log"), act = () => $("#act");
-  const bubble = (who, text, trn, cls="") => { log.insertAdjacentHTML("beforeend", `<div class="bubble ${who} ${cls}"><div class="who">${who==="npc"?esc(sc.npc.role):"Þú"}</div>${esc(text)}${trn?`<div>${en(trn, mode==="show"?"show":"tap", false)}</div>`:""}</div>`); log.lastElementChild.scrollIntoView({block:"nearest", behavior:"smooth"}); };
+  const bubble = (who, text, trn, cls="") => {
+    log.insertAdjacentHTML("beforeend", `<div class="sb ${who==="npc"?"npc":"me"} ${cls}"><div class="sbt"><span class="is">${esc(text)}</span>${trn?en(trn, mode==="show"?"show":"tap"):""}</div></div>`);
+    log.lastElementChild.scrollIntoView({block:"nearest", behavior:"smooth"});
+  };
   const advance = async () => {
     while (pos < sc.dialogue.length && sc.dialogue[pos].spk === "A") {
       const l = sc.dialogue[pos]; bubble("npc", l.is, l.en);
@@ -311,8 +401,8 @@ function stepRole(sc, i, mode, el){
       await say(l.is, {voice:nv}); await new Promise(z=>setTimeout(z, 250)); pos++;
     }
     if (pos >= sc.dialogue.length) {
-      act().innerHTML = `<div class="why" style="text-align:center">🎉 Atriði lokið — scene complete!</div>`;
-      markStep(sc.id, "role"); $("#rnext").innerHTML = nextStepBtn(sc, i, "role"); bindNextStep(sc, i, "role"); return;
+      markStep(sc.id, "role");
+      bar(`<div class="why" style="text-align:center;margin-bottom:10px">🎉 Atriði lokið · scene complete!</div>${nextStepBtn(sc, i, "role")}`); bindNextStep(sc, i, "role"); return;
     }
     choose();
   };
@@ -320,7 +410,7 @@ function stepRole(sc, i, mode, el){
     const l = sc.dialogue[pos], valid = [{is:l.is, en:l.en}, ...(l.alts||[])];
     const wrong = shuffle(otherU.filter(o=>!removed.includes(o.is))).slice(0, valid.length > 1 ? 1 : 2);
     const opts = shuffle([...valid.map(v=>({...v, ok:true})), ...wrong.map(w=>({is:w.is, en:w.en, ok:false}))]);
-    act().innerHTML = `<div class="note" style="margin-bottom:6px">Your turn:</div>` + opts.map((o,n)=>`<button class="choice" data-n="${n}">${esc(o.is)}</button>`).join("");
+    act().innerHTML = `<div class="lkick2">Your reply</div>` + opts.map((o,n)=>`<button class="choice" data-n="${n}">${esc(o.is)}</button>`).join("");
     act().querySelectorAll("[data-n]").forEach(b => b.onclick = async () => {
       const o = opts[+b.dataset.n];
       if (!o.ok) {
@@ -334,12 +424,12 @@ function stepRole(sc, i, mode, el){
   };
   const speak = (o) => {
     const it = {is:o.is, en:o.en};
-    act().innerHTML = `<div style="border-top:1px solid var(--line);padding-top:10px">
+    act().innerHTML = `<div class="lkick2">Now say it</div>
       <div class="target" id="tgt" style="font-size:22px">${[...o.is].map(c=>`<span class="ch">${esc(c)}</span>`).join("")}</div>
-      <div class="recrow"><button class="play" id="hear">${ICON.play}</button><button class="rec" id="recbtn" ${micOK===false?'style="opacity:.35"':""}>${ICON.mic}</button>${turtleBtn(o.is)}</div>
+      <div class="recrow"><button class="play" id="hear" aria-label="Hear it">${ICON.play}</button><button class="rec" id="recbtn" aria-label="Record" ${micOK===false?'style="opacity:.35"':""}>${ICON.mic}</button>${turtleBtn(o.is)}</div>
       <label class="upload">Upload recording<input type="file" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm" id="file"></label>
       <div id="status" class="loading"></div>${window.asrStatus && asrStatus() ? `<p class="note" style="text-align:center;margin:2px 0 0">${asrStatus()}</p>` : ""}<div id="result"></div>
-      <button class="btn primary block" style="margin-top:10px" id="cont">Continue ›</button></div>`;
+      <button class="btn primary block" style="margin-top:10px" id="cont">Continue ›</button>`;
     $("#hear").onclick = e => say(o.is, {btn:e.currentTarget});
     $("#recbtn").onclick = () => toggleRecord(it);
     $("#file").onchange = async e => { const f = e.target.files[0]; if (f) await assess(it, await f.arrayBuffer(), null); e.target.value = ""; };
