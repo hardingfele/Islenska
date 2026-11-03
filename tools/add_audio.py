@@ -17,6 +17,10 @@ import content, scenes  # noqa: E402
 
 BASE = ["salka", "ugla", "bui", "steinn"]
 ALL = BASE + ["hekla"]                       # hekla = salka pitched up
+# Hekla: Salka 6% higher with formants kept, so she sounds like a different woman rather than a sped-up one.
+# Changing this string rebuilds every Hekla clip on the next run (it is stored in the packs under "__fx").
+HEKLA_FX = "rubberband=pitch=1.06:formant=preserved"
+FFMPEG = os.environ.get("FFMPEG", "ffmpeg")
 PACKS = [("", None, 0.1), ("_slow", 1.5, 0.25)]  # suffix, length_scale, silence between sentences (s)
 TRIM = ("silenceremove=start_periods=1:start_threshold=-60dB,areverse,"
         "silenceremove=start_periods=1:start_threshold=-62dB,apad=pad_dur=0.2,areverse,apad=pad_dur=0.08")
@@ -59,29 +63,39 @@ def main():
 
     ids = build_content()
     packs = {(v, s): json.load(open(pack_path(v, s))) for v in ALL for s, _, _ in PACKS}
-    todo = {s: [t for t, i in ids.items() if any(i not in packs[(v, s)] for v in ALL)] for s, _, _ in PACKS}
+    need = {}
+    for v in ALL:
+        for s, _, _ in PACKS:
+            p = packs[(v, s)]
+            redo = v == "hekla" and p.get("__fx") != HEKLA_FX
+            need[(v, s)] = [t for t, i in ids.items() if redo or i not in p]
     for s, _, _ in PACKS:
-        print(f"{s or 'normal'}: {len(todo[s])} of {len(ids)} texts need audio")
-        for t in todo[s][:60]: print("   ", t)
-    if a.check or not any(todo.values()):
+        texts = {t for v in ALL for t in need[(v, s)]}
+        print(f"{s or 'normal'}: {len(texts)} of {len(ids)} texts need audio" + (f" (Hekla rebuild: {len(need[('hekla', s)])})" if need[("hekla", s)] else ""))
+        for t in [t for t in ids if t in texts and t not in need[("hekla", s)]][:60]: print("   ", t)
+    if a.check or not any(need.values()):
         return
+    if any(need[("hekla", s)] for s, _, _ in PACKS):
+        flt = subprocess.run([FFMPEG, "-hide_banner", "-filters"], capture_output=True, text=True).stdout
+        if " rubberband " not in flt: sys.exit(f"{FFMPEG} has no rubberband filter (needed for Hekla)")
 
     from piper import PiperVoice
     tmp = tempfile.mkdtemp()
     for v in BASE:
         voice = PiperVoice.load(os.path.join(a.voices, f"is_IS-{v}-medium.onnx"))
         for s, length, silence in PACKS:
-            for t in todo[s]:
+            want = list(dict.fromkeys(need[(v, s)] + (need[("hekla", s)] if v == "salka" else [])))
+            for t in want:
                 synth(voice, t, os.path.join(tmp, f"{v}{s}_{ids[t]}.wav"), length, silence)
         print("synthesized", v)
 
     jobs = []
     for v in ALL:
         for s, _, _ in PACKS:
-            for t in todo[s]:
+            for t in need[(v, s)]:
                 i = ids[t]; src = os.path.join(tmp, f"{'salka' if v == 'hekla' else v}{s}_{i}.wav")
-                af = ("asetrate=22050*1.14,aresample=22050,atempo=0.92," + TRIM) if v == "hekla" else TRIM
-                jobs.append(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-af", af, "-ac", "1", "-ar", "22050",
+                af = (HEKLA_FX + "," + TRIM) if v == "hekla" else TRIM
+                jobs.append([FFMPEG, "-y", "-loglevel", "error", "-i", src, "-af", af, "-ac", "1", "-ar", "22050",
                              "-b:a", "40k", os.path.join(tmp, f"{v}{s}_{i}.mp3")])
     with ThreadPoolExecutor(8) as ex:
         for r in ex.map(lambda c: subprocess.run(c).returncode, jobs):
@@ -90,7 +104,8 @@ def main():
     for v in ALL:
         for s, _, _ in PACKS:
             p = packs[(v, s)]
-            for t in todo[s]:
+            if v == "hekla": p["__fx"] = HEKLA_FX
+            for t in need[(v, s)]:
                 p[ids[t]] = base64.b64encode(open(os.path.join(tmp, f"{v}{s}_{ids[t]}.mp3"), "rb").read()).decode()
             json.dump(p, open(pack_path(v, s), "w"))
             print("  ", v + s, len(p), "clips")
