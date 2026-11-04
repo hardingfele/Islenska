@@ -680,7 +680,7 @@ let micOK = null; // null unknown, true/false after probe
 const MIC_NOTE_HOSTED = "This page is running inside Claude, which doesn't allow microphone access. Record yourself with your phone's voice recorder (iPhone: Voice Memos), then tap “Upload recording” and pick the file. If you host the app yourself, the red mic button records live.";
 let MIC_NOTE = "Tap the red button to record, tap again to stop. In Chrome, your speech is also checked word-by-word.";
 let rec = null;
-function stopRecording(cancel){ if (rec) { rec.cancel = !!cancel; try{ rec.mr.state!=="inactive" && rec.mr.stop(); }catch(e){} try{ rec.sr && rec.sr.abort(); }catch(e){} } }
+function stopRecording(cancel){ if (cancel && window.nativeCancel) nativeCancel(); if (rec) { rec.cancel = !!cancel; try{ rec.mr.state!=="inactive" && rec.mr.stop(); }catch(e){} try{ rec.sr && rec.sr.abort(); }catch(e){} } }
 
 function Speaking(){
   const m = $("#main");
